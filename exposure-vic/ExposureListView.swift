@@ -13,25 +13,34 @@ struct ExposureListView: View {
 	@Binding var isPresented: Bool
 	
 	//
-	var exposures: ExposureDataModel?
+	var exposures = ExposureData()
 	
 	var body: some View {
 		
-		
 		NavigationView {
 
-			// list of the exposure sites
-			List {
-				Text("test")
-			}
+			var r = exposures.getExposureData(completion: { item in
+				print(item)
+			})
+
 			
+			Text("R")
+
+					
+				// list of the exposure sites
+			
+//				exposures.getExposureData(completion: { item in
+//					print(item)
+//				})
+
+				
 			// title of the view
 			.navigationBarTitle(Text("Exposure Sites"))
 			
 			// close button
 			.navigationBarItems(
 				leading: Button(action: {
-					print(exposures)
+					print(r)
 				}, label: {
 					Text("Test")
 				}), trailing: Button(action: {
