@@ -13,34 +13,41 @@ struct ExposureListView: View {
 	@Binding var isPresented: Bool
 	
 	//
-	var exposures = ExposureData()
+	var exposures = [ExposureData]()
 	
 	var body: some View {
 		
 		NavigationView {
 
-			var r = exposures.getExposureData(completion: { item in
-				print(item)
-			})
-
-			
-			Text("R")
-
-					
-				// list of the exposure sites
-			
-//				exposures.getExposureData(completion: { item in
-//					print(item)
-//				})
-
+			List {
+	
 				
+				
+				
+				
+//				exposures.getExposureData(completion: { item in
+//
+//					ListItemView(
+//						tierValue: "",
+//						suburb: item.first?.result.records[0].Suburb ?? "",
+//						siteTitle: "",
+//						exposureDate: "",
+//						exposureTime: "",
+//						notes: "",
+//						adviceTitle: "",
+//						adviceInstruction: ""
+//					)
+//
+//				})
+			}
+
 			// title of the view
 			.navigationBarTitle(Text("Exposure Sites"))
 			
 			// close button
 			.navigationBarItems(
 				leading: Button(action: {
-					print(r)
+					print("refreshed")
 				}, label: {
 					Text("Test")
 				}), trailing: Button(action: {

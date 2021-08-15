@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A314F31E26C92CC000695665 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A314F31D26C92CC000695665 /* ListItemView.swift */; };
 		A3EAD54026C8C100002ABB76 /* ExposureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EAD53F26C8C100002ABB76 /* ExposureListView.swift */; };
 		A3EAD54226C8C4C6002ABB76 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EAD54126C8C4C6002ABB76 /* ToggleButton.swift */; };
 		A3EAD54426C8CDB4002ABB76 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EAD54326C8CDB4002ABB76 /* MapView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A314F31D26C92CC000695665 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		A3EAD53F26C8C100002ABB76 /* ExposureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureListView.swift; sourceTree = "<group>"; };
 		A3EAD54126C8C4C6002ABB76 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		A3EAD54326C8CDB4002ABB76 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				A3EAD54326C8CDB4002ABB76 /* MapView.swift */,
 				A3F30A8926C8E36700DDF778 /* ExposureType.swift */,
 				A3F30A8D26C8EC4400DDF778 /* ExposureDataModel.swift */,
+				A314F31D26C92CC000695665 /* ListItemView.swift */,
 			);
 			path = "exposure-vic";
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A314F31E26C92CC000695665 /* ListItemView.swift in Sources */,
 				A3F30A8E26C8EC4400DDF778 /* ExposureDataModel.swift in Sources */,
 				A3EAD54026C8C100002ABB76 /* ExposureListView.swift in Sources */,
 				A3F0F6C326C653A6004877EC /* MainView.swift in Sources */,

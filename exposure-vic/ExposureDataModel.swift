@@ -19,25 +19,6 @@ struct ExposureDataModel: Decodable {
 	
 	// MARK: - Record
 	struct Record: Decodable {
-//		let id: Int
-//		let suburb, siteTitle: String
-//		let siteStreetaddress: String?
-//		let siteState: String
-//		let sitePostcode: String?
-//		let exposureDateDtm: String
-//		let exposureDate: String
-//		let exposureTime: String
-//		let notes: String
-//		let addedDateDtm: String
-//		let addedDate: String
-//		let addedTime: String
-//		let adviceTitle: String
-//		let adviceInstruction: String
-//		let exposureTimeStart24: String
-//		let exposureTimeEnd24: String
-//		
-//		
-//		
 		let _id: Int
 		let Suburb: String
 		let Site_title: String
@@ -55,9 +36,5 @@ struct ExposureDataModel: Decodable {
 		let Advice_instruction: String
 		let Exposure_time_start_24: String
 		let Exposure_time_end_24: String
-		
-		
-		
-		
 	}
 }
