@@ -20,9 +20,6 @@ struct ExposureListView: View {
 				ExposureListCell(exposure: exposure)
 
 			}
-			.refreshable {
-				
-			}
 			.navigationTitle("Exposure List")
 			.navigationBarItems(trailing: Button(action:{
 				viewModel.getExposureData()
