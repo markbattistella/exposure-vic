@@ -26,7 +26,6 @@ struct ExposureListView: View {
 			}, label: {
 				Text("Reload")
 			}))
-			.refresha
 		}
 		
 		// when the view is activated
