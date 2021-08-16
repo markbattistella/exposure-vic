@@ -11,7 +11,7 @@ import SwiftUI
 struct Exposure_VICApp: App {
     var body: some Scene {
         WindowGroup {
-			MainView()
+			ExposureTabView()
         }
     }
 }

@@ -1,60 +1,49 @@
 //
-//  ExposureList.swift
-//  Exposure VIC
+//  ExposureListView.swift
+//  exposure-vic
 //
-//  Created by Mark Battistella on 15/8/21.
+//  Created by Mark Battistella on 16/8/21.
 //
 
 import SwiftUI
 
 struct ExposureListView: View {
 	
-	// variables
-	@Binding var isPresented: Bool
-	
-	//
-	var exposures = [ExposureData]()
+	@StateObject var viewModel = ExposureListViewModel()
 	
 	var body: some View {
 		
 		NavigationView {
+			List(viewModel.exposures, id: \._id) { exposure in
+				
+				// pass in the custom view
+				ExposureListCell(exposure: exposure)
 
-			List {
-	
-				
-				
-				
-				
-//				exposures.getExposureData(completion: { item in
-//
-//					ListItemView(
-//						tierValue: "",
-//						suburb: item.first?.result.records[0].Suburb ?? "",
-//						siteTitle: "",
-//						exposureDate: "",
-//						exposureTime: "",
-//						notes: "",
-//						adviceTitle: "",
-//						adviceInstruction: ""
-//					)
-//
-//				})
 			}
-
-			// title of the view
-			.navigationBarTitle(Text("Exposure Sites"))
-			
-			// close button
-			.navigationBarItems(
-				leading: Button(action: {
-					print("refreshed")
-				}, label: {
-					Text("Test")
-				}), trailing: Button(action: {
-					isPresented = false }) {
-				Text("Close")
-					.foregroundColor(.red)
-			})
+			.refreshable {
+				
+			}
+			.navigationTitle("Exposure List")
+			.navigationBarItems(trailing: Button(action:{
+				viewModel.getExposureData()
+			}, label: {
+				Text("Reload")
+			}))
+			.refresha
+		}
+		
+		// when the view is activated
+		.onAppear {
+			// insert the reload from network
+			viewModel.getExposureData()
+		}
+		
+		// show error alerts
+		.alert(item: $viewModel.alertItem) { alertItem in
+			Alert(title: alertItem.title,
+				  message: alertItem.message,
+				  dismissButton: alertItem.dismissButton)
 		}
 	}
+
 }
