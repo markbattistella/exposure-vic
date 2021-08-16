@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A36DA36526CB291D00DDA3D7 /* PairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36426CB291D00DDA3D7 /* PairView.swift */; };
+		A36DA36726CB293800DDA3D7 /* TrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36626CB293800DDA3D7 /* TrackingView.swift */; };
+		A36DA36926CB294F00DDA3D7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36826CB294F00DDA3D7 /* ErrorView.swift */; };
+		A36DA36B26CB296800DDA3D7 /* RequestLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36A26CB296800DDA3D7 /* RequestLocationView.swift */; };
+		A36DA36D26CB299600DDA3D7 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36C26CB299600DDA3D7 /* LocationViewModel.swift */; };
 		A393338A26CA19BF00303F52 /* ExposureTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393338926CA19BF00303F52 /* ExposureTabView.swift */; };
 		A393338C26CA19E500303F52 /* ExposureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393338B26CA19E500303F52 /* ExposureListView.swift */; };
 		A393338E26CA1A7200303F52 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393338D26CA1A7200303F52 /* ToggleButton.swift */; };
@@ -25,6 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A36DA36426CB291D00DDA3D7 /* PairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairView.swift; sourceTree = "<group>"; };
+		A36DA36626CB293800DDA3D7 /* TrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingView.swift; sourceTree = "<group>"; };
+		A36DA36826CB294F00DDA3D7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		A36DA36A26CB296800DDA3D7 /* RequestLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLocationView.swift; sourceTree = "<group>"; };
+		A36DA36C26CB299600DDA3D7 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		A393338926CA19BF00303F52 /* ExposureTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureTabView.swift; sourceTree = "<group>"; };
 		A393338B26CA19E500303F52 /* ExposureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureListView.swift; sourceTree = "<group>"; };
 		A393338D26CA1A7200303F52 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
@@ -55,6 +65,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A36DA36326CB28EE00DDA3D7 /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				A36DA36426CB291D00DDA3D7 /* PairView.swift */,
+				A36DA36626CB293800DDA3D7 /* TrackingView.swift */,
+				A36DA36826CB294F00DDA3D7 /* ErrorView.swift */,
+				A36DA36A26CB296800DDA3D7 /* RequestLocationView.swift */,
+				A36DA36C26CB299600DDA3D7 /* LocationViewModel.swift */,
+			);
+			path = MapKit;
+			sourceTree = "<group>";
+		};
 		A3F0F6B426C653A6004877EC = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +96,7 @@
 		A3F0F6BF26C653A6004877EC /* exposure-vic */ = {
 			isa = PBXGroup;
 			children = (
+				A36DA36326CB28EE00DDA3D7 /* MapKit */,
 				A3F0F6C626C653A7004877EC /* Preview Content */,
 				A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */,
 				A3F0F6C426C653A7004877EC /* Assets.xcassets */,
@@ -178,12 +201,17 @@
 				A39333A026CA319300303F52 /* ExposureListCell.swift in Sources */,
 				A393339226CA1BD600303F52 /* ExposureSettingsView.swift in Sources */,
 				A39333A426CA471800303F52 /* ExposureListViewModel.swift in Sources */,
+				A36DA36D26CB299600DDA3D7 /* LocationViewModel.swift in Sources */,
+				A36DA36726CB293800DDA3D7 /* TrackingView.swift in Sources */,
 				A39333A226CA358300303F52 /* ExposureModelMockData.swift in Sources */,
 				A393339426CA1DF000303F52 /* NetworkManager.swift in Sources */,
 				A393338A26CA19BF00303F52 /* ExposureTabView.swift in Sources */,
 				A393339026CA1BA800303F52 /* ExposureMapView.swift in Sources */,
 				A393339A26CA201B00303F52 /* ErrorAlert.swift in Sources */,
+				A36DA36526CB291D00DDA3D7 /* PairView.swift in Sources */,
 				A393338E26CA1A7200303F52 /* ToggleButton.swift in Sources */,
+				A36DA36926CB294F00DDA3D7 /* ErrorView.swift in Sources */,
+				A36DA36B26CB296800DDA3D7 /* RequestLocationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
