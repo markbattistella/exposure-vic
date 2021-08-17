@@ -21,15 +21,16 @@ struct ExposureListView: View {
 
 			}
 			.navigationTitle("Exposure List")
-			.navigationBarItems(trailing: Button(action:{
-				viewModel.getExposureData()
-			}, label: {
-				Text("Reload")
-			}))
+//			.navigationBarItems(trailing: Button(action:{
+//				viewModel.getExposureData()
+//			}, label: {
+//				Text("Reload")
+//			}))
 		}
 		
 		// when the view is activated
 		.onAppear {
+			
 			// insert the reload from network
 			viewModel.getExposureData()
 		}

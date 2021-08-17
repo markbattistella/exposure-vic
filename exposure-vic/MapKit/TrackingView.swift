@@ -7,42 +7,30 @@
 
 import SwiftUI
 import CoreLocation
+import MapKit
 
 struct TrackingView: View {
 	
 	@EnvironmentObject var locationViewModel: LocationViewModel
 	
+	var coordinate: CLLocationCoordinate2D? {
+		locationViewModel.lastSeenLocation?.coordinate
+	}
+	
 	var body: some View {
+		
 		VStack {
 			VStack {
-				PairView(
-					leftText: "Latitude:",
-					rightText: String(coordinate?.latitude ?? 0)
-				)
-				PairView(
-					leftText: "Longitude:",
-					rightText: String(coordinate?.longitude ?? 0)
-				)
-				PairView(
-					leftText: "Altitude",
-					rightText: String(locationViewModel.lastSeenLocation?.altitude ?? 0)
-				)
-				PairView(
-					leftText: "Speed",
-					rightText: String(locationViewModel.lastSeenLocation?.speed ?? 0)
-				)
-				PairView(
-					leftText: "Country",
-					rightText: locationViewModel.currentPlacemark?.country ?? ""
-				)
-				PairView(leftText: "City", rightText: locationViewModel.currentPlacemark?.administrativeArea ?? ""
-				)
+				Text( String(coordinate?.latitude ?? 0))
+				Text( String(coordinate?.longitude ?? 0))
+				Text( String(locationViewModel.lastSeenLocation?.altitude ?? 0))
+				Text( String(locationViewModel.lastSeenLocation?.speed ?? 0))
+				Text( String(locationViewModel.currentPlacemark?.country ?? ""))
+				Text( String( locationViewModel.currentPlacemark?.administrativeArea ?? ""))
 			}
 			.padding()
 		}
 	}
 	
-	var coordinate: CLLocationCoordinate2D? {
-		locationViewModel.lastSeenLocation?.coordinate
-	}
+	
 }

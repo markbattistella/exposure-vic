@@ -25,6 +25,7 @@ final class ExposureListViewModel: ObservableObject {
 					
 					// success - update the exposures
 					case .success(let exposures):
+						
 						self.exposures = exposures
 						
 					// failure - alert
@@ -36,10 +37,13 @@ final class ExposureListViewModel: ObservableObject {
 							// present the correct alert
 							case .invalidData:
 								self.alertItem = AlertContext.invalidData
+
 							case .invalidURL:
 								self.alertItem = AlertContext.invalidURL
+
 							case .invalidResponse:
 								self.alertItem = AlertContext.invalidResponse
+
 							case .unableToComplete:
 								self.alertItem = AlertContext.unableToComplete
 						}

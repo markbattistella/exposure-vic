@@ -11,23 +11,35 @@ struct RequestLocationView: View {
 	@EnvironmentObject var locationViewModel: LocationViewModel
 	
 	var body: some View {
+		
 		VStack {
-			Image(systemName: "location.circle")
+			
+			Image(systemName: "location.fill")
 				.resizable()
-				.frame(width: 100, height: 100, alignment: .center)
-				.foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+				.frame(width: 68, height: 68)
+			
+			Text("Allow location to see any exposure sites near you")
+				.padding()
+				.font(.headline)
+
 			Button(action: {
 				locationViewModel.requestPermission()
 			}, label: {
-				Label("Allow tracking", systemImage: "location")
+				Text("Allow tracking")
 			})
 			.padding(10)
+			.frame(width: 300, height: 50)
 			.foregroundColor(.white)
-			.background(Color.blue)
-			.clipShape(RoundedRectangle(cornerRadius: 8))
-			Text("We need your permission to track you.")
-				.foregroundColor(.gray)
-				.font(.caption)
+			.background(Color.green)
+			.cornerRadius(12)
 		}
+		.foregroundColor(.secondary)
+		.frame(width: 300)
+	}
+}
+
+struct RequestLocationView_Previews: PreviewProvider {
+	static var previews: some View {
+		RequestLocationView()
 	}
 }
