@@ -11,7 +11,7 @@ struct ExposureMapView: View {
 	
 	var body: some View {
 		
-		MapViewModel()
+		MapPermissionsView()
 	}
 }
 

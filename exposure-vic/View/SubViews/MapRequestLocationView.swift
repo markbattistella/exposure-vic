@@ -1,5 +1,5 @@
 //
-//  RequestLocationView.swift
+//  MapRequestLocationView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 17/8/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RequestLocationView: View {
+struct MapRequestLocationView: View {
 	@EnvironmentObject var locationViewModel: LocationViewModel
 	
 	var body: some View {
@@ -40,6 +40,6 @@ struct RequestLocationView: View {
 
 struct RequestLocationView_Previews: PreviewProvider {
 	static var previews: some View {
-		RequestLocationView()
+		MapRequestLocationView()
 	}
 }

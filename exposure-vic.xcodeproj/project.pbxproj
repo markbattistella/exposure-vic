@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A36DA36726CB293800DDA3D7 /* TrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36626CB293800DDA3D7 /* TrackingView.swift */; };
+		A36DA36726CB293800DDA3D7 /* MapTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36626CB293800DDA3D7 /* MapTrackingView.swift */; };
 		A36DA36926CB294F00DDA3D7 /* MapErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36826CB294F00DDA3D7 /* MapErrorView.swift */; };
-		A36DA36B26CB296800DDA3D7 /* RequestLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36A26CB296800DDA3D7 /* RequestLocationView.swift */; };
+		A36DA36B26CB296800DDA3D7 /* MapRequestLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36A26CB296800DDA3D7 /* MapRequestLocationView.swift */; };
 		A36DA36D26CB299600DDA3D7 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36C26CB299600DDA3D7 /* LocationViewModel.swift */; };
 		A393338A26CA19BF00303F52 /* ExposureTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393338926CA19BF00303F52 /* ExposureTabView.swift */; };
 		A393338C26CA19E500303F52 /* ExposureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393338B26CA19E500303F52 /* ExposureListView.swift */; };
-		A393338E26CA1A7200303F52 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393338D26CA1A7200303F52 /* ToggleButton.swift */; };
 		A393339026CA1BA800303F52 /* ExposureMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393338F26CA1BA800303F52 /* ExposureMapView.swift */; };
 		A393339226CA1BD600303F52 /* ExposureSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339126CA1BD600303F52 /* ExposureSettingsView.swift */; };
 		A393339426CA1DF000303F52 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339326CA1DF000303F52 /* NetworkManager.swift */; };
@@ -23,20 +22,19 @@
 		A39333A026CA319300303F52 /* ExposureListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339F26CA319300303F52 /* ExposureListCell.swift */; };
 		A39333A226CA358300303F52 /* ExposureModelMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39333A126CA358300303F52 /* ExposureModelMockData.swift */; };
 		A39333A426CA471800303F52 /* ExposureListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39333A326CA471800303F52 /* ExposureListViewModel.swift */; };
-		A3B7E82C26CBD1800082E5FE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7E82B26CBD1800082E5FE /* MapViewModel.swift */; };
+		A3B7E82C26CBD1800082E5FE /* MapPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7E82B26CBD1800082E5FE /* MapPermissionsView.swift */; };
 		A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */; };
 		A3F0F6C526C653A7004877EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C426C653A7004877EC /* Assets.xcassets */; };
 		A3F0F6C826C653A7004877EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C726C653A7004877EC /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A36DA36626CB293800DDA3D7 /* TrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingView.swift; sourceTree = "<group>"; };
+		A36DA36626CB293800DDA3D7 /* MapTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTrackingView.swift; sourceTree = "<group>"; };
 		A36DA36826CB294F00DDA3D7 /* MapErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapErrorView.swift; sourceTree = "<group>"; };
-		A36DA36A26CB296800DDA3D7 /* RequestLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLocationView.swift; sourceTree = "<group>"; };
+		A36DA36A26CB296800DDA3D7 /* MapRequestLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRequestLocationView.swift; sourceTree = "<group>"; };
 		A36DA36C26CB299600DDA3D7 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		A393338926CA19BF00303F52 /* ExposureTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureTabView.swift; sourceTree = "<group>"; };
 		A393338B26CA19E500303F52 /* ExposureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureListView.swift; sourceTree = "<group>"; };
-		A393338D26CA1A7200303F52 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		A393338F26CA1BA800303F52 /* ExposureMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureMapView.swift; sourceTree = "<group>"; };
 		A393339126CA1BD600303F52 /* ExposureSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureSettingsView.swift; sourceTree = "<group>"; };
 		A393339326CA1DF000303F52 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -46,7 +44,7 @@
 		A393339F26CA319300303F52 /* ExposureListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureListCell.swift; sourceTree = "<group>"; };
 		A39333A126CA358300303F52 /* ExposureModelMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureModelMockData.swift; sourceTree = "<group>"; };
 		A39333A326CA471800303F52 /* ExposureListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureListViewModel.swift; sourceTree = "<group>"; };
-		A3B7E82B26CBD1800082E5FE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		A3B7E82B26CBD1800082E5FE /* MapPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPermissionsView.swift; sourceTree = "<group>"; };
 		A3F0F6BD26C653A6004877EC /* exposure-vic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "exposure-vic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureVICApp.swift; sourceTree = "<group>"; };
 		A3F0F6C426C653A7004877EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,16 +63,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A36DA36326CB28EE00DDA3D7 /* MapKit */ = {
+		A3A4EAE826CC7AA90084A58A /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				A36DA36626CB293800DDA3D7 /* TrackingView.swift */,
 				A36DA36826CB294F00DDA3D7 /* MapErrorView.swift */,
-				A36DA36A26CB296800DDA3D7 /* RequestLocationView.swift */,
-				A36DA36C26CB299600DDA3D7 /* LocationViewModel.swift */,
-				A3B7E82B26CBD1800082E5FE /* MapViewModel.swift */,
+				A393339726CA1FDE00303F52 /* NetworkErrorType.swift */,
+				A393339926CA201B00303F52 /* ErrorAlert.swift */,
 			);
-			path = MapKit;
+			path = Error;
+			sourceTree = "<group>";
+		};
+		A3A4EAE926CC7AE20084A58A /* ModelData */ = {
+			isa = PBXGroup;
+			children = (
+				A393339526CA1F4200303F52 /* ExposureModel.swift */,
+				A39333A126CA358300303F52 /* ExposureModelMockData.swift */,
+			);
+			path = ModelData;
+			sourceTree = "<group>";
+		};
+		A3A4EAEA26CC7AFA0084A58A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A36DA36C26CB299600DDA3D7 /* LocationViewModel.swift */,
+				A39333A326CA471800303F52 /* ExposureListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A3A4EAEB26CC7B0D0084A58A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A3A4EAEC26CC7B240084A58A /* SubViews */,
+				A393338926CA19BF00303F52 /* ExposureTabView.swift */,
+				A393338B26CA19E500303F52 /* ExposureListView.swift */,
+				A393338F26CA1BA800303F52 /* ExposureMapView.swift */,
+				A393339126CA1BD600303F52 /* ExposureSettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A3A4EAEC26CC7B240084A58A /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				A3B7E82B26CBD1800082E5FE /* MapPermissionsView.swift */,
+				A36DA36626CB293800DDA3D7 /* MapTrackingView.swift */,
+				A36DA36A26CB296800DDA3D7 /* MapRequestLocationView.swift */,
+				A393339F26CA319300303F52 /* ExposureListCell.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		A3A4EAED26CC7B410084A58A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A393339326CA1DF000303F52 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		A3F0F6B426C653A6004877EC = {
@@ -96,23 +141,15 @@
 		A3F0F6BF26C653A6004877EC /* exposure-vic */ = {
 			isa = PBXGroup;
 			children = (
-				A36DA36326CB28EE00DDA3D7 /* MapKit */,
-				A3F0F6C626C653A7004877EC /* Preview Content */,
+				A3A4EAED26CC7B410084A58A /* Network */,
+				A3A4EAEB26CC7B0D0084A58A /* View */,
+				A3A4EAEA26CC7AFA0084A58A /* ViewModel */,
+				A3A4EAE926CC7AE20084A58A /* ModelData */,
+				A3A4EAE826CC7AA90084A58A /* Error */,
 				A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */,
 				A3F0F6C426C653A7004877EC /* Assets.xcassets */,
 				A3F0F6C926C653A7004877EC /* Info.plist */,
-				A393338D26CA1A7200303F52 /* ToggleButton.swift */,
-				A393338926CA19BF00303F52 /* ExposureTabView.swift */,
-				A393338B26CA19E500303F52 /* ExposureListView.swift */,
-				A393338F26CA1BA800303F52 /* ExposureMapView.swift */,
-				A393339126CA1BD600303F52 /* ExposureSettingsView.swift */,
-				A393339326CA1DF000303F52 /* NetworkManager.swift */,
-				A393339526CA1F4200303F52 /* ExposureModel.swift */,
-				A393339726CA1FDE00303F52 /* NetworkErrorType.swift */,
-				A393339926CA201B00303F52 /* ErrorAlert.swift */,
-				A393339F26CA319300303F52 /* ExposureListCell.swift */,
-				A39333A126CA358300303F52 /* ExposureModelMockData.swift */,
-				A39333A326CA471800303F52 /* ExposureListViewModel.swift */,
+				A3F0F6C626C653A7004877EC /* Preview Content */,
 			);
 			path = "exposure-vic";
 			sourceTree = "<group>";
@@ -202,16 +239,15 @@
 				A393339226CA1BD600303F52 /* ExposureSettingsView.swift in Sources */,
 				A39333A426CA471800303F52 /* ExposureListViewModel.swift in Sources */,
 				A36DA36D26CB299600DDA3D7 /* LocationViewModel.swift in Sources */,
-				A36DA36726CB293800DDA3D7 /* TrackingView.swift in Sources */,
+				A36DA36726CB293800DDA3D7 /* MapTrackingView.swift in Sources */,
 				A39333A226CA358300303F52 /* ExposureModelMockData.swift in Sources */,
 				A393339426CA1DF000303F52 /* NetworkManager.swift in Sources */,
 				A393338A26CA19BF00303F52 /* ExposureTabView.swift in Sources */,
 				A393339026CA1BA800303F52 /* ExposureMapView.swift in Sources */,
 				A393339A26CA201B00303F52 /* ErrorAlert.swift in Sources */,
-				A393338E26CA1A7200303F52 /* ToggleButton.swift in Sources */,
 				A36DA36926CB294F00DDA3D7 /* MapErrorView.swift in Sources */,
-				A36DA36B26CB296800DDA3D7 /* RequestLocationView.swift in Sources */,
-				A3B7E82C26CBD1800082E5FE /* MapViewModel.swift in Sources */,
+				A36DA36B26CB296800DDA3D7 /* MapRequestLocationView.swift in Sources */,
+				A3B7E82C26CBD1800082E5FE /* MapPermissionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

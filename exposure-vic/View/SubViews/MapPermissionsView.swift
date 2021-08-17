@@ -1,5 +1,5 @@
 //
-//  MapViewModel.swift
+//  MapPermissionsView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 17/8/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MapViewModel: View {
+struct MapPermissionsView: View {
 
 	@StateObject var locationViewModel = LocationViewModel()
 
@@ -18,7 +18,7 @@ struct MapViewModel: View {
 			
 			// unsure
 			case .notDetermined:
-				AnyView(RequestLocationView())
+				AnyView(MapRequestLocationView())
 					.environmentObject(locationViewModel)
 				
 			// location use is not on
@@ -31,7 +31,7 @@ struct MapViewModel: View {
 				
 			// user has permissed location in use
 			case .authorizedAlways, .authorizedWhenInUse:
-				TrackingView()
+				MapTrackingView()
 					.environmentObject(locationViewModel)
 				
 			// all other

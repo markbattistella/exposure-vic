@@ -1,5 +1,5 @@
 //
-//  TrackingView.swift
+//  MapTrackingView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 17/8/21.
@@ -9,7 +9,7 @@ import SwiftUI
 import CoreLocation
 import MapKit
 
-struct TrackingView: View {
+struct MapTrackingView: View {
 	
 	@EnvironmentObject var locationViewModel: LocationViewModel
 	
