@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A321CE7526CCB78800617E73 /* ExposureDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE7426CCB78800617E73 /* ExposureDetailView.swift */; };
 		A321CE7726CCB81700617E73 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE7626CCB81700617E73 /* LoadingView.swift */; };
+		A321CE8726CCCD9900617E73 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8626CCCD9900617E73 /* DismissButton.swift */; };
+		A321CE8926CCDD4900617E73 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8826CCDD4900617E73 /* PullToRefresh.swift */; };
 		A36DA36726CB293800DDA3D7 /* ExposureTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36626CB293800DDA3D7 /* ExposureTrackingView.swift */; };
 		A36DA36926CB294F00DDA3D7 /* MapErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36826CB294F00DDA3D7 /* MapErrorView.swift */; };
 		A36DA36B26CB296800DDA3D7 /* MapRequestLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36A26CB296800DDA3D7 /* MapRequestLocationView.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		A321CE7426CCB78800617E73 /* ExposureDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureDetailView.swift; sourceTree = "<group>"; };
 		A321CE7626CCB81700617E73 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		A321CE8626CCCD9900617E73 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		A321CE8826CCDD4900617E73 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		A36DA36626CB293800DDA3D7 /* ExposureTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureTrackingView.swift; sourceTree = "<group>"; };
 		A36DA36826CB294F00DDA3D7 /* MapErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapErrorView.swift; sourceTree = "<group>"; };
 		A36DA36A26CB296800DDA3D7 /* MapRequestLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRequestLocationView.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				A321CE7626CCB81700617E73 /* LoadingView.swift */,
+				A321CE8826CCDD4900617E73 /* PullToRefresh.swift */,
 			);
 			path = UIKitComponents;
 			sourceTree = "<group>";
@@ -183,9 +188,18 @@
 			path = ExposureDetailView;
 			sourceTree = "<group>";
 		};
+		A321CE8526CCCD7E00617E73 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A321CE8626CCCD9900617E73 /* DismissButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		A3A4EAEB26CC7B0D0084A58A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A321CE8526CCCD7E00617E73 /* Buttons */,
 				A321CE8326CCC45600617E73 /* MapPermissions */,
 				A321CE8226CCC41B00617E73 /* Cells */,
 				A321CE8126CCC40500617E73 /* UIKitComponents */,
@@ -302,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */,
+				A321CE8926CCDD4900617E73 /* PullToRefresh.swift in Sources */,
 				A393339826CA1FDE00303F52 /* NetworkErrorType.swift in Sources */,
 				A393338C26CA19E500303F52 /* ExposureListView.swift in Sources */,
 				A393339626CA1F4200303F52 /* ExposureModel.swift in Sources */,
@@ -319,6 +334,7 @@
 				A36DA36926CB294F00DDA3D7 /* MapErrorView.swift in Sources */,
 				A36DA36B26CB296800DDA3D7 /* MapRequestLocationView.swift in Sources */,
 				A321CE7726CCB81700617E73 /* LoadingView.swift in Sources */,
+				A321CE8726CCCD9900617E73 /* DismissButton.swift in Sources */,
 				A3B7E82C26CBD1800082E5FE /* MapPermissionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

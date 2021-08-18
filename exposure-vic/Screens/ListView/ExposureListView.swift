@@ -10,6 +10,10 @@ import SwiftUI
 struct ExposureListView: View {
 	
 	@StateObject var viewModel = ExposureListViewModel()
+	@State private var isShowingDetail = false
+	@State private var selectedExposure: ExposureModelRecord?
+	
+	@State private var isRefreshing = false
 
 	var body: some View {
 		
@@ -19,15 +23,34 @@ struct ExposureListView: View {
 					
 					// pass in the custom view
 					ExposureListCell(exposure: exposure)
-					
+						
+						// show the detail view on tap
+						.onTapGesture {
+							selectedExposure = exposure
+							isShowingDetail = true
+						}
 				}
 				
-				.navigationTitle("Exposure List")
-				.navigationBarItems(trailing: Button(action:{
+				// pull down to refresh
+				.background( PullToRefresh( action: {
 					viewModel.getExposureData()
-				}, label: {
-					Text("Reload")
-				}))
+					self.isRefreshing = false
+				}, isRefreshing: $isRefreshing))
+				
+				
+				// the navigation title
+				.navigationTitle("Exposure List")
+				
+				// disable the scroll when detail view is open
+				.disabled(isShowingDetail)
+				
+				// add a reload button
+				// TODO: - add in pull to refresh
+//				.navigationBarItems(trailing: Button(action:{
+//					viewModel.getExposureData()
+//				}, label: {
+//					Text("Reload")
+//				}))
 			}
 			
 			// when the view is activated
@@ -36,6 +59,17 @@ struct ExposureListView: View {
 				viewModel.getExposureData()
 			}
 			
+			// blue the list when detail is open
+			.blur(radius: isShowingDetail ? 8 : 0)
+
+			// if the detail is to be shown
+			if isShowingDetail {
+				ExposureDetailView(
+					exposure: selectedExposure!,
+					isShowingDetail: $isShowingDetail
+				)
+			}
+
 			// show loading spinner when loading
 			if viewModel.isLoading {
 				LoadingView()

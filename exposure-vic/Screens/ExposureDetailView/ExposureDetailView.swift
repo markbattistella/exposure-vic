@@ -8,13 +8,33 @@
 import SwiftUI
 
 struct ExposureDetailView: View {
+	
+	let exposure: ExposureModelRecord
+	@Binding var isShowingDetail: Bool
+	
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+
+		VStack {
+			Text(exposure.Site_title)
+		}
+		.frame(width: 300, height: 500)
+		.background(Color(.systemBackground))
+		.cornerRadius(12)
+		.shadow(radius: 40)
+		
+		.overlay(Button {
+			isShowingDetail = false
+		} label: {
+			DismissButton()
+		}, alignment: .topTrailing)
+	}
 }
 
 struct ExposureDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ExposureDetailView()
+		ExposureDetailView(
+			exposure: MockData.sampleExposureRecord,
+			isShowingDetail: .constant(true)
+		)
     }
 }

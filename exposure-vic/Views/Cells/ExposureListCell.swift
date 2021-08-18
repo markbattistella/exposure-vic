@@ -10,9 +10,8 @@ import SwiftUI
 struct ExposureListCell: View {
 	
 	let exposure: ExposureModelRecord
-	
-	
-    var body: some View {
+
+	var body: some View {
 
 		// build the view
 		VStack( alignment: .leading ) {
