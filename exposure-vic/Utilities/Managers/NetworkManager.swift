@@ -19,7 +19,7 @@ final class NetworkManager {
 	private init() {}
 
 	// network call to get the data
-	func getExposureSites(completed: @escaping (Result<[ExposureModelRecord], NetworkErrorType>) -> Void) {
+	func getExposureSites(completed: @escaping (Result<[ExposureModelRecord], ErrorType>) -> Void) {
 		
 		// unwrap the url
 		guard let url = URL(string: baseURL) else {

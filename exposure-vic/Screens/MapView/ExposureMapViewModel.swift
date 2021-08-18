@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import MapKit
 import CoreLocation
 
-class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 	@Published var authorizationStatus: CLAuthorizationStatus
 	@Published var lastSeenLocation: CLLocation?
 	@Published var currentPlacemark: CLPlacemark?
-	
+	@Published var region = MKCoordinateRegion()
+
 	private let locationManager: CLLocationManager
 	
 	override init() {
@@ -23,7 +25,7 @@ class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegat
 		super.init()
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		locationManager.distanceFilter = 0.4
+		locationManager.distanceFilter = 0.1
 		locationManager.startUpdatingLocation()
 	}
 	
@@ -35,16 +37,20 @@ class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegat
 		authorizationStatus = manager.authorizationStatus
 	}
 	
+	// get the items for the map
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		
 		lastSeenLocation = locations.first
-		fetchCountryAndCity(for: locations.first)
-	}
-	
-	func fetchCountryAndCity(for location: CLLocation?) {
-		guard let location = location else { return }
-		let geocoder = CLGeocoder()
-		geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
-			self.currentPlacemark = placemarks?.first
-		}
+		
+		region = MKCoordinateRegion(
+			center: CLLocationCoordinate2D(
+				latitude: lastSeenLocation?.coordinate.latitude ?? 0,
+				longitude: lastSeenLocation?.coordinate.longitude ?? 0
+			),
+			span: MKCoordinateSpan(
+				latitudeDelta: 0.1,
+				longitudeDelta: 0.1
+			)
+		)
 	}
 }

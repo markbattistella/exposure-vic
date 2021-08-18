@@ -9,36 +9,36 @@ import SwiftUI
 
 struct ExposureListView: View {
 	
-	@StateObject var viewModel = ExposureListViewModel()
+	@StateObject var exposureViewModel = ExposureListViewModel()
 
 	var body: some View {
 		
 		ZStack {
 			NavigationView {
-				List(viewModel.exposures, id: \._id) { exposure in
+				List(exposureViewModel.exposures, id: \._id) { exposure in
 					
 					// pass in the custom view
 					ExposureListCell(exposure: exposure)
 						
 						// show the detail view on tap
 						.onTapGesture {
-							viewModel.selectedExposure = exposure
-							viewModel.isShowingDetail = true
+							exposureViewModel.selectedExposure = exposure
+							exposureViewModel.isShowingDetail = true
 						}
 				}
 				
 				// pull down to refresh
 				.background( PullToRefresh( action: {
-					viewModel.getExposureData()
-					viewModel.isRefreshing = false
-				}, isRefreshing: $viewModel.isRefreshing))
+					exposureViewModel.getExposureData()
+					exposureViewModel.isRefreshing = false
+				}, isRefreshing: $exposureViewModel.isRefreshing))
 				
 				
 				// the navigation title
 				.navigationTitle("Exposure List")
 				
 				// disable the scroll when detail view is open
-				.disabled(viewModel.isShowingDetail)
+				.disabled(exposureViewModel.isShowingDetail)
 				
 				// add a reload button
 				// TODO: - add in pull to refresh
@@ -52,28 +52,28 @@ struct ExposureListView: View {
 			// when the view is activated
 			// -- insert the reload from network
 			.onAppear {
-				viewModel.getExposureData()
+				exposureViewModel.getExposureData()
 			}
 			
 			// blue the list when detail is open
-			.blur(radius: viewModel.isShowingDetail ? 8 : 0)
+			.blur(radius: exposureViewModel.isShowingDetail ? 8 : 0)
 
 			// if the detail is to be shown
-			if viewModel.isShowingDetail {
+			if exposureViewModel.isShowingDetail {
 				ExposureDetailView(
-					exposure: viewModel.selectedExposure!,
-					isShowingDetail: $viewModel.isShowingDetail
+					exposure: exposureViewModel.selectedExposure!,
+					isShowingDetail: $exposureViewModel.isShowingDetail
 				)
 			}
 
 			// show loading spinner when loading
-			if viewModel.isLoading {
+			if exposureViewModel.isLoading {
 				LoadingView()
 			}
 		}
 
 		// show error alerts
-		.alert(item: $viewModel.alertItem) { alertItem in
+		.alert(item: $exposureViewModel.alertItem) { alertItem in
 			Alert(title: alertItem.title,
 				  message: alertItem.message,
 				  dismissButton: alertItem.dismissButton)

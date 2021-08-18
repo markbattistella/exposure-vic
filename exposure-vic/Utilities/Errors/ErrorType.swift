@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkErrorType: Error {
+enum ErrorType: Error {
 	case invalidURL
 	case invalidResponse
 	case invalidData

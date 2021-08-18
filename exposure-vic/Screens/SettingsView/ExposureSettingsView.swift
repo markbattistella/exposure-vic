@@ -13,7 +13,10 @@ struct ExposureSettingsView: View {
 	// access to the view model
 	@StateObject var viewModel = ExposureListViewModel()
 	@StateObject var settingModel = ExposureSettingsViewModel()
-	
+
+	// get the app visibility state
+	@Environment(\.scenePhase) var scenePhase
+
 	
     var body: some View {
 
@@ -37,14 +40,20 @@ struct ExposureSettingsView: View {
 				}
 
 				Section(header: Text("Map options")) {
-					Toggle("Show travel ring", isOn: $settingModel.showRingOverlay)
+					Toggle("Show travel ring", isOn: $settingModel.setting.showRingOverlay)
 					
-					if settingModel.showRingOverlay {
-						Picker(selection: $settingModel.mapRingSize, label: Text("Travel ring")) {
-							ForEach(0 ..< settingModel.mapRingSizes.count) {
-								Text( "\(settingModel.mapRingSizes[$0]) km" )
-							}
+					Picker(selection: $settingModel.setting.mapRingSize, label: Text("Travel ring size")) {
+						ForEach(0 ..< settingModel.mapRingSizes.count) {
+							Text( "\(settingModel.mapRingSizes[$0]) km" )
 						}
+					}
+				}
+				
+				Section {
+					Button {
+						settingModel.saveChanges()
+					} label: {
+						Text("Save settings")
 					}
 				}
 
@@ -54,10 +63,22 @@ struct ExposureSettingsView: View {
 			
 			}
 			
+			// title
 			.navigationBarTitle("Settings")
 			
+			// update data on appear
 			.onAppear {
 				viewModel.getExposureData()
+				settingModel.retrieveChanges()
+			}
+			
+			// alertalertItem
+			.alert(item: $settingModel.alertItem) { alertItem in
+				Alert(
+					title: alertItem.title,
+					message: alertItem.message,
+					dismissButton: alertItem.dismissButton
+				)
 			}
 		}
 		.accentColor(.green)

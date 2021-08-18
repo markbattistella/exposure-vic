@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MapErrorView: View {
+	
 	var errorText: String
 	
 	var body: some View {
@@ -24,11 +25,5 @@ struct MapErrorView: View {
 		.foregroundColor(.secondary)
 		.frame(width: 300)
 		
-	}
-}
-
-struct MapErrorView_Previews: PreviewProvider {
-	static var previews: some View {
-		MapErrorView(errorText: "The app does not have location permissions. Please enable them in the settings app.")
 	}
 }
