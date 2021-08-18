@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ExposureSettingsView: View {
-	
+
+
+	// access to the view model
 	@StateObject var viewModel = ExposureListViewModel()
-	private let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+	@StateObject var settingModel = ExposureSettingsViewModel()
+	
 	
     var body: some View {
 
@@ -32,14 +35,21 @@ struct ExposureSettingsView: View {
 							.foregroundColor(.secondary)
 					}
 				}
-				
-				Section(header: Text("Acknowledgements")) {
-					HStack {
-						Text("Version")
-						Spacer()
-						Text( version ?? "1.0" )
-							.foregroundColor(.secondary)
+
+				Section(header: Text("Map options")) {
+					Toggle("Show travel ring", isOn: $settingModel.showRingOverlay)
+					
+					if settingModel.showRingOverlay {
+						Picker(selection: $settingModel.mapRingSize, label: Text("Travel ring")) {
+							ForEach(0 ..< settingModel.mapRingSizes.count) {
+								Text( "\(settingModel.mapRingSizes[$0]) km" )
+							}
+						}
 					}
+				}
+
+				Section(header: Text("Acknowledgements")) {
+					FormInfoRow(title: "Version", info: "\(settingModel.version ?? "1")")
 				}
 			
 			}

@@ -10,10 +10,6 @@ import SwiftUI
 struct ExposureListView: View {
 	
 	@StateObject var viewModel = ExposureListViewModel()
-	@State private var isShowingDetail = false
-	@State private var selectedExposure: ExposureModelRecord?
-	
-	@State private var isRefreshing = false
 
 	var body: some View {
 		
@@ -26,23 +22,23 @@ struct ExposureListView: View {
 						
 						// show the detail view on tap
 						.onTapGesture {
-							selectedExposure = exposure
-							isShowingDetail = true
+							viewModel.selectedExposure = exposure
+							viewModel.isShowingDetail = true
 						}
 				}
 				
 				// pull down to refresh
 				.background( PullToRefresh( action: {
 					viewModel.getExposureData()
-					self.isRefreshing = false
-				}, isRefreshing: $isRefreshing))
+					viewModel.isRefreshing = false
+				}, isRefreshing: $viewModel.isRefreshing))
 				
 				
 				// the navigation title
 				.navigationTitle("Exposure List")
 				
 				// disable the scroll when detail view is open
-				.disabled(isShowingDetail)
+				.disabled(viewModel.isShowingDetail)
 				
 				// add a reload button
 				// TODO: - add in pull to refresh
@@ -60,13 +56,13 @@ struct ExposureListView: View {
 			}
 			
 			// blue the list when detail is open
-			.blur(radius: isShowingDetail ? 8 : 0)
+			.blur(radius: viewModel.isShowingDetail ? 8 : 0)
 
 			// if the detail is to be shown
-			if isShowingDetail {
+			if viewModel.isShowingDetail {
 				ExposureDetailView(
-					exposure: selectedExposure!,
-					isShowingDetail: $isShowingDetail
+					exposure: viewModel.selectedExposure!,
+					isShowingDetail: $viewModel.isShowingDetail
 				)
 			}
 

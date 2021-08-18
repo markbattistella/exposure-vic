@@ -13,6 +13,9 @@ final class ExposureListViewModel: ObservableObject {
 	@Published var alertItem: AlertItem?
 	@Published var lastUpdated: String = ""
 	@Published var isLoading = false
+	@Published var isShowingDetail = false
+	@Published var selectedExposure: ExposureModelRecord?
+	@Published var isRefreshing = false
 
 	// get the data
 	func getExposureData() {
