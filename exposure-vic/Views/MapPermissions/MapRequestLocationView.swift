@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MapRequestLocationView: View {
-	@EnvironmentObject var locationViewModel: LocationViewModel
+	@EnvironmentObject var locationViewModel: ExposureMapViewModel
 	
 	var body: some View {
 		
@@ -35,11 +35,5 @@ struct MapRequestLocationView: View {
 		}
 		.foregroundColor(.secondary)
 		.frame(width: 300)
-	}
-}
-
-struct RequestLocationView_Previews: PreviewProvider {
-	static var previews: some View {
-		MapRequestLocationView()
 	}
 }

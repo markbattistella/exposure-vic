@@ -9,9 +9,9 @@ import SwiftUI
 import CoreLocation
 import MapKit
 
-struct MapTrackingView: View {
+struct ExposureTrackingView: View {
 	
-	@EnvironmentObject var locationViewModel: LocationViewModel
+	@EnvironmentObject var locationViewModel: ExposureMapViewModel
 	
 	var coordinate: CLLocationCoordinate2D? {
 		locationViewModel.lastSeenLocation?.coordinate

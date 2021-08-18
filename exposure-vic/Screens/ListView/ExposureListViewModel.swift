@@ -11,23 +11,41 @@ final class ExposureListViewModel: ObservableObject {
 	
 	@Published var exposures: [ExposureModelRecord] = []
 	@Published var alertItem: AlertItem?
-	
+	@Published var lastUpdated: String = ""
+	@Published var isLoading = false
+
+	// get the data
 	func getExposureData() {
+		
+		// activate the loading view
+		isLoading = true
 		
 		// make the network call
 		NetworkManager.shared.getExposureSites { result in
 			
 			// main thread
 			DispatchQueue.main.async {
-				
+
+				// hide the loading view
+				self.isLoading = false
+
 				// switch on the output
 				switch result {
 					
 					// success - update the exposures
 					case .success(let exposures):
 						
+						// add the exposures
 						self.exposures = exposures
 						
+						// get the date
+						let date = Date()
+						let dateFormatter = DateFormatter()
+
+						// set the update date time
+						dateFormatter.dateFormat = "dd/MM HH:mm:ss a"
+						self.lastUpdated = dateFormatter.string(from: date)
+
 					// failure - alert
 					case .failure(let error):
 						

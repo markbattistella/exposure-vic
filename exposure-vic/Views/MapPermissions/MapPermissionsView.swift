@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MapPermissionsView: View {
 
-	@StateObject var locationViewModel = LocationViewModel()
+	@StateObject var locationViewModel = ExposureMapViewModel()
 
 	var body: some View {
 		
@@ -31,7 +31,7 @@ struct MapPermissionsView: View {
 				
 			// user has permissed location in use
 			case .authorizedAlways, .authorizedWhenInUse:
-				MapTrackingView()
+				ExposureTrackingView()
 					.environmentObject(locationViewModel)
 				
 			// all other

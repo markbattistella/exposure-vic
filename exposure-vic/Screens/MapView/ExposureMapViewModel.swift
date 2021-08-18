@@ -1,5 +1,5 @@
 //
-//  LocationViewModel.swift
+//  ExposureMapViewModel.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 17/8/21.
@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreLocation
 
-class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 	@Published var authorizationStatus: CLAuthorizationStatus
 	@Published var lastSeenLocation: CLLocation?

@@ -10,8 +10,12 @@ import SwiftUI
 struct ExposureMapView: View {
 	
 	var body: some View {
-		
+
+		// get the map permission
+		// -- shows the success view
+		// -- if denied shows message of no access
 		MapPermissionsView()
+
 	}
 }
 

@@ -22,7 +22,14 @@ struct ExposureSettingsView: View {
 					Button {
 						viewModel.getExposureData()
 					} label: {
-						Label("Refresh exposure sites", systemImage: "arrow.down.heart.fill")
+						Label("Check for new exposures", systemImage: "arrow.down.heart.fill")
+					}
+					
+					HStack {
+						Text("Last updated")
+						Spacer()
+						Text( viewModel.lastUpdated )
+							.foregroundColor(.secondary)
 					}
 				}
 				
@@ -31,13 +38,17 @@ struct ExposureSettingsView: View {
 						Text("Version")
 						Spacer()
 						Text( version ?? "1.0" )
+							.foregroundColor(.secondary)
 					}
-
 				}
 			
 			}
 			
 			.navigationBarTitle("Settings")
+			
+			.onAppear {
+				viewModel.getExposureData()
+			}
 		}
 		.accentColor(.green)
 	
