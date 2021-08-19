@@ -14,7 +14,7 @@
 		A321CE8B26CCECDD00617E73 /* FormInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8A26CCECDD00617E73 /* FormInfoRow.swift */; };
 		A321CE8D26CCED9600617E73 /* ExposureSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8C26CCED9600617E73 /* ExposureSettingsViewModel.swift */; };
 		A321CE8F26CD02CB00617E73 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8E26CD02CB00617E73 /* SettingsModel.swift */; };
-		A321CEB226CDF6BB00617E73 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CEB126CDF6BB00617E73 /* MapAnnotationView.swift */; };
+		A321CEB226CDF6BB00617E73 /* MapAnnotationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CEB126CDF6BB00617E73 /* MapAnnotationViewModel.swift */; };
 		A36DA36726CB293800DDA3D7 /* ExposureMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36626CB293800DDA3D7 /* ExposureMapView.swift */; };
 		A36DA36926CB294F00DDA3D7 /* LocationPermissionErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36826CB294F00DDA3D7 /* LocationPermissionErrorView.swift */; };
 		A36DA36B26CB296800DDA3D7 /* LocationPermissionRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36A26CB296800DDA3D7 /* LocationPermissionRequestView.swift */; };
@@ -43,7 +43,7 @@
 		A321CE8A26CCECDD00617E73 /* FormInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfoRow.swift; sourceTree = "<group>"; };
 		A321CE8C26CCED9600617E73 /* ExposureSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureSettingsViewModel.swift; sourceTree = "<group>"; };
 		A321CE8E26CD02CB00617E73 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
-		A321CEB126CDF6BB00617E73 /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
+		A321CEB126CDF6BB00617E73 /* MapAnnotationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationViewModel.swift; sourceTree = "<group>"; };
 		A36DA36626CB293800DDA3D7 /* ExposureMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureMapView.swift; sourceTree = "<group>"; };
 		A36DA36826CB294F00DDA3D7 /* LocationPermissionErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionErrorView.swift; sourceTree = "<group>"; };
 		A36DA36A26CB296800DDA3D7 /* LocationPermissionRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionRequestView.swift; sourceTree = "<group>"; };
@@ -101,6 +101,7 @@
 		A321CE7A26CCC1D100617E73 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				A321CEB126CDF6BB00617E73 /* MapAnnotationViewModel.swift */,
 				A36DA36C26CB299600DDA3D7 /* ExposureMapViewModel.swift */,
 				A36DA36626CB293800DDA3D7 /* ExposureMapView.swift */,
 			);
@@ -242,7 +243,6 @@
 				A3F0F6C426C653A7004877EC /* Assets.xcassets */,
 				A3F0F6C926C653A7004877EC /* Info.plist */,
 				A3F0F6C626C653A7004877EC /* Preview Content */,
-				A321CEB126CDF6BB00617E73 /* MapAnnotationView.swift */,
 			);
 			path = "exposure-vic";
 			sourceTree = "<group>";
@@ -330,7 +330,7 @@
 				A393339826CA1FDE00303F52 /* ErrorType.swift in Sources */,
 				A393338C26CA19E500303F52 /* ExposureListView.swift in Sources */,
 				A393339626CA1F4200303F52 /* ExposureModel.swift in Sources */,
-				A321CEB226CDF6BB00617E73 /* MapAnnotationView.swift in Sources */,
+				A321CEB226CDF6BB00617E73 /* MapAnnotationViewModel.swift in Sources */,
 				A321CE7526CCB78800617E73 /* ExposureDetailView.swift in Sources */,
 				A321CE8B26CCECDD00617E73 /* FormInfoRow.swift in Sources */,
 				A321CE8D26CCED9600617E73 /* ExposureSettingsViewModel.swift in Sources */,

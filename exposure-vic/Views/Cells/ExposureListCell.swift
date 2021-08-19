@@ -15,7 +15,7 @@ struct ExposureListCell: View {
 
 		// build the view
 		VStack( alignment: .leading ) {
-			
+
 			Text( exposure.Suburb )
 				.font(.title2)
 				.bold()
