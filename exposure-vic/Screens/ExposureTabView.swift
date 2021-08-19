@@ -14,13 +14,17 @@ struct ExposureTabView: View {
 		TabView {
 			
 			// tab 1
-			ExposureMapView()
+			// -- we go to the authorisation switch
+			// -- to determine if we show the map,
+			// -- error, or request view
+			LocationPermissionSwitchView()
 				.tabItem {
 					Image(systemName: "mappin.and.ellipse")
 					Text("Map")
 				}
 
 			// tab 2
+			// -- show the list of sites
 			ExposureListView()
 				.tabItem {
 					Image(systemName: "list.star")
@@ -28,6 +32,7 @@ struct ExposureTabView: View {
 				}
 
 			// tab 3
+			// -- settings screen and info
 			ExposureSettingsView()
 				.tabItem {
 					Image(systemName: "gearshape.fill")
@@ -35,11 +40,5 @@ struct ExposureTabView: View {
 				}
 		}
 		.accentColor(.purple)
-	}
-}
-
-struct MapView_Previews: PreviewProvider {
-	static var previews: some View {
-		ExposureTabView()
 	}
 }

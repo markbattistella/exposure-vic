@@ -1,26 +1,49 @@
 //
-//  ExposureMapView.swift
+//  MapTrackingView.swift
 //  exposure-vic
 //
-//  Created by Mark Battistella on 16/8/21.
+//  Created by Mark Battistella on 17/8/21.
 //
 
 import SwiftUI
+import MapKit
 
 struct ExposureMapView: View {
-	
+
+	//
+	@StateObject var locationViewModel: ExposureMapViewModel
+
+
+	//
 	var body: some View {
 
-		// get the map permission
-		// -- shows the success view
-		// -- if denied shows message of no access
-		MapPermissionsView()
+		ZStack {
 
-	}
-}
+			// show the map
+			Map(
+				coordinateRegion: $locationViewModel.region,
+				showsUserLocation: true
+			)
+			.edgesIgnoringSafeArea(.all)
 
-struct ExposureMapView_Previews: PreviewProvider {
-	static var previews: some View {
-		ExposureMapView()
+
+			// re-center location after pan and zoom
+			VStack {
+				Spacer()
+				Button {
+					locationViewModel.recentreLocation()
+				} label: {
+					DismissButton(title: "Re-centre", image: "target")
+				}
+			}
+
+		}
+		
+//		MapAnnotationView()
+		
+//			.onAppear {
+//				mapAnnotation.runScript()
+//			}
 	}
+	
 }

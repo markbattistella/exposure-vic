@@ -9,23 +9,17 @@ import SwiftUI
 
 struct DismissButton: View {
 
+	let title: String
+	let image: String
+	
 	var body: some View {
 
-		ZStack {
-			Circle()
-				.frame(width: 30, height: 30)
-				.foregroundColor(.gray)
-				.opacity(0.5)
-			Image(systemName: "xmark")
-				.imageScale(.medium)
-				.frame(width: 44, height: 44)
-				.foregroundColor(.black)
-		}
+		Label(title, systemImage: image)
+			.padding(12)
+			.font(.subheadline)
+			.background(Color(.systemBackground))
+			.cornerRadius(8)
+			.padding(.bottom, 10)
+			.shadow(radius: 10)
 	}
-}
-
-struct DismissButton_Previews: PreviewProvider {
-    static var previews: some View {
-        DismissButton()
-    }
 }

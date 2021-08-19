@@ -1,5 +1,5 @@
 //
-//  MapRequestLocationView.swift
+//  LocationPermissionRequestView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 17/8/21.
@@ -7,25 +7,30 @@
 
 import SwiftUI
 
-struct MapRequestLocationView: View {
-	@EnvironmentObject var locationViewModel: ExposureMapViewModel
+struct LocationPermissionRequestView: View {
+
+	
+	@ObservedObject var locationViewModel: ExposureMapViewModel
 	
 	var body: some View {
 		
 		VStack {
 			
+			// location icon
 			Image(systemName: "location.fill")
 				.resizable()
 				.frame(width: 68, height: 68)
 			
+			// explanation
 			Text("Allow location to see any exposure sites near you")
 				.padding()
 				.font(.headline)
 
+			// pop up for location
 			Button(action: {
 				locationViewModel.requestPermission()
 			}, label: {
-				Text("Allow tracking")
+				Text("Allow location")
 			})
 			.padding(10)
 			.frame(width: 300, height: 50)

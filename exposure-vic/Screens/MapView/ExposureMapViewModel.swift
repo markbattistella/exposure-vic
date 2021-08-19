@@ -12,8 +12,6 @@ import CoreLocation
 final class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 	@Published var authorizationStatus: CLAuthorizationStatus
-	@Published var lastSeenLocation: CLLocation?
-	@Published var currentPlacemark: CLPlacemark?
 	@Published var region = MKCoordinateRegion()
 
 	private let locationManager: CLLocationManager
@@ -21,36 +19,77 @@ final class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerD
 	override init() {
 		locationManager = CLLocationManager()
 		authorizationStatus = locationManager.authorizationStatus
-		
+
 		super.init()
+
 		locationManager.delegate = self
-		locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		locationManager.distanceFilter = 0.1
+		
+		// accurate to within one hundred meters
+		locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+		
+		// Int in metres for tracking movement
+		locationManager.distanceFilter = 1
+
+		// begin the location track
 		locationManager.startUpdatingLocation()
 	}
 	
+	// trigger apple permission
 	func requestPermission() {
+		
+		// only request when in use
 		locationManager.requestWhenInUseAuthorization()
 	}
 	
-	func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+	
+	// get the current authorised location use
+	func locationManager(
+		_ manager: CLLocationManager,
+		didChangeAuthorization status: CLAuthorizationStatus
+	) {
 		authorizationStatus = manager.authorizationStatus
 	}
-	
+
+
 	// get the items for the map
-	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+	func locationManager(
+		_ manager: CLLocationManager,
+		didUpdateLocations locations: [CLLocation]
+	) {
 		
-		lastSeenLocation = locations.first
-		
-		region = MKCoordinateRegion(
-			center: CLLocationCoordinate2D(
-				latitude: lastSeenLocation?.coordinate.latitude ?? 0,
-				longitude: lastSeenLocation?.coordinate.longitude ?? 0
-			),
-			span: MKCoordinateSpan(
-				latitudeDelta: 0.1,
-				longitudeDelta: 0.1
+		// unwrap it
+		if let location = locations.last {
+			
+			let latitude = location.coordinate.latitude
+			let longitude = location.coordinate.longitude
+
+			region = MKCoordinateRegion(
+				center: CLLocationCoordinate2D(
+					latitude: latitude,
+					longitude: longitude
+				),
+				span: MKCoordinateSpan(
+					latitudeDelta: 0.05,
+					longitudeDelta: 0.05
+				)
 			)
-		)
+			locationManager.stopUpdatingLocation()
+		}
 	}
+
+	
+	// get the error with locations
+	func locationManager(
+		_ manager: CLLocationManager,
+		didFailWithError error: Error
+	) {
+		print(error)
+	}
+	
+	
+	// call the update location
+	func recentreLocation() {
+		locationManager.startUpdatingLocation()
+	}
+
 }
