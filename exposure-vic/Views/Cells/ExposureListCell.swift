@@ -27,6 +27,10 @@ struct ExposureListCell: View {
 				.bold()
 				.padding(.bottom, 1)
 			
+			// coords
+			Text( String("\(exposure.coordinates)") )
+				.foregroundColor(.red)
+			
 			
 			// if there is an address
 			if let cleanSiteStreetAddress = exposure.Site_streetaddress {
@@ -34,36 +38,6 @@ struct ExposureListCell: View {
 					.font(.title3)
 					.padding(.bottom, 1)
 			}
-			
-			// date time of exposure
-//			Text( (exposure.Exposure_date ?? "NIL") + " " + (exposure.Exposure_time ?? "NIL") )
-//				.font(.subheadline)
-//				.padding(.bottom, 1)
-			
-//			Rectangle()
-//				.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 1)
-			
-			// tier notice
-			Text( exposure.Advice_title ?? "NIL" )
-				.font(.body)
-				.padding(.bottom, 1)
-			
-			// advice info
-//			Text( exposure.Advice_instruction )
-//				.font(.body)
-//				.padding(.bottom, 1)
-			
-			//
-//			Text( exposure.Notes )
-//				.font(.caption)
-//				.italic()
-			
 		}
 	}
-}
-
-struct ExposureListCell_Previews: PreviewProvider {
-    static var previews: some View {
-		ExposureListCell(exposure: MockData.sampleExposureRecordOne)
-    }
 }

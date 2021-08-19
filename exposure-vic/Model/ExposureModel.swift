@@ -19,7 +19,8 @@ struct ExposureModelResult: Decodable {
 }
 
 // MARK: - Record
-struct ExposureModelRecord: Decodable {
+struct ExposureModelRecord: Decodable, Identifiable {
+	var id: Int { _id }
 	let _id: Int
 	let Suburb: String?
 	let Site_title: String?
@@ -42,16 +43,47 @@ struct ExposureModelRecord: Decodable {
 	var coordinates: CLLocationCoordinate2D? {
 		let geocoder = CLGeocoder()
 		var output = CLLocationCoordinate2D()
-		guard let address = Site_streetaddress else { return nil }
-		geocoder.geocodeAddressString( address ) { ( placemark, error ) in
-			guard let longitude = placemark?.first?.location?.coordinate.longitude,
-				  let latitude  = placemark?.first?.location?.coordinate.latitude else {
-				return
+		if let address = Site_streetaddress,
+		   let postcode = Site_postcode,
+		   let state = Site_state {
+			
+			let fullAddress = "\(address), \(state) \(postcode)"
+			
+	
+			geocoder.geocodeAddressString( String(fullAddress) ) { ( placemark, error ) in
+				
+				
+				
+				if let error = error as? CLError {
+					switch error.code {
+						case .locationUnknown:
+							print("locationUnknown: location manager was unable to obtain a location value right now.")
+						case .denied:
+							print("denied: user denied access to the location service.")
+						case .promptDeclined:
+							print("promptDeclined: user didn’t grant the requested temporary authorization.")
+						case .network:
+							print("network: network was unavailable or a network error occurred.")
+						case .headingFailure:
+							print("headingFailure: heading could not be determined.")
+						case .rangingUnavailable:
+							print("rangingUnavailable: ranging is disabled.")
+						case .rangingFailure:
+							print("rangingFailure: a general ranging error occurred.")
+						default : break
+					}
+				}
+				
+				
+				
+				if let latitude  = placemark?.first?.location?.coordinate.latitude,
+				   let longitude = placemark?.first?.location?.coordinate.longitude {
+					output = CLLocationCoordinate2D(
+						latitude: latitude,
+						longitude: longitude
+					)
+				}
 			}
-			output = CLLocationCoordinate2D(
-				latitude: latitude,
-				longitude: longitude
-			)
 		}
 		return output
 	}

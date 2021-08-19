@@ -15,7 +15,7 @@ struct ExposureListView: View {
 		
 		ZStack {
 			NavigationView {
-				List(exposureModelData.exposures, id: \._id) { exposure in
+				List(exposureModelData.exposures) { exposure in
 					
 					// pass in the custom view
 					ExposureListCell(exposure: exposure)

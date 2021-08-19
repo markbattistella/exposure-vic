@@ -21,21 +21,45 @@ struct ExposureMapView: View {
 
 		ZStack {
 
+			
+			
+//
+//			Map(
+//				coordinateRegion: $locationViewModel.region,
+//				showsUserLocation: true,
+//				annotationItems: exposureModelData.exposures,
+//				annotationContent: { location in
+//					MapPin(coordinate: location.coordinates!, tint: .red)
+//				}
+//			)
+			
+			
+			
+			
+			Text("ff")
+			
+			List(exposureModelData.exposures) { e in
+				Text( String("\(e.coordinates)") )
+			}
+			
+			
+			
+			
+			
 			// show the map
 			// -- this works without any annotations :(
-			Map(
-				coordinateRegion: $locationViewModel.region,
-				showsUserLocation: true
-			)
-			.edgesIgnoringSafeArea(.all)
+//			Map(
+//				coordinateRegion: $locationViewModel.region,
+//				showsUserLocation: true
+//			)
+//			.edgesIgnoringSafeArea(.all)
 			
 			
 			
 			// when the view is activated
 			// -- insert the reload from network
 			.onAppear {
-				
-				print(locationViewModel.locations)
+				exposureModelData.getExposureData()
 			}
 			
 			// re-center location after pan and zoom

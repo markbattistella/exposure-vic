@@ -13,10 +13,7 @@ final class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerD
 
 	@Published var authorizationStatus: CLAuthorizationStatus
 	@Published var region = MKCoordinateRegion()
-
 	private let locationManager: CLLocationManager
-	
-	@Published var locations = [ExposureModelRecord]()
 	
 	override init() {
 		locationManager = CLLocationManager()
