@@ -34,9 +34,13 @@ final class NetworkManager {
 		}
 		
 		// add the query parameters
+		// -- see doc file in directory
 		components.queryItems = [
 			URLQueryItem(name: "resource_id", value: "afb52611-6061-4a2b-9110-74c920bede77"),
-			URLQueryItem(name: "limit", value: "1000")
+			URLQueryItem(name: "limit", value: "1000"),
+			URLQueryItem(name: "records_format", value: "objects"),
+			URLQueryItem(name: "distinct", value: "1"),
+			URLQueryItem(name: "sort", value: "Added_date_dtm desc")
 		]
 
 		// get the full url with parameters
@@ -55,7 +59,8 @@ final class NetworkManager {
 			}
 
 			// unwrap the response
-			guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+			guard let response = response as? HTTPURLResponse,
+					  response.statusCode == 200 else {
 				completed(.failure(.invalidResponse))
 				return
 			}
@@ -80,12 +85,11 @@ final class NetworkManager {
 				completed(.success(decodedResponse.result.records))
 				
 			} catch {
-				
+
 				// return error
 				completed(.failure(.invalidData))
-				
 			}
-		}
+	}
 		
 		// 4. start the task
 		task.resume()

@@ -16,13 +16,13 @@ struct ExposureListCell: View {
 		// build the view
 		VStack( alignment: .leading ) {
 
-			Text( exposure.Suburb )
+			Text( exposure.Suburb ?? "NIL" )
 				.font(.title2)
 				.bold()
 				.frame(maxWidth: 350, alignment: .leading)
 
 			// site title
-			Text( exposure.Site_title )
+			Text( exposure.Site_title ?? "NIL")
 				.font(.title3)
 				.bold()
 				.padding(.bottom, 1)
@@ -36,15 +36,15 @@ struct ExposureListCell: View {
 			}
 			
 			// date time of exposure
-			Text( exposure.Exposure_date + " " + exposure.Exposure_time)
-				.font(.subheadline)
-				.padding(.bottom, 1)
+//			Text( (exposure.Exposure_date ?? "NIL") + " " + (exposure.Exposure_time ?? "NIL") )
+//				.font(.subheadline)
+//				.padding(.bottom, 1)
 			
 //			Rectangle()
 //				.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 1)
 			
 			// tier notice
-			Text( exposure.Advice_title )
+			Text( exposure.Advice_title ?? "NIL" )
 				.font(.body)
 				.padding(.bottom, 1)
 			

@@ -15,7 +15,7 @@ struct ExposureDetailView: View {
     var body: some View {
 
 		VStack {
-			Text(exposure.Site_title)
+			Text(exposure.Site_title ?? "NIL")
 		}
 		.frame(width: 300, height: 500)
 		.background(Color(.systemBackground))
