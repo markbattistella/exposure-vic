@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct ActivityIndicator: UIViewRepresentable {
+	
+	// stub
 	func makeUIView(context: Context) -> UIActivityIndicatorView {
-
 		
+		// make the spinner
 		let activityIndicatorView = UIActivityIndicatorView(style: .large)
 		
+		// set its colour
 		activityIndicatorView.color = .gray
 
+		// begin the action
 		activityIndicatorView.startAnimating()
 		
 		return activityIndicatorView
-
 	}
 	
 	// empty

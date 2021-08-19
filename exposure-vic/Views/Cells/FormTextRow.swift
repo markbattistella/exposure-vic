@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FormInfoRow: View {
+struct FormTextRow: View {
 	
 	let title: String
 	let info: String

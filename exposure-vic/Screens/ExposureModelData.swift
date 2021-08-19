@@ -1,5 +1,5 @@
 //
-//  ExposureListViewModel.swift
+//  ExposureModelData.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class ExposureListViewModel: ObservableObject {
+final class ExposureModelData: ObservableObject {
 	
 	@Published var exposures: [ExposureModelRecord] = []
 	@Published var alertItem: AlertItem?
@@ -46,7 +46,7 @@ final class ExposureListViewModel: ObservableObject {
 						let dateFormatter = DateFormatter()
 
 						// set the update date time
-						dateFormatter.dateFormat = "dd/MM HH:mm:ss a"
+						dateFormatter.dateFormat = "dd/MM HH:mm a"
 						self.lastUpdated = dateFormatter.string(from: date)
 
 					// failure - alert

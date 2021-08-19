@@ -16,6 +16,8 @@ final class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerD
 
 	private let locationManager: CLLocationManager
 	
+	@Published var locations = [ExposureModelRecord]()
+	
 	override init() {
 		locationManager = CLLocationManager()
 		authorizationStatus = locationManager.authorizationStatus

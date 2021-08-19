@@ -12,7 +12,7 @@ struct ExposureMapView: View {
 	
 	//
 	@StateObject var locationViewModel = ExposureMapViewModel()
-	@StateObject var exposureViewModel = ExposureListViewModel()
+	@StateObject var exposureModelData = ExposureModelData()
 
 	//
 
@@ -34,6 +34,8 @@ struct ExposureMapView: View {
 			// when the view is activated
 			// -- insert the reload from network
 			.onAppear {
+				
+				print(locationViewModel.locations)
 			}
 			
 			// re-center location after pan and zoom

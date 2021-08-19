@@ -9,71 +9,64 @@ import SwiftUI
 
 struct ExposureListView: View {
 	
-	@StateObject var exposureViewModel = ExposureListViewModel()
+	@StateObject var exposureModelData = ExposureModelData()
 
 	var body: some View {
 		
 		ZStack {
 			NavigationView {
-				List(exposureViewModel.exposures, id: \._id) { exposure in
+				List(exposureModelData.exposures, id: \._id) { exposure in
 					
 					// pass in the custom view
 					ExposureListCell(exposure: exposure)
 						
 						// show the detail view on tap
 						.onTapGesture {
-							exposureViewModel.selectedExposure = exposure
-							exposureViewModel.isShowingDetail = true
+							exposureModelData.selectedExposure = exposure
+							exposureModelData.isShowingDetail = true
 						}
 				}
 				
 				// pull down to refresh
 				.background( PullToRefresh( action: {
-					exposureViewModel.getExposureData()
-					exposureViewModel.isRefreshing = false
-				}, isRefreshing: $exposureViewModel.isRefreshing))
+					exposureModelData.getExposureData()
+					exposureModelData.isRefreshing = false
+				}, isRefreshing: $exposureModelData.isRefreshing))
 				
 				
 				// the navigation title
 				.navigationTitle("Exposure List")
 				
 				// disable the scroll when detail view is open
-				.disabled(exposureViewModel.isShowingDetail)
-				
-				// add a reload button
-				// TODO: - add in pull to refresh
-//				.navigationBarItems(trailing: Button(action:{
-//					viewModel.getExposureData()
-//				}, label: {
-//					Text("Reload")
-//				}))
+				.disabled(exposureModelData.isShowingDetail)
+
 			}
 			
 			// when the view is activated
 			// -- insert the reload from network
 			.onAppear {
-				exposureViewModel.getExposureData()
+				exposureModelData.getExposureData()
 			}
 			
 			// blue the list when detail is open
-			.blur(radius: exposureViewModel.isShowingDetail ? 8 : 0)
+			.blur(radius: exposureModelData.isShowingDetail ? 8 : 0)
 
 			// if the detail is to be shown
-			if exposureViewModel.isShowingDetail {
+			if exposureModelData.isShowingDetail {
 				ExposureDetailView(
-					exposure: exposureViewModel.selectedExposure!,
-					isShowingDetail: $exposureViewModel.isShowingDetail
+					exposure: exposureModelData.selectedExposure!,
+					isShowingDetail: $exposureModelData.isShowingDetail
 				)
 			}
 
 			// show loading spinner when loading
-			if exposureViewModel.isLoading {
+			if exposureModelData.isLoading {
 				LoadingView()
 			}
 		}
 
 		// show error alerts
-		.alert(item: $exposureViewModel.alertItem) { alertItem in
+		.alert(item: $exposureModelData.alertItem) { alertItem in
 			Alert(title: alertItem.title,
 				  message: alertItem.message,
 				  dismissButton: alertItem.dismissButton)

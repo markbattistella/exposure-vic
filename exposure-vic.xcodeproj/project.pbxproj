@@ -11,10 +11,11 @@
 		A321CE7726CCB81700617E73 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE7626CCB81700617E73 /* LoadingView.swift */; };
 		A321CE8726CCCD9900617E73 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8626CCCD9900617E73 /* DismissButton.swift */; };
 		A321CE8926CCDD4900617E73 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8826CCDD4900617E73 /* PullToRefresh.swift */; };
-		A321CE8B26CCECDD00617E73 /* FormInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8A26CCECDD00617E73 /* FormInfoRow.swift */; };
+		A321CE8B26CCECDD00617E73 /* FormTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8A26CCECDD00617E73 /* FormTextRow.swift */; };
 		A321CE8D26CCED9600617E73 /* ExposureSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8C26CCED9600617E73 /* ExposureSettingsViewModel.swift */; };
 		A321CE8F26CD02CB00617E73 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8E26CD02CB00617E73 /* SettingsModel.swift */; };
 		A321CEB426CE6C5200617E73 /* DataVICAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CEB326CE6C5200617E73 /* DataVICAPI.swift */; };
+		A321CEB626CF051200617E73 /* FormURLRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CEB526CF051200617E73 /* FormURLRow.swift */; };
 		A36DA36726CB293800DDA3D7 /* ExposureMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36626CB293800DDA3D7 /* ExposureMapView.swift */; };
 		A36DA36926CB294F00DDA3D7 /* LocationPermissionErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36826CB294F00DDA3D7 /* LocationPermissionErrorView.swift */; };
 		A36DA36B26CB296800DDA3D7 /* LocationPermissionRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36A26CB296800DDA3D7 /* LocationPermissionRequestView.swift */; };
@@ -29,7 +30,7 @@
 		A393339A26CA201B00303F52 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339926CA201B00303F52 /* ErrorAlert.swift */; };
 		A39333A026CA319300303F52 /* ExposureListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339F26CA319300303F52 /* ExposureListCell.swift */; };
 		A39333A226CA358300303F52 /* ExposureModelMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39333A126CA358300303F52 /* ExposureModelMockData.swift */; };
-		A39333A426CA471800303F52 /* ExposureListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39333A326CA471800303F52 /* ExposureListViewModel.swift */; };
+		A39333A426CA471800303F52 /* ExposureModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39333A326CA471800303F52 /* ExposureModelData.swift */; };
 		A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */; };
 		A3F0F6C526C653A7004877EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C426C653A7004877EC /* Assets.xcassets */; };
 		A3F0F6C826C653A7004877EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C726C653A7004877EC /* Preview Assets.xcassets */; };
@@ -40,10 +41,11 @@
 		A321CE7626CCB81700617E73 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		A321CE8626CCCD9900617E73 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		A321CE8826CCDD4900617E73 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
-		A321CE8A26CCECDD00617E73 /* FormInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfoRow.swift; sourceTree = "<group>"; };
+		A321CE8A26CCECDD00617E73 /* FormTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextRow.swift; sourceTree = "<group>"; };
 		A321CE8C26CCED9600617E73 /* ExposureSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureSettingsViewModel.swift; sourceTree = "<group>"; };
 		A321CE8E26CD02CB00617E73 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		A321CEB326CE6C5200617E73 /* DataVICAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataVICAPI.swift; sourceTree = "<group>"; };
+		A321CEB526CF051200617E73 /* FormURLRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormURLRow.swift; sourceTree = "<group>"; };
 		A36DA36626CB293800DDA3D7 /* ExposureMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureMapView.swift; sourceTree = "<group>"; };
 		A36DA36826CB294F00DDA3D7 /* LocationPermissionErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionErrorView.swift; sourceTree = "<group>"; };
 		A36DA36A26CB296800DDA3D7 /* LocationPermissionRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionRequestView.swift; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 		A393339926CA201B00303F52 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		A393339F26CA319300303F52 /* ExposureListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureListCell.swift; sourceTree = "<group>"; };
 		A39333A126CA358300303F52 /* ExposureModelMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureModelMockData.swift; sourceTree = "<group>"; };
-		A39333A326CA471800303F52 /* ExposureListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureListViewModel.swift; sourceTree = "<group>"; };
+		A39333A326CA471800303F52 /* ExposureModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureModelData.swift; sourceTree = "<group>"; };
 		A3F0F6BD26C653A6004877EC /* exposure-vic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "exposure-vic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureVICApp.swift; sourceTree = "<group>"; };
 		A3F0F6C426C653A7004877EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				A393338926CA19BF00303F52 /* ExposureTabView.swift */,
+				A39333A326CA471800303F52 /* ExposureModelData.swift */,
 				A321CE7A26CCC1D100617E73 /* MapView */,
 				A321CE7926CCC1B200617E73 /* ListView */,
 				A321CE7B26CCC1E000617E73 /* SettingsView */,
@@ -92,7 +95,6 @@
 		A321CE7926CCC1B200617E73 /* ListView */ = {
 			isa = PBXGroup;
 			children = (
-				A39333A326CA471800303F52 /* ExposureListViewModel.swift */,
 				A393338B26CA19E500303F52 /* ExposureListView.swift */,
 			);
 			path = ListView;
@@ -174,7 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				A393339F26CA319300303F52 /* ExposureListCell.swift */,
-				A321CE8A26CCECDD00617E73 /* FormInfoRow.swift */,
+				A321CE8A26CCECDD00617E73 /* FormTextRow.swift */,
+				A321CEB526CF051200617E73 /* FormURLRow.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -332,11 +335,12 @@
 				A393338C26CA19E500303F52 /* ExposureListView.swift in Sources */,
 				A393339626CA1F4200303F52 /* ExposureModel.swift in Sources */,
 				A321CE7526CCB78800617E73 /* ExposureDetailView.swift in Sources */,
-				A321CE8B26CCECDD00617E73 /* FormInfoRow.swift in Sources */,
+				A321CE8B26CCECDD00617E73 /* FormTextRow.swift in Sources */,
 				A321CE8D26CCED9600617E73 /* ExposureSettingsViewModel.swift in Sources */,
 				A39333A026CA319300303F52 /* ExposureListCell.swift in Sources */,
+				A321CEB626CF051200617E73 /* FormURLRow.swift in Sources */,
 				A393339226CA1BD600303F52 /* ExposureSettingsView.swift in Sources */,
-				A39333A426CA471800303F52 /* ExposureListViewModel.swift in Sources */,
+				A39333A426CA471800303F52 /* ExposureModelData.swift in Sources */,
 				A36DA36D26CB299600DDA3D7 /* ExposureMapViewModel.swift in Sources */,
 				A36DA36726CB293800DDA3D7 /* ExposureMapView.swift in Sources */,
 				A39333A226CA358300303F52 /* ExposureModelMockData.swift in Sources */,

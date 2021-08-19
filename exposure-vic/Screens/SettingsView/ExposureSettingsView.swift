@@ -9,16 +9,11 @@ import SwiftUI
 
 struct ExposureSettingsView: View {
 
-
 	// access to the view model
-	@StateObject var viewModel = ExposureListViewModel()
-	@StateObject var settingModel = ExposureSettingsViewModel()
+	@StateObject var exposureModelData = ExposureModelData()
+	@StateObject var settingsViewModel = ExposureSettingsViewModel()
 
-	// get the app visibility state
-	@Environment(\.scenePhase) var scenePhase
-
-	
-    var body: some View {
+	var body: some View {
 
 		NavigationView {
 
@@ -26,7 +21,7 @@ struct ExposureSettingsView: View {
 				
 				Section {
 					Button {
-						viewModel.getExposureData()
+						exposureModelData.getExposureData()
 					} label: {
 						Label("Check for new exposures", systemImage: "arrow.down.heart.fill")
 					}
@@ -34,24 +29,24 @@ struct ExposureSettingsView: View {
 					HStack {
 						Text("Last updated")
 						Spacer()
-						Text( viewModel.lastUpdated )
+						Text( exposureModelData.lastUpdated )
 							.foregroundColor(.secondary)
 					}
 				}
 
 				Section(header: Text("Map options")) {
-					Toggle("Show travel ring", isOn: $settingModel.setting.showRingOverlay)
+					Toggle("Show travel ring", isOn: $settingsViewModel.setting.showRingOverlay)
 					
-					Picker(selection: $settingModel.setting.mapRingSize, label: Text("Travel ring size")) {
-						ForEach(0 ..< settingModel.mapRingSizes.count) {
-							Text( "\(settingModel.mapRingSizes[$0]) km" )
+					Picker(selection: $settingsViewModel.setting.mapRingSize, label: Text("Travel ring size")) {
+						ForEach(0 ..< settingsViewModel.mapRingSizes.count) {
+							Text( "\(settingsViewModel.mapRingSizes[$0]) km" )
 						}
 					}.pickerStyle(SegmentedPickerStyle())
 				}
 				
 				Section {
 					Button {
-						settingModel.saveChanges()
+						settingsViewModel.saveChanges()
 					} label: {
 						HStack {
 							Spacer()
@@ -62,9 +57,19 @@ struct ExposureSettingsView: View {
 				}
 
 				Section(header: Text("Acknowledgements")) {
-					FormInfoRow(title: "Version", info: "\(settingModel.version ?? "1")")
+					FormTextRow(
+						title: "Version",
+						info: "\(settingsViewModel.version ?? "1")"
+					)
+					FormURLRow(
+						title: "Twitter",
+						urlTitle: "@markbattistella",
+						url: "https://twitter.com/@markbattistella")
+					FormURLRow(
+						title: "GitHub",
+						urlTitle: "/markbattistella",
+						url: "https://github.com/markbattistella")
 				}
-			
 			}
 			
 			// title
@@ -72,12 +77,12 @@ struct ExposureSettingsView: View {
 			
 			// update data on appear
 			.onAppear {
-				viewModel.getExposureData()
-				settingModel.retrieveChanges()
+				exposureModelData.getExposureData()
+				settingsViewModel.retrieveChanges()
 			}
 			
 			// alertalertItem
-			.alert(item: $settingModel.alertItem) { alertItem in
+			.alert(item: $settingsViewModel.alertItem) { alertItem in
 				Alert(
 					title: alertItem.title,
 					message: alertItem.message,
@@ -85,13 +90,5 @@ struct ExposureSettingsView: View {
 				)
 			}
 		}
-		.accentColor(.green)
-	
 	}
-}
-
-struct ExposureSettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExposureSettingsView()
-    }
 }

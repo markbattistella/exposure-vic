@@ -38,7 +38,10 @@ struct ExposureTabView: View {
 					Image(systemName: "gearshape.fill")
 					Text("Settings")
 				}
+			
 		}
+
+		// theme
 		.accentColor(.purple)
 	}
 }
