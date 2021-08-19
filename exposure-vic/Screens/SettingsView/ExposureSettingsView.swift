@@ -53,7 +53,11 @@ struct ExposureSettingsView: View {
 					Button {
 						settingModel.saveChanges()
 					} label: {
-						Text("Save settings")
+						HStack {
+							Spacer()
+							Text("Save settings")
+							Spacer()
+						}
 					}
 				}
 

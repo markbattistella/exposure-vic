@@ -12,6 +12,9 @@ struct ExposureMapView: View {
 	
 	//
 	@StateObject var locationViewModel = ExposureMapViewModel()
+	@StateObject var exposureViewModel = ExposureListViewModel()
+
+	//
 
 	//
 	var body: some View {
@@ -25,6 +28,13 @@ struct ExposureMapView: View {
 				showsUserLocation: true
 			)
 			.edgesIgnoringSafeArea(.all)
+			
+			
+			
+			// when the view is activated
+			// -- insert the reload from network
+			.onAppear {
+			}
 			
 			// re-center location after pan and zoom
 			VStack {
