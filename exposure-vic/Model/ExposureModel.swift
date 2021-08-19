@@ -37,19 +37,12 @@ struct ExposureModelRecord: Decodable {
 	let Advice_instruction: String
 	let Exposure_time_start_24: String
 	let Exposure_time_end_24: String
-}
-
-// MARK: - Map Pin
-struct MapLocation: Identifiable {
-	let exposures: ExposureModelRecord
-
-	let id = UUID()
 	
 	// get the co-ordinates now
 	var coordinates: CLLocationCoordinate2D? {
 		let geocoder = CLGeocoder()
 		var output = CLLocationCoordinate2D()
-		guard let address = exposures.Site_streetaddress else { return nil }
+		guard let address = Site_streetaddress else { return nil }
 		geocoder.geocodeAddressString( address ) { ( placemark, error ) in
 			guard let longitude = placemark?.first?.location?.coordinate.longitude,
 				  let latitude  = placemark?.first?.location?.coordinate.latitude else {

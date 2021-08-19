@@ -52,6 +52,9 @@ final class ExposureListViewModel: ObservableObject {
 					// failure - alert
 					case .failure(let error):
 						
+						// report failure
+						self.lastUpdated = "Unknown"
+						
 						// switch on the errors
 						switch error {
 							

@@ -46,7 +46,7 @@ struct ExposureSettingsView: View {
 						ForEach(0 ..< settingModel.mapRingSizes.count) {
 							Text( "\(settingModel.mapRingSizes[$0]) km" )
 						}
-					}
+					}.pickerStyle(SegmentedPickerStyle())
 				}
 				
 				Section {

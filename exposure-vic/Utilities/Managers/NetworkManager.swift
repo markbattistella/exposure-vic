@@ -36,7 +36,7 @@ final class NetworkManager {
 		// add the query parameters
 		components.queryItems = [
 			URLQueryItem(name: "resource_id", value: "afb52611-6061-4a2b-9110-74c920bede77"),
-			URLQueryItem(name: "limit", value: "999")
+			URLQueryItem(name: "limit", value: "1000")
 		]
 
 		// get the full url with parameters

@@ -64,6 +64,6 @@ struct ExposureListCell: View {
 
 struct ExposureListCell_Previews: PreviewProvider {
     static var previews: some View {
-		ExposureListCell(exposure: MockData.sampleExposureRecord)
+		ExposureListCell(exposure: MockData.sampleExposureRecordOne)
     }
 }

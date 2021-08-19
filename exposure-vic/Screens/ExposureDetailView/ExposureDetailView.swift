@@ -29,12 +29,3 @@ struct ExposureDetailView: View {
 		}, alignment: .topTrailing)
 	}
 }
-
-struct ExposureDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-		ExposureDetailView(
-			exposure: MockData.sampleExposureRecord,
-			isShowingDetail: .constant(true)
-		)
-    }
-}
