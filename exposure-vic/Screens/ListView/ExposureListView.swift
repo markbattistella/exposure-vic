@@ -53,9 +53,9 @@ struct ExposureListView: View {
 
 			// if the detail is to be shown
 			if exposureModelData.isShowingDetail {
-				ExposureDetailView(
-					exposure: exposureModelData.selectedExposure!,
-					isShowingDetail: $exposureModelData.isShowingDetail
+				DetailView(
+					isShowingDetail: $exposureModelData.isShowingDetail,
+					exposure: exposureModelData.selectedExposure!
 				)
 			}
 

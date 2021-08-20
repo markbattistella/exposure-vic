@@ -1,5 +1,5 @@
 //
-//  ExposureDetailView.swift
+//  DetailView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 18/8/21.
@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct ExposureDetailView: View {
+struct DetailView: View {
 	
-	let exposure: ExposureModelRecord
 	@Binding var isShowingDetail: Bool
+
+	let exposure: ExposureModelRecord
 	
     var body: some View {
 
@@ -25,7 +26,7 @@ struct ExposureDetailView: View {
 		.overlay(Button {
 			isShowingDetail = false
 		} label: {
-			DismissButton(title: "Close window",image: "xmark")
-		}, alignment: .bottom)
+			OverlayButton(image: "xmark")
+		}, alignment: .topTrailing)
 	}
 }

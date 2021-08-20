@@ -1,5 +1,5 @@
 //
-//  LocationPermissionErrorView.swift
+//  MapViewError.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 17/8/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LocationPermissionErrorView: View {
+struct MapViewError: View {
 	
 	var errorText: String
 	
