@@ -26,12 +26,7 @@ struct ExposureListCell: View {
 				.font(.title3)
 				.bold()
 				.padding(.bottom, 1)
-			
-			// coords
-			Text( String("\(exposure.coordinates)") )
-				.foregroundColor(.red)
-			
-			
+						
 			// if there is an address
 			if let cleanSiteStreetAddress = exposure.Site_streetaddress {
 				Text( cleanSiteStreetAddress )

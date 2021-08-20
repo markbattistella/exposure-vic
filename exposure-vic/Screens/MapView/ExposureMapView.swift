@@ -15,15 +15,10 @@ struct ExposureMapView: View {
 	@StateObject var exposureModelData = ExposureModelData()
 
 	//
-
-	//
 	var body: some View {
 
 		ZStack {
 
-			
-			
-//
 //			Map(
 //				coordinateRegion: $locationViewModel.region,
 //				showsUserLocation: true,
@@ -32,34 +27,26 @@ struct ExposureMapView: View {
 //					MapPin(coordinate: location.coordinates!, tint: .red)
 //				}
 //			)
-			
-			
-			
-			
-			Text("ff")
-			
-			List(exposureModelData.exposures) { e in
-				Text( String("\(e.coordinates)") )
-			}
-			
-			
-			
-			
-			
+
+
+
 			// show the map
 			// -- this works without any annotations :(
-//			Map(
-//				coordinateRegion: $locationViewModel.region,
-//				showsUserLocation: true
-//			)
-//			.edgesIgnoringSafeArea(.all)
-			
-			
-			
+			Map(
+				coordinateRegion: $locationViewModel.region,
+				showsUserLocation: true
+			)
+			.edgesIgnoringSafeArea(.all)
+
 			// when the view is activated
 			// -- insert the reload from network
 			.onAppear {
 				exposureModelData.getExposureData()
+				
+				for l in exposureModelData.exposures {
+					print( String("\(l.coordinates)") )
+				}
+				
 			}
 			
 			// re-center location after pan and zoom
@@ -69,6 +56,7 @@ struct ExposureMapView: View {
 					locationViewModel.recentreLocation()
 				} label: {
 					DismissButton(title: "Re-centre", image: "target")
+						.shadow(radius: 10)
 				}
 			}
 		}

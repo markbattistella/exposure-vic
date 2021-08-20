@@ -44,16 +44,17 @@ struct ExposureModelRecord: Decodable, Identifiable {
 		let geocoder = CLGeocoder()
 		var output = CLLocationCoordinate2D()
 		if let address = Site_streetaddress,
+		   let suburb = Suburb,
 		   let postcode = Site_postcode,
 		   let state = Site_state {
-			
-			let fullAddress = "\(address), \(state) \(postcode)"
-			
-	
-			geocoder.geocodeAddressString( String(fullAddress) ) { ( placemark, error ) in
-				
-				
-				
+
+			// build a valid full address
+			let fullAddress = "\(address), \(suburb) \(state) \(postcode)"
+
+			// get the coordinates
+			geocoder.geocodeAddressString(fullAddress) { (placemark, error) in
+
+				// errors
 				if let error = error as? CLError {
 					switch error.code {
 						case .locationUnknown:
@@ -73,9 +74,8 @@ struct ExposureModelRecord: Decodable, Identifiable {
 						default : break
 					}
 				}
-				
-				
-				
+
+				// if we can get long / lat
 				if let latitude  = placemark?.first?.location?.coordinate.latitude,
 				   let longitude = placemark?.first?.location?.coordinate.longitude {
 					output = CLLocationCoordinate2D(
@@ -85,6 +85,8 @@ struct ExposureModelRecord: Decodable, Identifiable {
 				}
 			}
 		}
+
+		// return it for use
 		return output
 	}
 }

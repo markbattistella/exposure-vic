@@ -25,7 +25,7 @@ struct ExposureDetailView: View {
 		.overlay(Button {
 			isShowingDetail = false
 		} label: {
-			DismissButton(title: "close",image: "xmark")
-		}, alignment: .topTrailing)
+			DismissButton(title: "Close window",image: "xmark")
+		}, alignment: .bottom)
 	}
 }

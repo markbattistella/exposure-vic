@@ -20,11 +20,5 @@ struct DismissButton: View {
 			.background(Color(.systemBackground))
 			.cornerRadius(8)
 			.padding(.bottom, 10)
-			.shadow(
-				color: Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.15),
-				radius: 10,
-				x: 0,
-				y: 0
-			)
 	}
 }
