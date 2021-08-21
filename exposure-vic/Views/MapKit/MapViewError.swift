@@ -28,7 +28,7 @@ struct MapViewError: View {
 					URL(string: UIApplication.openSettingsURLString)!
 				)
 			}, label: {
-				Text("Go to settings")
+				FullWidthButton(title: "Go to settings", backgroundColour: .red, textColour: .white)
 			})
 			.padding(10)
 			.frame(width: 300, height: 50)

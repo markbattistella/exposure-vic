@@ -27,13 +27,9 @@ struct MapViewRequest: View {
 			Button(action: {
 				mapViewModel.requestPermission()
 			}, label: {
-				Text("Allow location")
+				FullWidthButton(title: "Allow location", backgroundColour: .green, textColour: .white)
+					.padding(10)
 			})
-			.padding(10)
-			.frame(width: 300, height: 50)
-			.foregroundColor(.white)
-			.background(Color.green)
-			.cornerRadius(12)
 		}
 		.foregroundColor(.secondary)
 		.frame(width: 300)

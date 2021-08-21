@@ -1,7 +1,6 @@
 /*
 
 DATA VICTORIA API HELPER
--------------------------
 
 The datastore_search action allows you to search data in a resource.
 DataStore resources that belong to private CKAN resource can only be
@@ -60,8 +59,7 @@ appropriate authorization.
 
 
 
-Results:
-------------
+# Results:
 
 The result of this action is a dictionary with the following keys:
 
@@ -84,5 +82,4 @@ The result of this action is a dictionary with the following keys:
 
 @param records: list of matching results
 -- type records: depends on records_format value passed
-
 */

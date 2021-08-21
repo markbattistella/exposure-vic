@@ -54,8 +54,6 @@ struct DetailView: View {
 					DetailInfoView(title: "Exposure information", message: notes)
 				}
 				
-				Divider()
-				
 				// advice tier
 				if let adviceTitle = exposure.Advice_title {
 					DetailInfoView(
@@ -77,20 +75,16 @@ struct DetailView: View {
 			Button {
 				isShowingDetail = false
 			} label : {
-				Text("Close")
-					.frame(maxWidth: .infinity, minHeight: 50)
-					.background(Color.red)
-					.foregroundColor(.white)
-					.font(.headline)
-					.cornerRadius(cornerRadius)
+				FullWidthButton(title: "Close", backgroundColour: .red, textColour: .white)
 			}
 		}
 		
 		// frame options
 		.padding()
-		.frame(maxWidth: 320, maxHeight: 600)
+		.frame(maxWidth: 320, maxHeight: 500)
 		.background(Color(.systemBackground))
 		.cornerRadius(cornerRadius)
 		.shadow(radius: cornerRadius)
 	}
 }
+

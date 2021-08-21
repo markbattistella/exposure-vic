@@ -22,29 +22,38 @@ struct ListCell: View {
 					.font(.title3)
 					.fontWeight(.heavy)
 					.multilineTextAlignment(.leading)
+					.padding(.bottom, 1)
 			}
 			
 			// street address
 			if let address = exposure.Site_streetaddress {
-				if let suburb = exposure.Suburb,
-				   let postcode = exposure.Site_postcode {
-					Text("\(address.replacingOccurrences(of: "\t", with: "")) \(suburb) \(postcode)")
-				} else {
-					Text("\(address.replacingOccurrences(of: "\t", with: ""))")
+				HStack {
+					Image(systemName: "pin.fill")
+						.foregroundColor(.gray)
+					if let suburb = exposure.Suburb,
+					   let postcode = exposure.Site_postcode {
+						Text("\(address.replacingOccurrences(of: "\t", with: "")) \(suburb) \(postcode)")
+					} else {
+						Text("\(address.replacingOccurrences(of: "\t", with: ""))")
+					}
 				}
+				.padding(.bottom, 1)
 			}
 			
 			// exposure date time
-			HStack {
-				if let exposureDate = exposure.Exposure_date {
+			if let exposureDate = exposure.Exposure_date {
+				HStack {
+					Image(systemName: "calendar.badge.clock")
 					Text(exposureDate)
+					if let exposureTime = exposure.Exposure_time {
+						Text(exposureTime.replacingOccurrences(of: " - ", with: "-"))
+					}
 				}
-				if let exposureTime = exposure.Exposure_time {
-					Text(exposureTime.replacingOccurrences(of: " - ", with: "-"))
-				}
+				.frame(maxWidth: .infinity, alignment: .leading)
+				.font(.body)
+				.foregroundColor(.secondary)
 			}
-			.font(.body)
-			.foregroundColor(.secondary)
+
 		}
 		.padding(.top, 10)
 		.padding(.bottom, 10)
