@@ -38,7 +38,10 @@ struct ExposureListView: View {
 				.navigationTitle("Exposure List")
 				
 				// disable the scroll when detail view is open
-				.disabled(exposureModelData.isShowingDetail)
+				.disabled(
+					exposureModelData.isShowingDetail ||
+					exposureModelData.isRefreshing
+				)
 
 			}
 			

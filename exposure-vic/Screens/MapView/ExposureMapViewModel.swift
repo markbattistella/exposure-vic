@@ -23,7 +23,6 @@ final class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerD
 		super.init()
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-		locationManager.distanceFilter = 1
 		locationManager.startUpdatingLocation()
 	}
 	
@@ -52,8 +51,8 @@ final class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerD
 		guard let location = locations.last else { return }
 		region = MKCoordinateRegion(
 			center: location.coordinate,
-			latitudinalMeters: 10000,
-			longitudinalMeters: 10000
+			latitudinalMeters: 8000, // 8km wide
+			longitudinalMeters: 8000 // 8km tall
 		)
 		locationManager.stopUpdatingLocation()
 	}

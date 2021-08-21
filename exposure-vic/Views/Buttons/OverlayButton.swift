@@ -18,5 +18,6 @@ struct OverlayButton: View {
 			.background(Color.white)
 			.clipShape(Circle())
 			.padding()
+			.shadow(radius: 10)
 	}
 }

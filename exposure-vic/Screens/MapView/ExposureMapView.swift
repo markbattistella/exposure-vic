@@ -41,7 +41,6 @@ struct ExposureMapView: View {
 						locationViewModel.recentreLocation()
 					} label: {
 						OverlayButton(image: "target")
-							.shadow(radius: 10)
 					}.padding(20)
 				}
 			}

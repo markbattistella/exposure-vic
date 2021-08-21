@@ -40,19 +40,13 @@ struct ExposureModelRecord: Decodable, Identifiable {
 	let Exposure_time_end_24: String?
 	
 	// get the co-ordinates now
-	var coordinates: CLLocationCoordinate2D? {
-		let geocoder = CLGeocoder()
-		var output = CLLocationCoordinate2D()
+	func getCoordinates(handler: @escaping ((CLLocationCoordinate2D) -> Void)) {
 		if let address = Site_streetaddress,
 		   let suburb = Suburb,
 		   let postcode = Site_postcode,
 		   let state = Site_state {
 
-			// build a valid full address
-			let fullAddress = "\(address), \(suburb) \(state) \(postcode)"
-
-			// get the coordinates
-			geocoder.geocodeAddressString(fullAddress) { (placemark, error) in
+			CLGeocoder().geocodeAddressString("\(address) \(suburb) \(state) \(postcode)") { ( placemark, error ) in
 
 				// errors
 				if let error = error as? CLError {
@@ -75,18 +69,11 @@ struct ExposureModelRecord: Decodable, Identifiable {
 					}
 				}
 
-				// if we can get long / lat
-				if let latitude  = placemark?.first?.location?.coordinate.latitude,
-				   let longitude = placemark?.first?.location?.coordinate.longitude {
-					output = CLLocationCoordinate2D(
-						latitude: latitude,
-						longitude: longitude
-					)
-				}
+				// success
+				handler(
+					placemark?.first?.location?.coordinate ?? CLLocationCoordinate2D()
+				)
 			}
 		}
-
-		// return it for use
-		return output
 	}
 }
