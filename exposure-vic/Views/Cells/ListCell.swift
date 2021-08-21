@@ -10,29 +10,43 @@ import SwiftUI
 struct ListCell: View {
 	
 	let exposure: ExposureDataRecord
-
+	
 	var body: some View {
-
+		
 		// build the view
 		VStack( alignment: .leading ) {
-
-			Text( exposure.Suburb ?? "NIL" )
-				.font(.title2)
-				.bold()
-				.frame(maxWidth: 350, alignment: .leading)
-
+			
 			// site title
-			Text( exposure.Site_title ?? "NIL")
-				.font(.title3)
-				.bold()
-				.padding(.bottom, 1)
-						
-			// if there is an address
-			if let cleanSiteStreetAddress = exposure.Site_streetaddress {
-				Text( cleanSiteStreetAddress )
+			if let place = exposure.Site_title {
+				Text(place)
 					.font(.title3)
-					.padding(.bottom, 1)
+					.fontWeight(.heavy)
+					.multilineTextAlignment(.leading)
 			}
+			
+			// street address
+			if let address = exposure.Site_streetaddress {
+				if let suburb = exposure.Suburb,
+				   let postcode = exposure.Site_postcode {
+					Text("\(address.replacingOccurrences(of: "\t", with: "")) \(suburb) \(postcode)")
+				} else {
+					Text("\(address.replacingOccurrences(of: "\t", with: ""))")
+				}
+			}
+			
+			// exposure date time
+			HStack {
+				if let exposureDate = exposure.Exposure_date {
+					Text(exposureDate)
+				}
+				if let exposureTime = exposure.Exposure_time {
+					Text(exposureTime.replacingOccurrences(of: " - ", with: "-"))
+				}
+			}
+			.font(.body)
+			.foregroundColor(.secondary)
 		}
+		.padding(.top, 10)
+		.padding(.bottom, 10)
 	}
 }

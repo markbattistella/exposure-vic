@@ -11,21 +11,86 @@ struct DetailView: View {
 	
 	@Binding var isShowingDetail: Bool
 	let exposure: ExposureDataRecord
+	let cornerRadius: CGFloat = 12
 	
-    var body: some View {
-
-		VStack {
-			Text(exposure.Site_title ?? "NIL")
-		}
-		.frame(width: 300, height: 500)
-		.background(Color(.systemBackground))
-		.cornerRadius(12)
-		.shadow(radius: 40)
+	var body: some View {
 		
-		.overlay(Button {
-			isShowingDetail = false
-		} label: {
-			OverlayButton(image: "xmark")
-		}, alignment: .topTrailing)
+		VStack {
+			ScrollView(showsIndicators: false) {
+				
+				// site title
+				if let place = exposure.Site_title {
+					DetailInfoView(title: "Site name", message: place)
+				}
+				
+				// street address
+				if let address = exposure.Site_streetaddress {
+					if let suburb = exposure.Suburb,
+					   let postcode = exposure.Site_postcode {
+						DetailInfoView(
+							title: "Address",
+							message: "\(address.replacingOccurrences(of: "\t", with: "")) \(suburb) \(postcode)"
+						)
+					}
+				}
+				
+				// exposure date time
+				if let exposureDate = exposure.Exposure_date {
+					if let exposureTime = exposure.Exposure_time {
+						DetailInfoView(
+							title: "Exposure date and time",
+							message: "\(exposureDate) \(exposureTime.replacingOccurrences(of: " - ", with: "-"))"
+						)
+					} else {
+						DetailInfoView(
+							title: "Exposure date",
+							message: exposureDate
+						)
+					}
+				}
+				
+				// Notes
+				if let notes = exposure.Notes {
+					DetailInfoView(title: "Exposure information", message: notes)
+				}
+				
+				Divider()
+				
+				// advice tier
+				if let adviceTitle = exposure.Advice_title {
+					DetailInfoView(
+						title: "Exposure tier",
+						message: adviceTitle
+					)
+				}
+				
+				// advice instruction
+				if let instruction = exposure.Advice_instruction  {
+					DetailInfoView(
+						title: "Health instructions",
+						message: instruction
+					)
+				}
+			}
+			
+			// close button
+			Button {
+				isShowingDetail = false
+			} label : {
+				Text("Close")
+					.frame(maxWidth: .infinity, minHeight: 50)
+					.background(Color.red)
+					.foregroundColor(.white)
+					.font(.headline)
+					.cornerRadius(cornerRadius)
+			}
+		}
+		
+		// frame options
+		.padding()
+		.frame(maxWidth: 320, maxHeight: 600)
+		.background(Color(.systemBackground))
+		.cornerRadius(cornerRadius)
+		.shadow(radius: cornerRadius)
 	}
 }
