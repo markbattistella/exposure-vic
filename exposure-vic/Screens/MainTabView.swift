@@ -1,5 +1,5 @@
 //
-//  MapView.swift
+//  MainTabView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExposureTabView: View {
+struct MainTabView: View {
 	
 	var body: some View {
 		
@@ -25,7 +25,7 @@ struct ExposureTabView: View {
 			
 			// tab 2
 			// -- show the list of sites
-			ExposureListView()
+			ListView()
 				.tabItem {
 					Image(systemName: "list.star")
 					Text("List")
@@ -33,7 +33,7 @@ struct ExposureTabView: View {
 			
 			// tab 3
 			// -- settings screen and info
-			ExposureSettingsView()
+			SettingsView()
 				.tabItem {
 					Image(systemName: "gearshape.fill")
 					Text("Settings")

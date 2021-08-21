@@ -20,6 +20,21 @@ struct MapViewError: View {
 			Text(errorText)
 				.padding()
 				.font(.headline)
+				.multilineTextAlignment(.center)
+			
+			// send user to settings
+			Button(action: {
+				UIApplication.shared.open(
+					URL(string: UIApplication.openSettingsURLString)!
+				)
+			}, label: {
+				Text("Go to settings")
+			})
+			.padding(10)
+			.frame(width: 300, height: 50)
+			.foregroundColor(.white)
+			.background(Color.red)
+			.cornerRadius(12)
 		}
 		.foregroundColor(.secondary)
 		.frame(width: 300)

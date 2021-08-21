@@ -9,17 +9,17 @@ import SwiftUI
 
 struct MapViewSwitcher: View {
 	
-	@StateObject var exposureMapViewModel = ExposureMapViewModel()
+	@StateObject var mapViewModel = MapViewModel()
 	
 	var body: some View {
 
 		// find out what weve been permitted
-		switch exposureMapViewModel.authorizationStatus {
+		switch mapViewModel.authorizationStatus {
 			
 			// success: user has allowed location use
 			case .authorizedAlways,
 				 .authorizedWhenInUse:
-				ExposureMapView(locationViewModel: exposureMapViewModel)
+				MapView(mapViewModel: mapViewModel)
 				
 			// failure: user denied permission
 			case .denied:
@@ -27,7 +27,7 @@ struct MapViewSwitcher: View {
 				
 			// unsure
 			case .notDetermined:
-				MapViewRequest(exposureMapViewModel: exposureMapViewModel)
+				MapViewRequest(mapViewModel: mapViewModel)
 
 			// location use is not on
 			case .restricted:

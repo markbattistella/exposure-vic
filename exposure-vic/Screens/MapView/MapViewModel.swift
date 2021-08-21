@@ -1,5 +1,5 @@
 //
-//  ExposureMapViewModel.swift
+//  MapViewModel.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 17/8/21.
@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-final class ExposureMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 	
 	// variables
 	@Published var authorizationStatus: CLAuthorizationStatus

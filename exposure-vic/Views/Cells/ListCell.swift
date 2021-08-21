@@ -1,5 +1,5 @@
 //
-//  ExposureListCell.swift
+//  ListCell.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ExposureListCell: View {
+struct ListCell: View {
 	
-	let exposure: ExposureModelRecord
+	let exposure: ExposureDataRecord
 
 	var body: some View {
 

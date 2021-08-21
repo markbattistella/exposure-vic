@@ -11,7 +11,7 @@ import Foundation
 struct MockData {
 
 	// set up a dummy exposure
-	static let sampleExposureRecordOne = ExposureModelRecord(
+	static let sampleExposureRecordOne = ExposureDataRecord(
 		_id: 1,
 		Suburb: "Keysborough",
 		Site_title: "Miele Clearance Centre Keysborough",
@@ -31,7 +31,7 @@ struct MockData {
 		Exposure_time_end_24: "10:47:00"
 	)
 	
-	static let sampleExposureRecordTwo = ExposureModelRecord(
+	static let sampleExposureRecordTwo = ExposureDataRecord(
 		_id: 2,
 		Suburb: "Keysborough",
 		Site_title: "Miele Clearance Centre Keysborough",
@@ -51,7 +51,7 @@ struct MockData {
 		Exposure_time_end_24: "10:47:00"
 	)
 	
-	static let sampleExposureRecordThree = ExposureModelRecord(
+	static let sampleExposureRecordThree = ExposureDataRecord(
 		_id: 3,
 		Suburb: "Keysborough",
 		Site_title: "Miele Clearance Centre Keysborough",
@@ -70,7 +70,7 @@ struct MockData {
 		Exposure_time_start_24: "10:02:00",
 		Exposure_time_end_24: "10:47:00"
 	)
-	static let sampleExposureRecordFour = ExposureModelRecord(
+	static let sampleExposureRecordFour = ExposureDataRecord(
 		_id: 4,
 		Suburb: "Keysborough",
 		Site_title: "Miele Clearance Centre Keysborough",

@@ -1,5 +1,5 @@
 //
-//  MapTrackingView.swift
+//  MapView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 17/8/21.
@@ -8,11 +8,10 @@
 import SwiftUI
 import MapKit
 
-struct ExposureMapView: View {
+struct MapView: View {
 	
 	//
-	@StateObject var locationViewModel = ExposureMapViewModel()
-	@StateObject var exposureModelData = ExposureModelData()
+	@StateObject var mapViewModel = MapViewModel()
 	
 	//
 	var body: some View {
@@ -21,24 +20,18 @@ struct ExposureMapView: View {
 			// show the map
 			// -- this works without any annotations :(
 			Map(
-				coordinateRegion: $locationViewModel.region,
+				coordinateRegion: $mapViewModel.region,
 				showsUserLocation: true
 			)
 			.edgesIgnoringSafeArea(.all)
-			
-			// when the view is activated
-			// -- insert the reload from network
-			.onAppear {
-				exposureModelData.getExposureData()
-			}
-			
+						
 			// re-center location after pan and zoom
 			VStack {
 				Spacer()
 				HStack {
 					Spacer()
 					Button {
-						locationViewModel.recentreLocation()
+						mapViewModel.recentreLocation()
 					} label: {
 						OverlayButton(image: "target")
 					}.padding(20)

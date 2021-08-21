@@ -1,5 +1,5 @@
 //
-//  ExposureModelData.swift
+//  ModelData.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-final class ExposureModelData: ObservableObject {
+final class ModelData: ObservableObject {
 	
-	@Published var exposures: [ExposureModelRecord] = []
+	@Published var exposures: [ExposureDataRecord] = []
 	@Published var alertItem: AlertItem?
 	@Published var lastUpdated: String = ""
 	@Published var isLoading = false
 	@Published var isShowingDetail = false
-	@Published var selectedExposure: ExposureModelRecord?
+	@Published var selectedExposure: ExposureDataRecord?
 	@Published var isRefreshing = false
 
 	// get the data

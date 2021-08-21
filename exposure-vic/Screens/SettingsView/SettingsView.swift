@@ -1,5 +1,5 @@
 //
-//  ExposureSettingsView.swift
+//  SettingsView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct ExposureSettingsView: View {
+struct SettingsView: View {
 
 	// access to the view model
-	@StateObject var exposureModelData = ExposureModelData()
-	@StateObject var settingsViewModel = ExposureSettingsViewModel()
+	@StateObject var modelData = ModelData()
+	@StateObject var settingsViewModel = SettingsViewModel()
 
 	var body: some View {
 
@@ -21,7 +21,7 @@ struct ExposureSettingsView: View {
 				
 				Section {
 					Button {
-						exposureModelData.getExposureData()
+						modelData.getExposureData()
 					} label: {
 						Label("Check for new exposures", systemImage: "arrow.down.heart.fill")
 					}
@@ -29,7 +29,7 @@ struct ExposureSettingsView: View {
 					HStack {
 						Text("Last updated")
 						Spacer()
-						Text( exposureModelData.lastUpdated )
+						Text( modelData.lastUpdated )
 							.foregroundColor(.secondary)
 					}
 				}
@@ -77,7 +77,7 @@ struct ExposureSettingsView: View {
 			
 			// update data on appear
 			.onAppear {
-				exposureModelData.getExposureData()
+				modelData.getExposureData()
 				settingsViewModel.retrieveChanges()
 			}
 			

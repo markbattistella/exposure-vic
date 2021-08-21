@@ -1,5 +1,5 @@
 //
-//  ExposureSettingsViewModel.swift
+//  SettingsViewModel.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 18/8/21.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-final class ExposureSettingsViewModel: ObservableObject {
+final class SettingsViewModel: ObservableObject {
 	
 	@AppStorage("setting") private var settingData: Data?
-	@Published var setting = Settings()
+	@Published var setting = SettingData()
 	@Published var alertItem: AlertItem?
 	
 	var mapRingSizes = [ 5, 10, 15, 20, 25 ]
@@ -42,7 +42,7 @@ final class ExposureSettingsViewModel: ObservableObject {
 		guard let settingData = settingData else { return }
 		
 		do {
-			setting = try JSONDecoder().decode(Settings.self, from: settingData)
+			setting = try JSONDecoder().decode(SettingData.self, from: settingData)
 		} catch {
 			alertItem = AlertContext.unableToRetrieveSettings
 		}

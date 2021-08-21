@@ -1,5 +1,5 @@
 //
-//  ExposureModel.swift
+//  ExposureData.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
@@ -9,17 +9,17 @@ import Foundation
 import CoreLocation
 
 // MARK: - ExposureDataModel
-struct ExposureModel: Decodable {
-	let result: ExposureModelResult
+struct ExposureData: Decodable {
+	let result: ExposureDataResult
 }
 
-struct ExposureModelResult: Decodable {
-	let records: [ExposureModelRecord]
+struct ExposureDataResult: Decodable {
+	let records: [ExposureDataRecord]
 	let total: Int
 }
 
 // MARK: - Record
-struct ExposureModelRecord: Decodable, Identifiable {
+struct ExposureDataRecord: Decodable, Identifiable {
 	var id: Int { _id }
 	let _id: Int
 	let Suburb: String?

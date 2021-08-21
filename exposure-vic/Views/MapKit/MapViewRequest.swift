@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MapViewRequest: View {
 
-	@ObservedObject var exposureMapViewModel: ExposureMapViewModel
+	@ObservedObject var mapViewModel: MapViewModel
 	
 	var body: some View {
 		
@@ -21,9 +21,11 @@ struct MapViewRequest: View {
 			Text("Allow location to see any exposure sites near you")
 				.padding()
 				.font(.headline)
+				.multilineTextAlignment(.center)
+
 
 			Button(action: {
-				exposureMapViewModel.requestPermission()
+				mapViewModel.requestPermission()
 			}, label: {
 				Text("Allow location")
 			})

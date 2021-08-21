@@ -1,5 +1,5 @@
 //
-//  ExposureListView.swift
+//  ListView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
@@ -7,31 +7,31 @@
 
 import SwiftUI
 
-struct ExposureListView: View {
+struct ListView: View {
 	
-	@StateObject var exposureModelData = ExposureModelData()
+	@StateObject var modelData = ModelData()
 
 	var body: some View {
 		
 		ZStack {
 			NavigationView {
-				List(exposureModelData.exposures) { exposure in
+				List(modelData.exposures) { exposure in
 					
 					// pass in the custom view
-					ExposureListCell(exposure: exposure)
+					ListCell(exposure: exposure)
 						
 						// show the detail view on tap
 						.onTapGesture {
-							exposureModelData.selectedExposure = exposure
-							exposureModelData.isShowingDetail = true
+							modelData.selectedExposure = exposure
+							modelData.isShowingDetail = true
 						}
 				}
 				
 				// pull down to refresh
 				.background( PullToRefresh( action: {
-					exposureModelData.getExposureData()
-					exposureModelData.isRefreshing = false
-				}, isRefreshing: $exposureModelData.isRefreshing))
+					modelData.getExposureData()
+					modelData.isRefreshing = false
+				}, isRefreshing: $modelData.isRefreshing))
 				
 				
 				// the navigation title
@@ -39,8 +39,8 @@ struct ExposureListView: View {
 				
 				// disable the scroll when detail view is open
 				.disabled(
-					exposureModelData.isShowingDetail ||
-					exposureModelData.isRefreshing
+					modelData.isShowingDetail ||
+					modelData.isRefreshing
 				)
 
 			}
@@ -48,28 +48,28 @@ struct ExposureListView: View {
 			// when the view is activated
 			// -- insert the reload from network
 			.onAppear {
-				exposureModelData.getExposureData()
+				modelData.getExposureData()
 			}
 			
 			// blue the list when detail is open
-			.blur(radius: exposureModelData.isShowingDetail ? 8 : 0)
+			.blur(radius: modelData.isShowingDetail ? 8 : 0)
 
 			// if the detail is to be shown
-			if exposureModelData.isShowingDetail {
+			if modelData.isShowingDetail {
 				DetailView(
-					isShowingDetail: $exposureModelData.isShowingDetail,
-					exposure: exposureModelData.selectedExposure!
+					isShowingDetail: $modelData.isShowingDetail,
+					exposure: modelData.selectedExposure!
 				)
 			}
 
 			// show loading spinner when loading
-			if exposureModelData.isLoading {
+			if modelData.isLoading {
 				LoadingView()
 			}
 		}
 
 		// show error alerts
-		.alert(item: $exposureModelData.alertItem) { alertItem in
+		.alert(item: $modelData.alertItem) { alertItem in
 			Alert(title: alertItem.title,
 				  message: alertItem.message,
 				  dismissButton: alertItem.dismissButton)
