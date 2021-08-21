@@ -14,7 +14,7 @@
 		A321CE8B26CCECDD00617E73 /* FormTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8A26CCECDD00617E73 /* FormTextRow.swift */; };
 		A321CE8D26CCED9600617E73 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8C26CCED9600617E73 /* SettingsViewModel.swift */; };
 		A321CE8F26CD02CB00617E73 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8E26CD02CB00617E73 /* SettingsModel.swift */; };
-		A321CEB426CE6C5200617E73 /* DataVICAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CEB326CE6C5200617E73 /* DataVICAPI.swift */; };
+		A321CEB426CE6C5200617E73 /* DataVICAPI.md in Sources */ = {isa = PBXBuildFile; fileRef = A321CEB326CE6C5200617E73 /* DataVICAPI.md */; };
 		A321CEB626CF051200617E73 /* FormURLRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CEB526CF051200617E73 /* FormURLRow.swift */; };
 		A36DA36726CB293800DDA3D7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36626CB293800DDA3D7 /* MapView.swift */; };
 		A36DA36926CB294F00DDA3D7 /* MapViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36826CB294F00DDA3D7 /* MapViewError.swift */; };
@@ -45,7 +45,7 @@
 		A321CE8A26CCECDD00617E73 /* FormTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextRow.swift; sourceTree = "<group>"; };
 		A321CE8C26CCED9600617E73 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A321CE8E26CD02CB00617E73 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
-		A321CEB326CE6C5200617E73 /* DataVICAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataVICAPI.swift; sourceTree = "<group>"; };
+		A321CEB326CE6C5200617E73 /* DataVICAPI.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DataVICAPI.md; sourceTree = "<group>"; };
 		A321CEB526CF051200617E73 /* FormURLRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormURLRow.swift; sourceTree = "<group>"; };
 		A36DA36626CB293800DDA3D7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A36DA36826CB294F00DDA3D7 /* MapViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewError.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				A393339326CA1DF000303F52 /* NetworkManager.swift */,
-				A321CEB326CE6C5200617E73 /* DataVICAPI.swift */,
+				A321CEB326CE6C5200617E73 /* DataVICAPI.md */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -331,7 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A321CE8F26CD02CB00617E73 /* SettingsModel.swift in Sources */,
-				A321CEB426CE6C5200617E73 /* DataVICAPI.swift in Sources */,
+				A321CEB426CE6C5200617E73 /* DataVICAPI.md in Sources */,
 				A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */,
 				A321CE8926CCDD4900617E73 /* PullToRefresh.swift in Sources */,
 				A393339826CA1FDE00303F52 /* ErrorType.swift in Sources */,
