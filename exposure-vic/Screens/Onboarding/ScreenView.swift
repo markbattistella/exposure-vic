@@ -16,13 +16,13 @@ struct ScreenView: View {
 	
 	var body: some View {
 		VStack(spacing: 20) {
-			Spacer()
+			Spacer(minLength: 60)
 			
 			// image
 			Image(image)
 				.resizable()
 				.aspectRatio(contentMode: .fit)
-				.frame(height: 400)
+				.frame(maxWidth: .infinity, maxHeight: 300)
 			
 			// title
 			Text(title)
@@ -32,11 +32,12 @@ struct ScreenView: View {
 			// description
 			Text(description)
 				.font(.title3)
+				.padding()
+				.multilineTextAlignment(.center)
 			
 			Spacer(minLength: 120)
 		}
-		.foregroundColor(.primary)
-		.padding(.bottom, 20)
+		.foregroundColor(.white)
 		.background(backgroundColour)
 		.edgesIgnoringSafeArea(.all)
 	}
