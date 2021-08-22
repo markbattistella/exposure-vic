@@ -6,6 +6,10 @@ This is a concept app that pulls data from the Victorian Government data resourc
 
 ![](.data/concept.gif)
 
+## Progress video
+
+![](.data/progress.gif)
+
 ## Features
 
 1. Toggle locations on and off

@@ -95,5 +95,4 @@ struct WalkthroughView: View {
 			}
 		}
 	}
-	
 }
