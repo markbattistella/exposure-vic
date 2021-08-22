@@ -37,6 +37,18 @@ struct ListView: View {
 				// the navigation title
 				.navigationTitle("Exposure List")
 				
+				// navbar
+				.navigationBarItems(trailing:
+					Button {
+						modelData.getExposureData()
+						modelData.isRefreshing = false
+						
+					} label: {
+						Image(systemName: "arrow.counterclockwise")
+							.imageScale(.large)
+					}
+				)
+				
 				// disable the scroll when detail view is open
 				.disabled(
 					modelData.isShowingDetail ||
@@ -75,5 +87,4 @@ struct ListView: View {
 				  dismissButton: alertItem.dismissButton)
 		}
 	}
-
 }

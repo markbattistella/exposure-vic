@@ -18,7 +18,7 @@ struct ListCell: View {
 			
 			// site title
 			if let place = exposure.Site_title {
-				Text(place)
+				Text(place.sanitise())
 					.font(.title3)
 					.fontWeight(.heavy)
 					.multilineTextAlignment(.leading)
@@ -32,9 +32,9 @@ struct ListCell: View {
 						.foregroundColor(.gray)
 					if let suburb = exposure.Suburb,
 					   let postcode = exposure.Site_postcode {
-						Text("\(address.replacingOccurrences(of: "\t", with: "")) \(suburb) \(postcode)")
+						Text("\(address.sanitise()) \(suburb.sanitise()) \(postcode.sanitise())")
 					} else {
-						Text("\(address.replacingOccurrences(of: "\t", with: ""))")
+						Text(address.sanitise())
 					}
 				}
 				.padding(.bottom, 1)
@@ -44,9 +44,9 @@ struct ListCell: View {
 			if let exposureDate = exposure.Exposure_date {
 				HStack {
 					Image(systemName: "calendar.badge.clock")
-					Text(exposureDate)
+					Text(exposureDate.sanitise())
 					if let exposureTime = exposure.Exposure_time {
-						Text(exposureTime.replacingOccurrences(of: " - ", with: "-"))
+						Text(exposureTime.sanitise().replacingOccurrences(of: " - ", with: "-"))
 					}
 				}
 				.frame(maxWidth: .infinity, alignment: .leading)

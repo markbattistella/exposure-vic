@@ -20,7 +20,10 @@ struct DetailView: View {
 				
 				// site title
 				if let place = exposure.Site_title {
-					DetailInfoView(title: "Site name", message: place)
+					DetailInfoView(
+						title: "Site name",
+						message: place.sanitise()
+					)
 				}
 				
 				// street address
@@ -29,7 +32,7 @@ struct DetailView: View {
 					   let postcode = exposure.Site_postcode {
 						DetailInfoView(
 							title: "Address",
-							message: "\(address.replacingOccurrences(of: "\t", with: "")) \(suburb) \(postcode)"
+							message: "\(address.sanitise()) \(suburb.sanitise()) \(postcode.sanitise())"
 						)
 					}
 				}
@@ -39,26 +42,29 @@ struct DetailView: View {
 					if let exposureTime = exposure.Exposure_time {
 						DetailInfoView(
 							title: "Exposure date and time",
-							message: "\(exposureDate) \(exposureTime.replacingOccurrences(of: " - ", with: "-"))"
+							message: "\(exposureDate.sanitise()) \(exposureTime.sanitise().replacingOccurrences(of: " - ", with: "-"))"
 						)
 					} else {
 						DetailInfoView(
 							title: "Exposure date",
-							message: exposureDate
+							message: exposureDate.sanitise()
 						)
 					}
 				}
 				
 				// Notes
 				if let notes = exposure.Notes {
-					DetailInfoView(title: "Exposure information", message: notes)
+					DetailInfoView(
+						title: "Exposure information",
+						message: notes.sanitise()
+					)
 				}
 				
 				// advice tier
 				if let adviceTitle = exposure.Advice_title {
 					DetailInfoView(
 						title: "Exposure tier",
-						message: adviceTitle
+						message: adviceTitle.sanitise()
 					)
 				}
 				
@@ -66,16 +72,35 @@ struct DetailView: View {
 				if let instruction = exposure.Advice_instruction  {
 					DetailInfoView(
 						title: "Health instructions",
-						message: instruction
+						message: instruction.sanitise()
 					)
 				}
 			}
 			
-			// close button
-			Button {
-				isShowingDetail = false
-			} label : {
-				FullWidthButton(title: "Close", backgroundColour: .red, textColour: .white)
+			
+			HStack {
+				// close button
+				Button {
+					isShowingDetail = false
+				} label : {
+					FullWidthButton(
+						title: "Close",
+						backgroundColour: .red,
+						textColour: .white
+					)
+				}
+				
+				// share button
+				Button {
+					print("sharing...")
+				} label: {
+					Image(systemName: "square.and.arrow.up")
+						.frame(width: 50, height: 50)
+						.background(Color.brandPrimary)
+						.foregroundColor(.white)
+						.font(.headline)
+						.cornerRadius(12)
+				}
 			}
 		}
 		
@@ -86,5 +111,8 @@ struct DetailView: View {
 		.cornerRadius(cornerRadius)
 		.shadow(radius: cornerRadius)
 	}
+	
+	// share sheet
+	// -- what to share
+	
 }
-
