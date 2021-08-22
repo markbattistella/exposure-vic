@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct Exposure_VICApp: App {
-    var body: some Scene {
+	
+	let totalPages = 3
+	@AppStorage("currentPage") var currentPage = 1
+
+	var body: some Scene {
         WindowGroup {
-			MainTabView()
+			// check if we are onboarding or not
+			if currentPage > totalPages {
+				MainTabView()
+			} else {
+				WalkthroughView()
+			}
         }
     }
 }

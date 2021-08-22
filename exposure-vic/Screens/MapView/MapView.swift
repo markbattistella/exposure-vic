@@ -10,10 +10,8 @@ import MapKit
 
 struct MapView: View {
 	
-	//
 	@StateObject var mapViewModel = MapViewModel()
 	
-	//
 	var body: some View {
 		
 		ZStack {

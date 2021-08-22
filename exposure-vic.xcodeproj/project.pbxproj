@@ -33,6 +33,9 @@
 		A39333A026CA319300303F52 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339F26CA319300303F52 /* ListCell.swift */; };
 		A39333A226CA358300303F52 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39333A126CA358300303F52 /* MockData.swift */; };
 		A39333A426CA471800303F52 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39333A326CA471800303F52 /* ModelData.swift */; };
+		A39D87BE26D1DDB00079E895 /* WalkthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87BD26D1DDB00079E895 /* WalkthroughView.swift */; };
+		A39D87C026D1DE3A0079E895 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87BF26D1DE3A0079E895 /* ScreenView.swift */; };
+		A39D87C226D1E19E0079E895 /* Colour+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87C126D1E19E0079E895 /* Colour+Ext.swift */; };
 		A3BF0E1326CFD64F003CFF22 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF0E1226CFD64F003CFF22 /* LoadingView.swift */; };
 		A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */; };
 		A3F0F6C526C653A7004877EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C426C653A7004877EC /* Assets.xcassets */; };
@@ -66,6 +69,9 @@
 		A393339F26CA319300303F52 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		A39333A126CA358300303F52 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		A39333A326CA471800303F52 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		A39D87BD26D1DDB00079E895 /* WalkthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughView.swift; sourceTree = "<group>"; };
+		A39D87BF26D1DE3A0079E895 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
+		A39D87C126D1E19E0079E895 /* Colour+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colour+Ext.swift"; sourceTree = "<group>"; };
 		A3BF0E1226CFD64F003CFF22 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		A3F0F6BD26C653A6004877EC /* exposure-vic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "exposure-vic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureVICApp.swift; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 			children = (
 				A393338926CA19BF00303F52 /* MainTabView.swift */,
 				A39333A326CA471800303F52 /* ModelData.swift */,
+				A39D87BC26D1DCF30079E895 /* Onboarding */,
 				A321CE7A26CCC1D100617E73 /* MapView */,
 				A321CE7926CCC1B200617E73 /* ListView */,
 				A321CE7B26CCC1E000617E73 /* SettingsView */,
@@ -145,6 +152,7 @@
 		A321CE7E26CCC2F500617E73 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A39D87C126D1E19E0079E895 /* Colour+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -214,6 +222,15 @@
 				A335A09F26D12C3100A9B907 /* FullWidthButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		A39D87BC26D1DCF30079E895 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A39D87BD26D1DDB00079E895 /* WalkthroughView.swift */,
+				A39D87BF26D1DE3A0079E895 /* ScreenView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		A3A4EAEB26CC7B0D0084A58A /* Views */ = {
@@ -338,6 +355,7 @@
 			files = (
 				A321CE8F26CD02CB00617E73 /* SettingsModel.swift in Sources */,
 				A321CEB426CE6C5200617E73 /* DataVICAPI.swift in Sources */,
+				A39D87C226D1E19E0079E895 /* Colour+Ext.swift in Sources */,
 				A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */,
 				A321CE8926CCDD4900617E73 /* PullToRefresh.swift in Sources */,
 				A393339826CA1FDE00303F52 /* ErrorType.swift in Sources */,
@@ -356,9 +374,11 @@
 				A36DA36726CB293800DDA3D7 /* MapView.swift in Sources */,
 				A39333A226CA358300303F52 /* MockData.swift in Sources */,
 				A393339426CA1DF000303F52 /* NetworkManager.swift in Sources */,
+				A39D87BE26D1DDB00079E895 /* WalkthroughView.swift in Sources */,
 				A393338A26CA19BF00303F52 /* MainTabView.swift in Sources */,
 				A393339026CA1BA800303F52 /* MapViewSwitcher.swift in Sources */,
 				A393339A26CA201B00303F52 /* ErrorAlert.swift in Sources */,
+				A39D87C026D1DE3A0079E895 /* ScreenView.swift in Sources */,
 				A36DA36926CB294F00DDA3D7 /* MapViewError.swift in Sources */,
 				A335A09E26D120E600A9B907 /* DetailInfoView.swift in Sources */,
 				A36DA36B26CB296800DDA3D7 /* MapViewRequest.swift in Sources */,
