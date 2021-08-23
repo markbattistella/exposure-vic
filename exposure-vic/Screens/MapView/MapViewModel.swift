@@ -69,8 +69,8 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
 		// set the region
 		region = MKCoordinateRegion(
 			center: location,
-			latitudinalMeters: 1, // 8km wide
-			longitudinalMeters: 1 // 8km tall
+			latitudinalMeters: 8000, // 8km wide
+			longitudinalMeters: 8000 // 8km tall
 		)
 
 		// stop updating

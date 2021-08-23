@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OverlayButton: View {
+struct MapOverlay: View {
 	
 	let image: String
 	

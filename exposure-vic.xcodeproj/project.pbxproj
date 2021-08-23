@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A321CE7526CCB78800617E73 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE7426CCB78800617E73 /* DetailView.swift */; };
 		A321CE7726CCB81700617E73 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE7626CCB81700617E73 /* ActivityIndicator.swift */; };
-		A321CE8726CCCD9900617E73 /* OverlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8626CCCD9900617E73 /* OverlayButton.swift */; };
+		A321CE8726CCCD9900617E73 /* MapOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8626CCCD9900617E73 /* MapOverlay.swift */; };
 		A321CE8926CCDD4900617E73 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8826CCDD4900617E73 /* PullToRefresh.swift */; };
 		A321CE8B26CCECDD00617E73 /* FormTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8A26CCECDD00617E73 /* FormTextRow.swift */; };
 		A321CE8D26CCED9600617E73 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8C26CCED9600617E73 /* SettingsViewModel.swift */; };
@@ -18,6 +18,7 @@
 		A321CEB626CF051200617E73 /* FormURLRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CEB526CF051200617E73 /* FormURLRow.swift */; };
 		A335A09E26D120E600A9B907 /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A335A09D26D120E600A9B907 /* DetailInfoView.swift */; };
 		A335A0A026D12C3100A9B907 /* FullWidthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A335A09F26D12C3100A9B907 /* FullWidthButton.swift */; };
+		A34EEFF626D33F1A00173D24 /* AcknowledgementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34EEFF526D33F1A00173D24 /* AcknowledgementsView.swift */; };
 		A36DA36726CB293800DDA3D7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36626CB293800DDA3D7 /* MapView.swift */; };
 		A36DA36926CB294F00DDA3D7 /* MapViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36826CB294F00DDA3D7 /* MapViewError.swift */; };
 		A36DA36B26CB296800DDA3D7 /* MapViewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DA36A26CB296800DDA3D7 /* MapViewRequest.swift */; };
@@ -46,7 +47,7 @@
 /* Begin PBXFileReference section */
 		A321CE7426CCB78800617E73 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A321CE7626CCB81700617E73 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		A321CE8626CCCD9900617E73 /* OverlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayButton.swift; sourceTree = "<group>"; };
+		A321CE8626CCCD9900617E73 /* MapOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOverlay.swift; sourceTree = "<group>"; };
 		A321CE8826CCDD4900617E73 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		A321CE8A26CCECDD00617E73 /* FormTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextRow.swift; sourceTree = "<group>"; };
 		A321CE8C26CCED9600617E73 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		A321CEB526CF051200617E73 /* FormURLRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormURLRow.swift; sourceTree = "<group>"; };
 		A335A09D26D120E600A9B907 /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 		A335A09F26D12C3100A9B907 /* FullWidthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthButton.swift; sourceTree = "<group>"; };
+		A34EEFF526D33F1A00173D24 /* AcknowledgementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsView.swift; sourceTree = "<group>"; };
 		A36DA36626CB293800DDA3D7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A36DA36826CB294F00DDA3D7 /* MapViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewError.swift; sourceTree = "<group>"; };
 		A36DA36A26CB296800DDA3D7 /* MapViewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRequest.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				A321CE8C26CCED9600617E73 /* SettingsViewModel.swift */,
 				A393339126CA1BD600303F52 /* SettingsView.swift */,
+				A34EEFF526D33F1A00173D24 /* AcknowledgementsView.swift */,
 			);
 			path = SettingsView;
 			sourceTree = "<group>";
@@ -220,7 +223,6 @@
 		A321CE8526CCCD7E00617E73 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				A321CE8626CCCD9900617E73 /* OverlayButton.swift */,
 				A335A09F26D12C3100A9B907 /* FullWidthButton.swift */,
 			);
 			path = Buttons;
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */,
+				A321CE8626CCCD9900617E73 /* MapOverlay.swift */,
 			);
 			path = Overlays;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			files = (
 				A321CE8F26CD02CB00617E73 /* SettingsModel.swift in Sources */,
 				A321CEB426CE6C5200617E73 /* DataVICAPI.swift in Sources */,
+				A34EEFF626D33F1A00173D24 /* AcknowledgementsView.swift in Sources */,
 				A39D87C226D1E19E0079E895 /* Colour+Ext.swift in Sources */,
 				A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */,
 				A321CE8926CCDD4900617E73 /* PullToRefresh.swift in Sources */,
@@ -395,7 +399,7 @@
 				A36DA36B26CB296800DDA3D7 /* MapViewRequest.swift in Sources */,
 				A321CE7726CCB81700617E73 /* ActivityIndicator.swift in Sources */,
 				A39D87C626D234040079E895 /* String+Ext.swift in Sources */,
-				A321CE8726CCCD9900617E73 /* OverlayButton.swift in Sources */,
+				A321CE8726CCCD9900617E73 /* MapOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

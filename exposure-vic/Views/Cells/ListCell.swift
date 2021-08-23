@@ -27,7 +27,7 @@ struct ListCell: View {
 			
 			// street address
 			if let address = exposure.Site_streetaddress {
-				HStack {
+				HStack(alignment: .top) {
 					Image(systemName: "pin.fill")
 						.foregroundColor(.gray)
 					if let suburb = exposure.Suburb,
@@ -42,7 +42,7 @@ struct ListCell: View {
 			
 			// exposure date time
 			if let exposureDate = exposure.Exposure_date {
-				HStack {
+				HStack(alignment: .top) {
 					Image(systemName: "calendar.badge.clock")
 					Text(exposureDate.sanitise())
 					if let exposureTime = exposure.Exposure_time {

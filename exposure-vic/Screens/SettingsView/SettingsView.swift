@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct SettingsView: View {
-
+	
 	// access to the view model
 	@EnvironmentObject var modelData: ModelData
 	@StateObject var settingsViewModel = SettingsViewModel()
-
+	@AppStorage("currentPage") var currentPage = 1
+	
 	var body: some View {
-
+		
 		NavigationView {
-
+			
 			Form {
 				
 				Section {
@@ -27,13 +28,13 @@ struct SettingsView: View {
 					}
 					
 					HStack {
-						Text("Last updated")
-						Spacer()
-						Text( modelData.lastUpdated )
-							.foregroundColor(.secondary)
+						FormTextRow(
+							title: "Last updated",
+							info: "\(modelData.lastUpdated)"
+						)
 					}
 				}
-
+				
 				Section(header: Text("Map options")) {
 					Toggle("Show travel ring", isOn: $settingsViewModel.setting.showRingOverlay)
 					
@@ -55,39 +56,39 @@ struct SettingsView: View {
 						}
 					}
 				}
-
-				Section(header: Text("Acknowledgements")) {
-					FormTextRow(
-						title: "Version",
-						info: "\(settingsViewModel.version ?? "1")"
-					)
-					FormURLRow(
-						title: "Twitter",
-						urlTitle: "@markbattistella",
-						url: "https://twitter.com/@markbattistella")
-					FormURLRow(
-						title: "GitHub",
-						urlTitle: "/markbattistella",
-						url: "https://github.com/markbattistella")
+				
+				Section(header: Text("Debug")) {
+					Button {
+						currentPage = 1
+					} label: {
+						Text("Reset onboarding")
+					}
 				}
-			}
-			
-			// title
-			.navigationBarTitle("Settings")
-			
-			// update data on appear
-			.onAppear {
-				modelData.getExposureData()
-				settingsViewModel.retrieveChanges()
-			}
-			
-			// alertalertItem
-			.alert(item: $settingsViewModel.alertItem) { alertItem in
-				Alert(
-					title: alertItem.title,
-					message: alertItem.message,
-					dismissButton: alertItem.dismissButton
-				)
+				
+				Section {
+					NavigationLink(
+						destination: AcknowledgementsView(),
+						label: { Text("View acknowledgements") }
+					)
+				}
+				
+				// title
+				.navigationBarTitle("Settings")
+				
+				// update data on appear
+				.onAppear {
+					modelData.getExposureData()
+					settingsViewModel.retrieveChanges()
+				}
+				
+				// alertalertItem
+				.alert(item: $settingsViewModel.alertItem) { alertItem in
+					Alert(
+						title: alertItem.title,
+						message: alertItem.message,
+						dismissButton: alertItem.dismissButton
+					)
+				}
 			}
 		}
 	}

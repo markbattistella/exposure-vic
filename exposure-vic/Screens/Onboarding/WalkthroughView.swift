@@ -90,7 +90,7 @@ struct WalkthroughView: View {
 					
 					// push it centre
 					Spacer()
-				}.padding(.bottom, 20)
+				}.padding(.bottom, 60)
 				
 			}
 		}

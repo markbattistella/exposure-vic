@@ -32,7 +32,7 @@ struct MapView: View {
 					Button {
 						mapViewModel.recentreLocation()
 					} label: {
-						OverlayButton(image: "target")
+						MapOverlay(image: "target")
 					}.padding(20)
 				}
 			}
