@@ -76,7 +76,7 @@ struct ListView: View {
 
 			// show loading spinner when loading
 			if modelData.isLoading {
-				LoadingView()
+				LoadingOverlay()
 			}
 		}
 

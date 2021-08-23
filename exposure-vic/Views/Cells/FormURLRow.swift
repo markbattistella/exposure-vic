@@ -14,7 +14,6 @@ struct FormURLRow: View {
 	let url: String
 	
 	var body: some View {
-		
 		if let cleanUrl = URL(string: url) {
 			HStack {
 				Text(title)
@@ -22,6 +21,5 @@ struct FormURLRow: View {
 				Link(urlTitle, destination: cleanUrl)
 			}
 		}
-		
 	}
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoadingView: View {
+struct LoadingOverlay: View {
 	var body: some View {
 		ZStack {
 			Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.1)

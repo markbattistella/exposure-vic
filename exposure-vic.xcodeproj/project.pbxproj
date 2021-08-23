@@ -37,7 +37,7 @@
 		A39D87C026D1DE3A0079E895 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87BF26D1DE3A0079E895 /* ScreenView.swift */; };
 		A39D87C226D1E19E0079E895 /* Colour+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87C126D1E19E0079E895 /* Colour+Ext.swift */; };
 		A39D87C626D234040079E895 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87C526D234040079E895 /* String+Ext.swift */; };
-		A3BF0E1326CFD64F003CFF22 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF0E1226CFD64F003CFF22 /* LoadingView.swift */; };
+		A3BF0E1326CFD64F003CFF22 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */; };
 		A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */; };
 		A3F0F6C526C653A7004877EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C426C653A7004877EC /* Assets.xcassets */; };
 		A3F0F6C826C653A7004877EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C726C653A7004877EC /* Preview Assets.xcassets */; };
@@ -74,7 +74,7 @@
 		A39D87BF26D1DE3A0079E895 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		A39D87C126D1E19E0079E895 /* Colour+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colour+Ext.swift"; sourceTree = "<group>"; };
 		A39D87C526D234040079E895 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		A3BF0E1226CFD64F003CFF22 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		A3F0F6BD26C653A6004877EC /* exposure-vic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "exposure-vic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureVICApp.swift; sourceTree = "<group>"; };
 		A3F0F6C426C653A7004877EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,7 +184,6 @@
 			children = (
 				A321CE7626CCB81700617E73 /* ActivityIndicator.swift */,
 				A321CE8826CCDD4900617E73 /* PullToRefresh.swift */,
-				A3BF0E1226CFD64F003CFF22 /* LoadingView.swift */,
 			);
 			path = UIKitComponents;
 			sourceTree = "<group>";
@@ -239,6 +238,7 @@
 		A3A4EAEB26CC7B0D0084A58A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A3B39DB126D321B50048282F /* Overlays */,
 				A321CE8426CCC54D00617E73 /* Detail */,
 				A321CE8526CCCD7E00617E73 /* Buttons */,
 				A321CE8326CCC45600617E73 /* MapKit */,
@@ -246,6 +246,14 @@
 				A321CE8126CCC40500617E73 /* UIKitComponents */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A3B39DB126D321B50048282F /* Overlays */ = {
+			isa = PBXGroup;
+			children = (
+				A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */,
+			);
+			path = Overlays;
 			sourceTree = "<group>";
 		};
 		A3F0F6B426C653A6004877EC = {
@@ -369,7 +377,7 @@
 				A321CE8D26CCED9600617E73 /* SettingsViewModel.swift in Sources */,
 				A39333A026CA319300303F52 /* ListCell.swift in Sources */,
 				A335A0A026D12C3100A9B907 /* FullWidthButton.swift in Sources */,
-				A3BF0E1326CFD64F003CFF22 /* LoadingView.swift in Sources */,
+				A3BF0E1326CFD64F003CFF22 /* LoadingOverlay.swift in Sources */,
 				A321CEB626CF051200617E73 /* FormURLRow.swift in Sources */,
 				A393339226CA1BD600303F52 /* SettingsView.swift in Sources */,
 				A39333A426CA471800303F52 /* ModelData.swift in Sources */,
