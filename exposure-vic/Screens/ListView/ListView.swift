@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListView: View {
 	
-	@StateObject var modelData = ModelData()
+	@EnvironmentObject var modelData: ModelData
 
 	var body: some View {
 		

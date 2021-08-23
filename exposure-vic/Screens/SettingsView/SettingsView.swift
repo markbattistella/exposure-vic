@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
 
 	// access to the view model
-	@StateObject var modelData = ModelData()
+	@EnvironmentObject var modelData: ModelData
 	@StateObject var settingsViewModel = SettingsViewModel()
 
 	var body: some View {

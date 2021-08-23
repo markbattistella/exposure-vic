@@ -10,6 +10,7 @@ import MapKit
 
 struct MapView: View {
 	
+	@EnvironmentObject var modelData: ModelData
 	@StateObject var mapViewModel = MapViewModel()
 	
 	var body: some View {

@@ -20,6 +20,8 @@ struct Exposure_VICApp: App {
 				MainTabView()
 			} else {
 				WalkthroughView()
+					.background(Color.onBoarding1)
+					.edgesIgnoringSafeArea(.all)
 			}
         }
     }

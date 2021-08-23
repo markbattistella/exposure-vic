@@ -26,19 +26,6 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
 		locationManager.startUpdatingLocation()
 	}
 	
-	// MARK: - methods
-	
-	// trigger apple permission
-	func requestPermission() {
-		locationManager.requestWhenInUseAuthorization()
-	}
-	
-	// call the update location
-	func recentreLocation() {
-		locationManager.startUpdatingLocation()
-	}
-	
-	
 	// MARK: - stubs
 	
 	// get the current authorised location use
@@ -61,5 +48,32 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
 	// get the error with locations
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		print(error.localizedDescription)
+	}
+
+	// MARK: - methods
+	
+	// trigger apple permission
+	func requestPermission() {
+		locationManager.requestWhenInUseAuthorization()
+	}
+	
+	// call the update location
+	func recentreLocation() {
+		
+		// get the current location
+		locationManager.startUpdatingLocation()
+
+		// check its safe to use
+		guard let location = locationManager.location?.coordinate else { return	}
+
+		// set the region
+		region = MKCoordinateRegion(
+			center: location,
+			latitudinalMeters: 1, // 8km wide
+			longitudinalMeters: 1 // 8km tall
+		)
+
+		// stop updating
+		locationManager.stopUpdatingLocation()
 	}
 }

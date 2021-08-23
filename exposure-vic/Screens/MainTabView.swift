@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainTabView: View {
 	
+	@StateObject var modelData = ModelData()
+	
 	var body: some View {
 		
 		TabView {
@@ -40,6 +42,10 @@ struct MainTabView: View {
 				}
 			
 		}
+		
+		// add model data to the environment
+		// -- all child views can access it
+		.environmentObject(modelData)
 		
 		// theme
 		.accentColor(.blue)
