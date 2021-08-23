@@ -13,7 +13,7 @@
 		A321CE8926CCDD4900617E73 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8826CCDD4900617E73 /* PullToRefresh.swift */; };
 		A321CE8B26CCECDD00617E73 /* FormTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8A26CCECDD00617E73 /* FormTextRow.swift */; };
 		A321CE8D26CCED9600617E73 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8C26CCED9600617E73 /* SettingsViewModel.swift */; };
-		A321CE8F26CD02CB00617E73 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8E26CD02CB00617E73 /* SettingsModel.swift */; };
+		A321CE8F26CD02CB00617E73 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CE8E26CD02CB00617E73 /* SettingsData.swift */; };
 		A321CEB426CE6C5200617E73 /* DataVICAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CEB326CE6C5200617E73 /* DataVICAPI.swift */; };
 		A321CEB626CF051200617E73 /* FormURLRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321CEB526CF051200617E73 /* FormURLRow.swift */; };
 		A335A09E26D120E600A9B907 /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A335A09D26D120E600A9B907 /* DetailInfoView.swift */; };
@@ -38,6 +38,7 @@
 		A39D87C026D1DE3A0079E895 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87BF26D1DE3A0079E895 /* ScreenView.swift */; };
 		A39D87C226D1E19E0079E895 /* Colour+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87C126D1E19E0079E895 /* Colour+Ext.swift */; };
 		A39D87C626D234040079E895 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87C526D234040079E895 /* String+Ext.swift */; };
+		A39F25C026D383FD00371F5E /* Keyboard+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F25BF26D383FD00371F5E /* Keyboard+Ext.swift */; };
 		A3BF0E1326CFD64F003CFF22 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */; };
 		A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */; };
 		A3F0F6C526C653A7004877EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C426C653A7004877EC /* Assets.xcassets */; };
@@ -51,7 +52,7 @@
 		A321CE8826CCDD4900617E73 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		A321CE8A26CCECDD00617E73 /* FormTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextRow.swift; sourceTree = "<group>"; };
 		A321CE8C26CCED9600617E73 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		A321CE8E26CD02CB00617E73 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		A321CE8E26CD02CB00617E73 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
 		A321CEB326CE6C5200617E73 /* DataVICAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataVICAPI.swift; sourceTree = "<group>"; };
 		A321CEB526CF051200617E73 /* FormURLRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormURLRow.swift; sourceTree = "<group>"; };
 		A335A09D26D120E600A9B907 /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 		A39D87BF26D1DE3A0079E895 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		A39D87C126D1E19E0079E895 /* Colour+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colour+Ext.swift"; sourceTree = "<group>"; };
 		A39D87C526D234040079E895 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		A39F25BF26D383FD00371F5E /* Keyboard+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+Ext.swift"; sourceTree = "<group>"; };
 		A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		A3F0F6BD26C653A6004877EC /* exposure-vic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "exposure-vic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureVICApp.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				A39D87C126D1E19E0079E895 /* Colour+Ext.swift */,
 				A39D87C526D234040079E895 /* String+Ext.swift */,
+				A39F25BF26D383FD00371F5E /* Keyboard+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,7 +180,7 @@
 			children = (
 				A39333A126CA358300303F52 /* MockData.swift */,
 				A393339526CA1F4200303F52 /* ExposureData.swift */,
-				A321CE8E26CD02CB00617E73 /* SettingsModel.swift */,
+				A321CE8E26CD02CB00617E73 /* SettingsData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -367,7 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A321CE8F26CD02CB00617E73 /* SettingsModel.swift in Sources */,
+				A321CE8F26CD02CB00617E73 /* SettingsData.swift in Sources */,
 				A321CEB426CE6C5200617E73 /* DataVICAPI.swift in Sources */,
 				A34EEFF626D33F1A00173D24 /* AcknowledgementsView.swift in Sources */,
 				A39D87C226D1E19E0079E895 /* Colour+Ext.swift in Sources */,
@@ -399,6 +402,7 @@
 				A36DA36B26CB296800DDA3D7 /* MapViewRequest.swift in Sources */,
 				A321CE7726CCB81700617E73 /* ActivityIndicator.swift in Sources */,
 				A39D87C626D234040079E895 /* String+Ext.swift in Sources */,
+				A39F25C026D383FD00371F5E /* Keyboard+Ext.swift in Sources */,
 				A321CE8726CCCD9900617E73 /* MapOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

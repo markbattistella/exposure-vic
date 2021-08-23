@@ -10,9 +10,9 @@ import SwiftUI
 struct SettingsView: View {
 	
 	// access to the view model
-	@EnvironmentObject var modelData: ModelData
-	@StateObject var settingsViewModel = SettingsViewModel()
 	@AppStorage("currentPage") var currentPage = 1
+	@EnvironmentObject var modelData: ModelData
+	@EnvironmentObject var settingsViewModel: SettingsViewModel
 	
 	var body: some View {
 		
@@ -72,23 +72,24 @@ struct SettingsView: View {
 					)
 				}
 				
-				// title
-				.navigationBarTitle("Settings")
-				
-				// update data on appear
-				.onAppear {
-					modelData.getExposureData()
-					settingsViewModel.retrieveChanges()
-				}
-				
-				// alertalertItem
-				.alert(item: $settingsViewModel.alertItem) { alertItem in
-					Alert(
-						title: alertItem.title,
-						message: alertItem.message,
-						dismissButton: alertItem.dismissButton
-					)
-				}
+			}
+
+			// title
+			.navigationBarTitle("Settings")
+			
+			// update data on appear
+			.onAppear {
+				modelData.getExposureData()
+				settingsViewModel.retrieveChanges()
+			}
+			
+			// alertalertItem
+			.alert(item: $settingsViewModel.alertItem) { alertItem in
+				Alert(
+					title: alertItem.title,
+					message: alertItem.message,
+					dismissButton: alertItem.dismissButton
+				)
 			}
 		}
 	}

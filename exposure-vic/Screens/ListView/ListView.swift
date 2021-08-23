@@ -10,13 +10,14 @@ import SwiftUI
 struct ListView: View {
 	
 	@EnvironmentObject var modelData: ModelData
-
+	
 	var body: some View {
 		
 		ZStack {
 			NavigationView {
+				
+				// get the list
 				List(modelData.exposures) { exposure in
-					
 					// pass in the custom view
 					ListCell(exposure: exposure)
 						
@@ -27,34 +28,32 @@ struct ListView: View {
 						}
 				}
 				
-				// pull down to refresh
-				.background( PullToRefresh( action: {
-					modelData.getExposureData()
-					modelData.isRefreshing = false
-				}, isRefreshing: $modelData.isRefreshing))
-				
-				
 				// the navigation title
 				.navigationTitle("Exposure List")
 				
 				// navbar
-				.navigationBarItems(trailing:
-					Button {
+				.navigationBarItems(
+					trailing: Button {
 						modelData.getExposureData()
 						modelData.isRefreshing = false
-						
 					} label: {
 						Image(systemName: "arrow.counterclockwise")
 							.imageScale(.large)
 					}
 				)
 				
+				// pull down to refresh
+				.background(
+					PullToRefresh( action: {
+						modelData.getExposureData()
+						modelData.isRefreshing = false
+					}, isRefreshing: $modelData.isRefreshing)
+				)
+				
 				// disable the scroll when detail view is open
 				.disabled(
-					modelData.isShowingDetail ||
-					modelData.isRefreshing
+					modelData.isShowingDetail || modelData.isRefreshing
 				)
-
 			}
 			
 			// when the view is activated
@@ -65,7 +64,7 @@ struct ListView: View {
 			
 			// blue the list when detail is open
 			.blur(radius: modelData.isShowingDetail ? 8 : 0)
-
+			
 			// if the detail is to be shown
 			if modelData.isShowingDetail {
 				DetailView(
@@ -73,13 +72,12 @@ struct ListView: View {
 					exposure: modelData.selectedExposure!
 				)
 			}
-
+			
 			// show loading spinner when loading
 			if modelData.isLoading {
 				LoadingOverlay()
 			}
 		}
-
 		// show error alerts
 		.alert(item: $modelData.alertItem) { alertItem in
 			Alert(title: alertItem.title,

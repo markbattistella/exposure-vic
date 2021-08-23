@@ -11,6 +11,8 @@ import MapKit
 struct MapView: View {
 	
 	@EnvironmentObject var modelData: ModelData
+	@EnvironmentObject var settingsViewModel: SettingsViewModel
+
 	@StateObject var mapViewModel = MapViewModel()
 	
 	var body: some View {

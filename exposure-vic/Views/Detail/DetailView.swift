@@ -11,7 +11,6 @@ struct DetailView: View {
 	
 	@Binding var isShowingDetail: Bool
 	let exposure: ExposureDataRecord
-	let cornerRadius: CGFloat = 12
 	
 	var body: some View {
 		
@@ -75,8 +74,22 @@ struct DetailView: View {
 						message: instruction.sanitise()
 					)
 				}
+				
+				// added date time
+				if let addedDate = exposure.Added_date {
+					if let addedTime = exposure.Added_time {
+						DetailInfoView(
+							title: "Added date and time",
+							message: "\(addedDate.sanitise()) \(addedTime.sanitise().replacingOccurrences(of: " - ", with: "-"))"
+						)
+					} else {
+						DetailInfoView(
+							title: "Added date and time",
+							message: addedDate.sanitise()
+						)
+					}
+				}
 			}
-			
 			
 			HStack {
 				// close button
@@ -89,18 +102,6 @@ struct DetailView: View {
 						textColour: .white
 					)
 				}
-				
-				// share button
-				Button {
-					print("sharing...")
-				} label: {
-					Image(systemName: "square.and.arrow.up")
-						.frame(width: 50, height: 50)
-						.background(Color.brandPrimary)
-						.foregroundColor(.white)
-						.font(.headline)
-						.cornerRadius(12)
-				}
 			}
 		}
 		
@@ -108,11 +109,7 @@ struct DetailView: View {
 		.padding()
 		.frame(maxWidth: 320, maxHeight: 500)
 		.background(Color(.systemBackground))
-		.cornerRadius(cornerRadius)
-		.shadow(radius: cornerRadius)
+		.cornerRadius(12)
+		.shadow(radius: 12)
 	}
-	
-	// share sheet
-	// -- what to share
-	
 }
