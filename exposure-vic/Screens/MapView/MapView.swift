@@ -19,10 +19,14 @@ struct MapView: View {
 		
 		ZStack {
 			// show the map
-			// -- this works without any annotations :(
 			Map(
 				coordinateRegion: $mapViewModel.region,
-				showsUserLocation: true
+				interactionModes: .all,
+				showsUserLocation: true,
+				annotationItems: modelData.exposures,
+				annotationContent: { location in
+					MapPin(coordinate: modelData.getCoordinates(location), tint: .red)
+				}
 			)
 			.edgesIgnoringSafeArea(.all)
 						
@@ -31,6 +35,13 @@ struct MapView: View {
 				Spacer()
 				HStack {
 					Spacer()
+					
+					Button {
+						modelData.getExposureData()
+					} label: {
+						MapOverlay(image: "arrow.down.circle")
+					}.padding(20)
+					
 					Button {
 						mapViewModel.recentreLocation()
 					} label: {
@@ -38,6 +49,15 @@ struct MapView: View {
 					}.padding(20)
 				}
 			}
+		}
+		.onAppear {
+			modelData.getExposureData()
+			
+			print(modelData.storedCoordirates)
+			
+//			for i in modelData.exposures {
+//				print(modelData.getCoordinates(i))
+//			}
 		}
 	}
 }

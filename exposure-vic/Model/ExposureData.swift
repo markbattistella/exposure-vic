@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreLocation
 
 // MARK: - ExposureDataModel
 struct ExposureData: Decodable {
@@ -38,42 +37,4 @@ struct ExposureDataRecord: Decodable, Identifiable {
 	let Advice_instruction: String?
 	let Exposure_time_start_24: String?
 	let Exposure_time_end_24: String?
-	
-	// get the co-ordinates now
-	func getCoordinates(handler: @escaping ((CLLocationCoordinate2D) -> Void)) {
-		if let address = Site_streetaddress,
-		   let suburb = Suburb,
-		   let postcode = Site_postcode,
-		   let state = Site_state {
-
-			CLGeocoder().geocodeAddressString("\(address) \(suburb) \(state) \(postcode)") { ( placemark, error ) in
-
-				// errors
-				if let error = error as? CLError {
-					switch error.code {
-						case .locationUnknown:
-							print("locationUnknown: location manager was unable to obtain a location value right now.")
-						case .denied:
-							print("denied: user denied access to the location service.")
-						case .promptDeclined:
-							print("promptDeclined: user didn’t grant the requested temporary authorization.")
-						case .network:
-							print("network: network was unavailable or a network error occurred.")
-						case .headingFailure:
-							print("headingFailure: heading could not be determined.")
-						case .rangingUnavailable:
-							print("rangingUnavailable: ranging is disabled.")
-						case .rangingFailure:
-							print("rangingFailure: a general ranging error occurred.")
-						default : break
-					}
-				}
-
-				// success
-				handler(
-					placemark?.first?.location?.coordinate ?? CLLocationCoordinate2D()
-				)
-			}
-		}
-	}
 }
