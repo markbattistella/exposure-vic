@@ -66,6 +66,10 @@ struct SettingsView: View {
 				}
 				
 				Section {
+					FormTextRow(
+						title: "Version",
+						info: "\(settingsViewModel.version ?? "1")"
+					)
 					NavigationLink(
 						destination: AcknowledgementsView(),
 						label: { Text("View acknowledgements") }

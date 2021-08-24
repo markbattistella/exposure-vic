@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct AcknowledgementsView: View {
-	@StateObject var settingsViewModel = SettingsViewModel()
 	var body: some View {
 		
 		Form {
-			FormTextRow(
-				title: "Version",
-				info: "\(settingsViewModel.version ?? "1")"
-			)
 			FormURLRow(
 				title: "Twitter",
 				urlTitle: "@markbattistella",

@@ -88,7 +88,7 @@ final class ModelData: ObservableObject {
 		   let postcode = location.Site_postcode,
 		   let state = location.Site_state {
 			
-			CLGeocoder().geocodeAddressString("\(address) \(suburb), \(state) \(postcode)") { (placemark, error) in
+			CLGeocoder().geocodeAddressString("\(address) \(suburb) \(state) \(postcode)") { (placemark, error) in
 				
 				// errors
 				if let error = error as? CLError {

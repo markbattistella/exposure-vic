@@ -12,6 +12,9 @@ final class NetworkManager {
 	// initialise the network manager
 	static let shared = NetworkManager()
 	
+	var offset: Int = 0
+	var limit: Int = 50
+	
 	// get the base url
 	private let baseURL = "https://discover.data.vic.gov.au/api/3/action/datastore_search"
 	
@@ -37,7 +40,8 @@ final class NetworkManager {
 		// -- see doc file in directory
 		components.queryItems = [
 			URLQueryItem(name: "resource_id", value: "afb52611-6061-4a2b-9110-74c920bede77"),
-			URLQueryItem(name: "limit", value: "1000"),
+			URLQueryItem(name: "limit", value: "\(limit)"),
+			URLQueryItem(name: "offset", value: "\(offset)"),
 			URLQueryItem(name: "records_format", value: "objects"),
 			URLQueryItem(name: "distinct", value: "1"),
 			URLQueryItem(name: "sort", value: "Added_date_dtm desc")

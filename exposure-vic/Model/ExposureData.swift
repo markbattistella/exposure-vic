@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 // MARK: - ExposureDataModel
 struct ExposureData: Decodable {
@@ -37,4 +38,14 @@ struct ExposureDataRecord: Decodable, Identifiable {
 	let Advice_instruction: String?
 	let Exposure_time_start_24: String?
 	let Exposure_time_end_24: String?
+}
+
+// MARK: - RecordCoordinates
+struct ExposureCoordinates: Decodable, Identifiable {
+	let id = UUID()
+	let latitude: Double
+	let longitude: Double
+	var coordinate: CLLocationCoordinate2D {
+		CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+	}
 }

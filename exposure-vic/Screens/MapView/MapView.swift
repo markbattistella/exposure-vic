@@ -12,8 +12,16 @@ struct MapView: View {
 	
 	@EnvironmentObject var modelData: ModelData
 	@EnvironmentObject var settingsViewModel: SettingsViewModel
-
+	
 	@StateObject var mapViewModel = MapViewModel()
+	
+	
+	let dummyPins = [
+		ExposureCoordinates(latitude: -37.710765, longitude: 144.925904),
+		ExposureCoordinates(latitude: -37.715984, longitude: 144.910316),
+		ExposureCoordinates(latitude: -37.702431, longitude: 144.899462)
+	]
+	
 	
 	var body: some View {
 		
@@ -23,41 +31,28 @@ struct MapView: View {
 				coordinateRegion: $mapViewModel.region,
 				interactionModes: .all,
 				showsUserLocation: true,
-				annotationItems: modelData.exposures,
+				annotationItems: dummyPins,
 				annotationContent: { location in
-					MapPin(coordinate: modelData.getCoordinates(location), tint: .red)
+					MapAnnotation(coordinate: location.coordinate) {
+						Image(systemName: "pin.circle.fill").foregroundColor(.red)
+							.onTapGesture {
+								//
+								print("Tapped")
+							}
+					}
 				}
 			)
 			.edgesIgnoringSafeArea(.all)
-						
+			
 			// re-center location after pan and zoom
-			VStack {
-				Spacer()
-				HStack {
-					Spacer()
-					
-					Button {
-						modelData.getExposureData()
-					} label: {
-						MapOverlay(image: "arrow.down.circle")
-					}.padding(20)
-					
-					Button {
-						mapViewModel.recentreLocation()
-					} label: {
-						MapOverlay(image: "target")
-					}.padding(20)
+			.overlay (
+				Button {
+					mapViewModel.recentreLocation()
+				} label: {
+					MapOverlay(image: "target")
 				}
-			}
-		}
-		.onAppear {
-			modelData.getExposureData()
-			
-			print(modelData.storedCoordirates)
-			
-//			for i in modelData.exposures {
-//				print(modelData.getCoordinates(i))
-//			}
+				.padding(.bottom, 20), alignment: .bottomTrailing
+			)
 		}
 	}
 }
