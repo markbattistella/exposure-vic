@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListCell: View {
 	
-	let exposure: ExposureDataRecord
+	let exposure: ExposureModel
 	
 	var body: some View {
 		

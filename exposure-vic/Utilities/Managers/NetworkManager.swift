@@ -12,17 +12,15 @@ final class NetworkManager {
 	// initialise the network manager
 	static let shared = NetworkManager()
 	
-	var offset: Int = 0
-	var limit: Int = 50
-	
 	// get the base url
-	private let baseURL = "https://discover.data.vic.gov.au/api/3/action/datastore_search"
+	// -- server parsed
+	private let baseURL = "https://markbattistella.github.io/exposure-vic-api/datavic.json"
 	
 	// initialise the class
 	private init() {}
 	
 	// network call to get the data
-	func getExposureSites(completed: @escaping (Result<[ExposureDataRecord], ErrorType>) -> Void) {
+	func getExposureSites(completed: @escaping (Result<[ExposureModel], ErrorType>) -> Void) {
 		
 		// unwrap the url
 		guard let url = URL(string: baseURL) else {
@@ -30,31 +28,8 @@ final class NetworkManager {
 			return
 		}
 		
-		//
-		guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
-			completed(.failure(.invalidURL))
-			return
-		}
-		
-		// add the query parameters
-		// -- see doc file in directory
-		components.queryItems = [
-			URLQueryItem(name: "resource_id", value: "afb52611-6061-4a2b-9110-74c920bede77"),
-			URLQueryItem(name: "limit", value: "\(limit)"),
-			URLQueryItem(name: "offset", value: "\(offset)"),
-			URLQueryItem(name: "records_format", value: "objects"),
-			URLQueryItem(name: "distinct", value: "1"),
-			URLQueryItem(name: "sort", value: "Added_date_dtm desc")
-		]
-		
-		// get the full url with parameters
-		guard let fullUrl = components.url else {
-			completed(.failure(.invalidURL))
-			return
-		}
-		
 		// run the call
-		let task = URLSession.shared.dataTask(with: URLRequest(url: fullUrl)) { data, response, error  in
+		let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error  in
 			
 			// unwrap the error
 			if let _ = error {
@@ -82,10 +57,10 @@ final class NetworkManager {
 				let decoder = JSONDecoder()
 				
 				// try to decode the data into the ExposureModel
-				let decodedResponse = try decoder.decode(ExposureData.self, from: data)
+				let decodedResponse = try decoder.decode([ExposureModel].self, from: data)
 				
 				// run the success
-				completed(.success(decodedResponse.result.records))
+				completed(.success(decodedResponse))
 				
 			} catch {
 				

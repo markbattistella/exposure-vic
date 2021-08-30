@@ -11,7 +11,7 @@ import Foundation
 struct MockData {
 
 	// set up a dummy exposure
-	static let sampleExposureRecordOne = ExposureDataRecord(
+	static let sampleExposureRecordOne = ExposureModel(
 		_id: 1,
 		Suburb: "Public Transport",
 		Site_title: "Metro Trains - Laverton Line (Newport Station to Southern Cross Station)",
@@ -28,10 +28,13 @@ struct MockData {
 		Advice_title: "Tier 2 - Get tested urgently and isolate until you have a negative result",
 		Advice_instruction: "Anyone who has visited this location during these times should urgently get tested, then isolate until confirmation of a negative result. Continue to monitor for symptoms, get tested again if symptoms appear.",
 		Exposure_time_start_24: "10:02:00",
-		Exposure_time_end_24: "10:47:00"
+		Exposure_time_end_24: "10:47:00",
+		latitude: 40.7127281,
+		longitude: -74.0060152
+		
 	)
 	
-	static let sampleExposureRecordTwo = ExposureDataRecord(
+	static let sampleExposureRecordTwo = ExposureModel(
 		_id: 2,
 		Suburb: "Keysborough",
 		Site_title: "Miele Clearance Centre Keysborough",
@@ -48,10 +51,12 @@ struct MockData {
 		Advice_title: "Tier 2 - Get tested urgently and isolate until you have a negative result",
 		Advice_instruction: "Anyone who has visited this location during these times should urgently get tested, then isolate until confirmation of a negative result. Continue to monitor for symptoms, get tested again if symptoms appear.",
 		Exposure_time_start_24: "10:02:00",
-		Exposure_time_end_24: "10:47:00"
+		Exposure_time_end_24: "10:47:00",
+		latitude: 48.8588897,
+		longitude: 2.320041
 	)
 	
-	static let sampleExposureRecordThree = ExposureDataRecord(
+	static let sampleExposureRecordThree = ExposureModel(
 		_id: 3,
 		Suburb: "Keysborough",
 		Site_title: "Miele Clearance Centre Keysborough",
@@ -68,9 +73,11 @@ struct MockData {
 		Advice_title: "Tier 2 - Get tested urgently and isolate until you have a negative result",
 		Advice_instruction: "Anyone who has visited this location during these times should urgently get tested, then isolate until confirmation of a negative result. Continue to monitor for symptoms, get tested again if symptoms appear.",
 		Exposure_time_start_24: "10:02:00",
-		Exposure_time_end_24: "10:47:00"
+		Exposure_time_end_24: "10:47:00",
+		latitude: 51.5073219,
+		longitude: -0.1276474
 	)
-	static let sampleExposureRecordFour = ExposureDataRecord(
+	static let sampleExposureRecordFour = ExposureModel(
 		_id: 4,
 		Suburb: "Keysborough",
 		Site_title: "Miele Clearance Centre Keysborough",
@@ -87,7 +94,9 @@ struct MockData {
 		Advice_title: "Tier 2 - Get tested urgently and isolate until you have a negative result",
 		Advice_instruction: "Anyone who has visited this location during these times should urgently get tested, then isolate until confirmation of a negative result. Continue to monitor for symptoms, get tested again if symptoms appear.",
 		Exposure_time_start_24: "10:02:00",
-		Exposure_time_end_24: "10:47:00"
+		Exposure_time_end_24: "10:47:00",
+		latitude: -36.8521,
+		longitude: 174.763
 	)
 
 	// build an array of exposures

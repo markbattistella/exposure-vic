@@ -14,11 +14,11 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
 	// variables
 	@Published var authorizationStatus: CLAuthorizationStatus
 	@Published var region = MKCoordinateRegion()
-	private let locationManager: CLLocationManager
+	private let locationManager = CLLocationManager()
+
 	
 	// initialisation
 	override init() {
-		locationManager = CLLocationManager()
 		authorizationStatus = locationManager.authorizationStatus
 		super.init()
 		locationManager.delegate = self

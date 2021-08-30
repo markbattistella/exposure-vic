@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
 	
 	@Binding var isShowingDetail: Bool
-	let exposure: ExposureDataRecord
+	let exposure: ExposureModel
 	
 	var body: some View {
 		
