@@ -10,7 +10,7 @@ import SwiftUI
 final class SettingsViewModel: ObservableObject {
 	
 	@AppStorage("setting") private var settingData: Data?
-	@Published var setting = SettingData()
+	@Published var setting = SettingDataModel()
 	@Published var alertItem: AlertItem?
 	
 	var mapRingSizes = [ 5, 10, 15, 20, 25 ]
@@ -42,7 +42,7 @@ final class SettingsViewModel: ObservableObject {
 		guard let settingData = settingData else { return }
 		
 		do {
-			setting = try JSONDecoder().decode(SettingData.self, from: settingData)
+			setting = try JSONDecoder().decode(SettingDataModel.self, from: settingData)
 		} catch {
 			alertItem = AlertContext.unableToRetrieveSettings
 		}

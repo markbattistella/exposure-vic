@@ -10,12 +10,12 @@ import CoreLocation
 
 final class ModelData: ObservableObject {
 	
-	@Published var exposures: [ExposureModel] = []
+	@Published var exposures: [ExposureDataModel] = []
 	@Published var alertItem: AlertItem?
 	@Published var lastUpdated: String = ""
 	@Published var isLoading = false
 	@Published var isShowingDetail = false
-	@Published var selectedExposure: ExposureModel?
+	@Published var selectedExposure: ExposureDataModel?
 	@Published var isRefreshing = false
 	
 	// get the data

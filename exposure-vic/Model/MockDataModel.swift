@@ -1,5 +1,5 @@
 //
-//  ExposureModelMockData.swift
+//  MockDataModel.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
@@ -8,10 +8,10 @@
 import Foundation
 
 // dummy data to test with
-struct MockData {
+struct MockDataModel {
 
 	// set up a dummy exposure
-	static let sampleExposureRecordOne = ExposureModel(
+	static let sampleExposureRecordOne = ExposureDataModel(
 		_id: 1,
 		Suburb: "Public Transport",
 		Site_title: "Metro Trains - Laverton Line (Newport Station to Southern Cross Station)",
@@ -34,7 +34,7 @@ struct MockData {
 		
 	)
 	
-	static let sampleExposureRecordTwo = ExposureModel(
+	static let sampleExposureRecordTwo = ExposureDataModel(
 		_id: 2,
 		Suburb: "Keysborough",
 		Site_title: "Miele Clearance Centre Keysborough",
@@ -56,7 +56,7 @@ struct MockData {
 		longitude: 2.320041
 	)
 	
-	static let sampleExposureRecordThree = ExposureModel(
+	static let sampleExposureRecordThree = ExposureDataModel(
 		_id: 3,
 		Suburb: "Keysborough",
 		Site_title: "Miele Clearance Centre Keysborough",
@@ -77,7 +77,7 @@ struct MockData {
 		latitude: 51.5073219,
 		longitude: -0.1276474
 	)
-	static let sampleExposureRecordFour = ExposureModel(
+	static let sampleExposureRecordFour = ExposureDataModel(
 		_id: 4,
 		Suburb: "Keysborough",
 		Site_title: "Miele Clearance Centre Keysborough",

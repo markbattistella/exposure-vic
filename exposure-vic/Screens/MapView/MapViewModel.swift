@@ -7,7 +7,6 @@
 
 import SwiftUI
 import MapKit
-import CoreLocation
 
 final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 	
@@ -15,14 +14,14 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
 	@Published var authorizationStatus: CLAuthorizationStatus
 	@Published var region = MKCoordinateRegion()
 	private let locationManager = CLLocationManager()
-
+	
 	
 	// initialisation
 	override init() {
 		authorizationStatus = locationManager.authorizationStatus
 		super.init()
 		locationManager.delegate = self
-		locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+		locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
 		locationManager.startUpdatingLocation()
 	}
 	
@@ -49,7 +48,7 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		print(error.localizedDescription)
 	}
-
+	
 	// MARK: - methods
 	
 	// trigger apple permission
@@ -62,17 +61,17 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
 		
 		// get the current location
 		locationManager.startUpdatingLocation()
-
+		
 		// check its safe to use
 		guard let location = locationManager.location?.coordinate else { return	}
-
+		
 		// set the region
 		region = MKCoordinateRegion(
 			center: location,
 			latitudinalMeters: 8000, // 8km wide
 			longitudinalMeters: 8000 // 8km tall
 		)
-
+		
 		// stop updating
 		locationManager.stopUpdatingLocation()
 	}

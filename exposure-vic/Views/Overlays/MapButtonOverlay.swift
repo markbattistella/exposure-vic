@@ -1,18 +1,18 @@
 //
-//  OverlayButton.swift
+//  MapButtonOverlay.swift
 //  exposure-vic
 //
-//  Created by Mark Battistella on 18/8/21.
+//  Created by Mark Battistella on 31/8/21.
 //
 
 import SwiftUI
 
-struct MapOverlay: View {
+// overlay buttons
+struct MapButtonOverlay: View {
 	
 	let image: String
-	
+
 	var body: some View {
-		
 		Image(systemName: image)
 			.padding(10)
 			.background(Color.white)

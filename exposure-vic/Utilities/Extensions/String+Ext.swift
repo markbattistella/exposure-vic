@@ -7,11 +7,19 @@
 
 import SwiftUI
 
+// remove the bad characters
 extension String {
 	func sanitise() -> String {
 		self
 			.replacingOccurrences(of: "\t", with: "")
 			.replacingOccurrences(of: "\r", with: "")
 			.replacingOccurrences(of: "\n", with: "")
+	}
+}
+
+// get the beginning of string
+extension String {
+	func startsWith(_ prefix: String) -> Bool {
+		return lowercased().hasPrefix(prefix.lowercased())
 	}
 }
