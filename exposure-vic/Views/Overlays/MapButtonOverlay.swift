@@ -7,17 +7,13 @@
 
 import SwiftUI
 
-// overlay buttons
 struct MapButtonOverlay: View {
-	
 	let image: String
-
 	var body: some View {
 		Image(systemName: image)
 			.padding(10)
-			.background(Color.white)
-			.clipShape(Circle())
-			.padding()
-			.shadow(radius: 10)
+			.background(Color(.systemBackground))
+			.cornerRadius(12)
+			.shadow(radius: 8)
 	}
 }

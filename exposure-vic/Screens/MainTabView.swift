@@ -48,8 +48,5 @@ struct MainTabView: View {
 		// -- all child views can access it
 		.environmentObject(modelData)
 		.environmentObject(settingData)
-
-		// theme
-		.accentColor(.blue)
 	}
 }

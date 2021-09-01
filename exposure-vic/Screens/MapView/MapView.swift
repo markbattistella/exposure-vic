@@ -17,10 +17,10 @@ struct MapView: View {
 	var body: some View {
 		
 		ZStack {
+			
 			// show the map
 			Map(
-				coordinateRegion: $mapViewModel.region
-					.animation( .linear(duration: 1) ),
+				coordinateRegion: $mapViewModel.region,
 				interactionModes: .all,
 				showsUserLocation: true,
 				annotationItems: modelData.exposures,
@@ -38,39 +38,54 @@ struct MapView: View {
 					
 				}
 			)
-
-			// disable the scroll when detail view is open
-			.disabled(
-				modelData.isShowingDetail || modelData.isRefreshing
-			)
-
-			// show map to edges
+			.accentColor(Color(.systemGreen))
+			.animation( .linear(duration: 20) )
 			.edgesIgnoringSafeArea(.all)
-
-			// blue the list when detail is open
 			.blur(radius: modelData.isShowingDetail ? 2 : 0)
+			.disabled( modelData.isShowingDetail )
 
-			// re-center location after pan and zoom
-			.overlay (
-				Button {
-					withAnimation {
-						mapViewModel.recentreLocation()
-					}
-				} label: {
-					MapButtonOverlay(image: "target")
+			// legend
+			VStack {
+				HStack(spacing: 60) {
+					LegendItemOverlay(tierNumber: 1, tierColour: Color(.systemRed))
+					LegendItemOverlay(tierNumber: 2, tierColour: Color(.systemOrange))
+					LegendItemOverlay(tierNumber: 3, tierColour: Color(.systemBlue))
 				}
-				.padding(.bottom, 20)
-				.opacity(modelData.isShowingDetail ? 0 : 1)
-				, alignment: .bottomTrailing
-			)
-			
-			// when the view is activated
-			// -- insert the reload from network
-			.onAppear {
-				modelData.getExposureData()
+				.padding()
+				.frame(maxWidth: .infinity)
+				.background(Color(.systemBackground))
+				.cornerRadius(12)
+				.padding()
+				.shadow(radius: 8)
+				
+				Spacer()
+				
+				HStack {
+					Spacer()
+					
+					VStack(spacing: 20) {
+						
+						// show ring on map
+						Button {
+							//
+						} label: {
+							MapButtonOverlay(image: "circle.dashed")
+						}
+						
+						// re-center location after pan and zoom
+						Button {
+							withAnimation { mapViewModel.recentreLocation() }
+						} label: {
+							MapButtonOverlay(image: "location.circle.fill")
+						}
+					}
+					.padding()
+					
+				}
 			}
-			
-			
+			.blur(radius: modelData.isShowingDetail ? 2 : 0)
+			.disabled( modelData.isShowingDetail )
+
 			// if the detail is to be shown
 			if modelData.isShowingDetail {
 				DetailView(
@@ -79,5 +94,8 @@ struct MapView: View {
 				)
 			}
 		}
+		
+		// when the view is activated
+		.onAppear { modelData.getExposureData() }
 	}
 }

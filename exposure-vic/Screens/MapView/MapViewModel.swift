@@ -5,8 +5,12 @@
 //  Created by Mark Battistella on 17/8/21.
 //
 
-import SwiftUI
 import MapKit
+
+enum MapDetails {
+	static let defaultLatitudinalMeters = CLLocationDistance(400)
+	static let defaultLongitudinalMeters = CLLocationDistance(500)
+}
 
 final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 	
@@ -37,12 +41,11 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
 		guard let location = locations.last else { return }
 		region = MKCoordinateRegion(
 			center: location.coordinate,
-			latitudinalMeters: 8000, // 8km wide
-			longitudinalMeters: 8000 // 8km tall
+			latitudinalMeters: MapDetails.defaultLatitudinalMeters,
+			longitudinalMeters: MapDetails.defaultLongitudinalMeters
 		)
 		locationManager.stopUpdatingLocation()
 	}
-	
 	
 	// get the error with locations
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -68,8 +71,8 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
 		// set the region
 		region = MKCoordinateRegion(
 			center: location,
-			latitudinalMeters: 8000, // 8km wide
-			longitudinalMeters: 8000 // 8km tall
+			latitudinalMeters: MapDetails.defaultLatitudinalMeters,
+			longitudinalMeters: MapDetails.defaultLongitudinalMeters
 		)
 		
 		// stop updating

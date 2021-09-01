@@ -11,22 +11,12 @@ import SwiftUI
 struct MapPin: View {
 	let level: Int
 	var body: some View {
-		Image(systemName: "\(level).circle.fill")
-			.background(
-				Color.init(
-					red: 0,
-					green: 0,
-					blue: 0,
-					opacity: 0.7
-				)
-			)
+		Image(systemName: "circle.fill")
 			.foregroundColor(
 				level == 1 ? .red :
-					level == 2 ? .yellow :
-					level == 3 ? .purple :
-					.gray
+				level == 2 ? .orange :
+				level == 3 ? .blue :
+				.gray
 			)
-			.clipShape(Circle())
-		
 	}
 }

@@ -40,9 +40,14 @@ struct ExposureDataModel: Decodable, Identifiable {
 	}
 	
 	// get the coordinates from out api
-	let latitude: Double
-	let longitude: Double
+	let latitude: Double?
+	let longitude: Double?
 	var coordinate: CLLocationCoordinate2D {
-		CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+		var defaultCoordinate = CLLocationCoordinate2D(latitude: 0.00, longitude: 0.00)
+		if let latitude = latitude,
+		   let longitude = longitude {
+			defaultCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+		}
+		return defaultCoordinate
 	}
 }
