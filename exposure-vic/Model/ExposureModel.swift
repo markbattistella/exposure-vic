@@ -1,14 +1,14 @@
 //
-//  ExposureDataModel.swift
+//  ExposureModel.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
 //
 
 import CoreLocation
+import SwiftUI
 
-// MARK: - Exposure data model
-struct ExposureDataModel: Decodable, Identifiable {
+struct ExposureModel: Decodable, Identifiable {
 	var id: Int { _id }
 	let _id: Int
 	let Suburb: String?
@@ -28,8 +28,8 @@ struct ExposureDataModel: Decodable, Identifiable {
 	let Exposure_time_start_24: String?
 	let Exposure_time_end_24: String?
 	
-	// see if we can capture the tier level
-	var level: Int {
+	// capture the tier level
+	var exposureLevel: Int {
 		var level = 0
 		if let tier = Advice_title {
 			if( tier.startsWith("Tier 1") ) { level = 1 }
@@ -37,6 +37,20 @@ struct ExposureDataModel: Decodable, Identifiable {
 			if( tier.startsWith("Tier 3") ) { level = 3 }
 		}
 		return level
+	}
+	
+	// get the exposure colour
+	var exposureColour: Color {
+		switch exposureLevel {
+			case 1:
+				return Color(.systemRed)
+			case 2:
+				return Color(.systemOrange)
+			case 3:
+				return Color(.systemBlue)
+			default:
+				return Color(.systemGray)
+		}
 	}
 	
 	// get the coordinates from out api

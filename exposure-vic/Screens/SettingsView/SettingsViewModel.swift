@@ -10,15 +10,15 @@ import SwiftUI
 final class SettingsViewModel: ObservableObject {
 	
 	@AppStorage("setting") private var settingData: Data?
-	@Published var setting = SettingDataModel()
+	@Published var setting = SettingModel()
 	@Published var alertItem: AlertItem?
 	
 	var mapRingSizes = [ 5, 10, 15, 20, 25 ]
+	var exposureLevels = [ 0, 1, 2, 3 ]
 
 	// get the current version number
 	let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-
-
+	
 	// method: save the settings
 	func saveChanges() {
 		do {
@@ -42,7 +42,7 @@ final class SettingsViewModel: ObservableObject {
 		guard let settingData = settingData else { return }
 		
 		do {
-			setting = try JSONDecoder().decode(SettingDataModel.self, from: settingData)
+			setting = try JSONDecoder().decode(SettingModel.self, from: settingData)
 		} catch {
 			alertItem = AlertContext.unableToRetrieveSettings
 		}

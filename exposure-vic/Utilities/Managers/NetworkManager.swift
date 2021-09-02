@@ -20,7 +20,7 @@ final class NetworkManager {
 	private init() {}
 	
 	// network call to get the data
-	func getExposureSites(completed: @escaping (Result<[ExposureDataModel], ErrorType>) -> Void) {
+	func getExposureSites(completed: @escaping (Result<[ExposureModel], ErrorType>) -> Void) {
 		
 		// unwrap the url
 		guard let url = URL(string: baseURL) else {
@@ -57,7 +57,7 @@ final class NetworkManager {
 				let decoder = JSONDecoder()
 				
 				// try to decode the data into the ExposureModel
-				let decodedResponse = try decoder.decode([ExposureDataModel].self, from: data)
+				let decodedResponse = try decoder.decode([ExposureModel].self, from: data)
 				
 				// run the success
 				completed(.success(decodedResponse))

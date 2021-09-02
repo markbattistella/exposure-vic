@@ -57,14 +57,6 @@ struct SettingsView: View {
 					}
 				}
 				
-				Section(header: Text("Debug")) {
-					Button {
-						currentPage = 1
-					} label: {
-						Text("Reset onboarding")
-					}
-				}
-				
 				Section {
 					FormTextRow(
 						title: "Version",
@@ -76,8 +68,15 @@ struct SettingsView: View {
 					)
 				}
 				
+				Section(header: Text("Debug")) {
+					Button {
+						currentPage = 1
+					} label: {
+						Text("Reset onboarding")
+					}
+				}
 			}
-
+			
 			// title
 			.navigationBarTitle("Settings")
 			

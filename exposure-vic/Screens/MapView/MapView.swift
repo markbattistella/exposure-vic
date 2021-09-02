@@ -28,7 +28,7 @@ struct MapView: View {
 					MapAnnotation(
 						coordinate: exposure.coordinate,
 						content: {
-							MapExposureSite(level: exposure.level)
+							MapAnnotationOverlay(exposure: exposure)
 								.onTapGesture {
 									modelData.selectedExposure = exposure
 									modelData.isShowingDetail = true
@@ -43,54 +43,32 @@ struct MapView: View {
 			.blur(radius: modelData.isShowingDetail ? 2 : 0)
 			.disabled( modelData.isShowingDetail )
 			
-			// legend
+			// overlay items
 			VStack {
-				HStack(spacing: 60) {
-					LegendItemOverlay(
-						tierNumber: 1,
-						tierColour: Color(.systemRed)
-					)
-					LegendItemOverlay(
-						tierNumber: 2,
-						tierColour: Color(.systemOrange)
-					)
-					LegendItemOverlay(
-						tierNumber: 3,
-						tierColour: Color(.systemBlue)
-					)
-				}
-				.padding()
-				.frame(maxWidth: .infinity)
-				.background(Color(.systemBackground))
-				.cornerRadius(12)
-				.padding()
-				.shadow(radius: 8)
+				
+				// top bar legend
+				LegendOverlay()
 				
 				Spacer()
 				
+				// re-center
 				HStack {
 					Spacer()
 					
-					VStack(spacing: 20) {
+					// re-center location after pan and zoom
+					Button {
+//						withAnimation { mapViewModel.recentreLocation() }
 						
-						// show ring on map
-						Button {
-							//
-						} label: {
-							MapButtonOverlay(image: "circle.dashed")
-						}
-						
-						// re-center location after pan and zoom
-						Button {
-							withAnimation { mapViewModel.recentreLocation() }
-						} label: {
-							MapButtonOverlay(image: "location.circle.fill")
-						}
+
+						print( settingsViewModel.setting )
+							
+							
+					} label: {
+						MapButtonOverlay(image: "location.circle.fill")
 					}
-					.padding()
-					
 				}
 			}
+			.padding()
 			.blur(radius: modelData.isShowingDetail ? 2 : 0)
 			.disabled( modelData.isShowingDetail )
 			
@@ -104,6 +82,9 @@ struct MapView: View {
 		}
 		
 		// when the view is activated
-		.onAppear { modelData.getExposureData() }
+		.onAppear {
+			modelData.getExposureData()
+			settingsViewModel.retrieveChanges()
+		}
 	}
 }

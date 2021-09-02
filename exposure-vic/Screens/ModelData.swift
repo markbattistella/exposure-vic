@@ -10,12 +10,12 @@ import CoreLocation
 
 final class ModelData: ObservableObject {
 	
-	@Published var exposures: [ExposureDataModel] = []
+	@Published var exposures: [ExposureModel] = []
 	@Published var alertItem: AlertItem?
 	@Published var lastUpdated: String = ""
 	@Published var isLoading = false
 	@Published var isShowingDetail = false
-	@Published var selectedExposure: ExposureDataModel?
+	@Published var selectedExposure: ExposureModel?
 	@Published var isRefreshing = false
 	
 	// get the data
@@ -47,7 +47,7 @@ final class ModelData: ObservableObject {
 						let dateFormatter = DateFormatter()
 
 						// set the update date time
-						dateFormatter.dateFormat = "dd/MM HH:mm a"
+						dateFormatter.dateFormat = "dd/MM hh:mm a"
 						self.lastUpdated = dateFormatter.string(from: date)
 
 					// failure - alert
