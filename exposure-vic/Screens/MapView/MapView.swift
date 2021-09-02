@@ -57,12 +57,7 @@ struct MapView: View {
 					
 					// re-center location after pan and zoom
 					Button {
-//						withAnimation { mapViewModel.recentreLocation() }
-						
-
-						print( settingsViewModel.setting )
-							
-							
+						withAnimation { mapViewModel.recentreLocation() }
 					} label: {
 						MapButtonOverlay(image: "location.circle.fill")
 					}
