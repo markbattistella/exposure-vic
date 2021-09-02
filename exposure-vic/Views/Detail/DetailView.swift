@@ -92,6 +92,7 @@ struct DetailView: View {
 			}
 			
 			HStack {
+				
 				// close button
 				Button {
 					isShowingDetail = false
@@ -102,13 +103,31 @@ struct DetailView: View {
 						textColour: .white
 					)
 				}
+				
+				// error button
+				Button {
+					if let url = URL(string: "https://github.com/markbattistella/exposure-vic-api/issues") {
+						UIApplication.shared.open(url)
+					}
+				} label : {
+					Image(systemName: "exclamationmark.bubble")
+						.frame(width: 50, height: 50)
+						.background(Color(.systemGray2))
+						.foregroundColor(.white)
+						.cornerRadius(12)
+				}
 			}
 		}
+		
 		
 		// frame options
 		.padding()
 		.frame(maxWidth: 320, maxHeight: 500)
 		.background(Color(.systemBackground))
+
+		.padding(.top, 20)
+		.border(width: 20, edges: [.top], color: exposure.exposureColour)
+
 		.cornerRadius(12)
 		.shadow(radius: 12)
 	}

@@ -14,5 +14,6 @@ struct MapPinOverlay: View {
 		Image(systemName: "circle.fill")
 			.padding(5)
 			.foregroundColor(tint)
+			.shadow(radius: 1)
 	}
 }

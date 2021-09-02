@@ -39,7 +39,8 @@
 		A39D87C226D1E19E0079E895 /* Colour+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87C126D1E19E0079E895 /* Colour+Ext.swift */; };
 		A39D87C626D234040079E895 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87C526D234040079E895 /* String+Ext.swift */; };
 		A3BF0E1326CFD64F003CFF22 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */; };
-		A3CB77E526E09EB5004689CC /* MapAnnotationOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB77E426E09EB5004689CC /* MapAnnotationOverlay.swift */; };
+		A3CB77ED26E0AEA2004689CC /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB77EC26E0AEA2004689CC /* View+Ext.swift */; };
+		A3CB77EF26E0AEFF004689CC /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB77EE26E0AEFF004689CC /* EdgeBorder.swift */; };
 		A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */; };
 		A3F0F6C526C653A7004877EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C426C653A7004877EC /* Assets.xcassets */; };
 		A3F0F6C826C653A7004877EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C726C653A7004877EC /* Preview Assets.xcassets */; };
@@ -78,7 +79,8 @@
 		A39D87C126D1E19E0079E895 /* Colour+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colour+Ext.swift"; sourceTree = "<group>"; };
 		A39D87C526D234040079E895 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
-		A3CB77E426E09EB5004689CC /* MapAnnotationOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationOverlay.swift; sourceTree = "<group>"; };
+		A3CB77EC26E0AEA2004689CC /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		A3CB77EE26E0AEFF004689CC /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
 		A3F0F6BD26C653A6004877EC /* exposure-vic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "exposure-vic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureVICApp.swift; sourceTree = "<group>"; };
 		A3F0F6C426C653A7004877EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				A39D87C126D1E19E0079E895 /* Colour+Ext.swift */,
 				A39D87C526D234040079E895 /* String+Ext.swift */,
+				A3CB77EC26E0AEA2004689CC /* View+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -255,9 +258,9 @@
 			children = (
 				A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */,
 				A34C6B1826DDA2C600132BAA /* MapPinOverlay.swift */,
-				A3CB77E426E09EB5004689CC /* MapAnnotationOverlay.swift */,
 				A3957EEF26DE51430093441B /* MapButtonOverlay.swift */,
 				A3957EED26DE4C200093441B /* LegendOverlay.swift */,
+				A3CB77EE26E0AEFF004689CC /* EdgeBorder.swift */,
 			);
 			path = Overlays;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				A321CE8926CCDD4900617E73 /* PullToRefresh.swift in Sources */,
 				A393339826CA1FDE00303F52 /* ErrorType.swift in Sources */,
 				A393338C26CA19E500303F52 /* ListView.swift in Sources */,
+				A3CB77ED26E0AEA2004689CC /* View+Ext.swift in Sources */,
 				A393339626CA1F4200303F52 /* ExposureModel.swift in Sources */,
 				A321CE7526CCB78800617E73 /* DetailView.swift in Sources */,
 				A321CE8B26CCECDD00617E73 /* FormTextRow.swift in Sources */,
@@ -406,9 +410,9 @@
 				A393339A26CA201B00303F52 /* ErrorAlert.swift in Sources */,
 				A39D87C026D1DE3A0079E895 /* ScreenView.swift in Sources */,
 				A36DA36926CB294F00DDA3D7 /* MapViewError.swift in Sources */,
+				A3CB77EF26E0AEFF004689CC /* EdgeBorder.swift in Sources */,
 				A3957EEE26DE4C200093441B /* LegendOverlay.swift in Sources */,
 				A335A09E26D120E600A9B907 /* DetailInfoView.swift in Sources */,
-				A3CB77E526E09EB5004689CC /* MapAnnotationOverlay.swift in Sources */,
 				A36DA36B26CB296800DDA3D7 /* MapViewRequest.swift in Sources */,
 				A321CE7726CCB81700617E73 /* ActivityIndicator.swift in Sources */,
 				A39D87C626D234040079E895 /* String+Ext.swift in Sources */,

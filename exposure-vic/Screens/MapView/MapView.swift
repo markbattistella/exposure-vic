@@ -28,7 +28,7 @@ struct MapView: View {
 					MapAnnotation(
 						coordinate: exposure.coordinate,
 						content: {
-							MapAnnotationOverlay(exposure: exposure)
+							MapPinOverlay(tint: exposure.exposureColour)
 								.onTapGesture {
 									modelData.selectedExposure = exposure
 									modelData.isShowingDetail = true
