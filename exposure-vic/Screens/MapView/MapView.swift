@@ -28,14 +28,13 @@ struct MapView: View {
 					MapAnnotation(
 						coordinate: exposure.coordinate,
 						content: {
-							MapPin(level: exposure.level)
+							MapExposureSite(level: exposure.level)
 								.onTapGesture {
 									modelData.selectedExposure = exposure
 									modelData.isShowingDetail = true
 								}
 						}
 					)
-					
 				}
 			)
 			.accentColor(Color(.systemGreen))
@@ -43,13 +42,22 @@ struct MapView: View {
 			.edgesIgnoringSafeArea(.all)
 			.blur(radius: modelData.isShowingDetail ? 2 : 0)
 			.disabled( modelData.isShowingDetail )
-
+			
 			// legend
 			VStack {
 				HStack(spacing: 60) {
-					LegendItemOverlay(tierNumber: 1, tierColour: Color(.systemRed))
-					LegendItemOverlay(tierNumber: 2, tierColour: Color(.systemOrange))
-					LegendItemOverlay(tierNumber: 3, tierColour: Color(.systemBlue))
+					LegendItemOverlay(
+						tierNumber: 1,
+						tierColour: Color(.systemRed)
+					)
+					LegendItemOverlay(
+						tierNumber: 2,
+						tierColour: Color(.systemOrange)
+					)
+					LegendItemOverlay(
+						tierNumber: 3,
+						tierColour: Color(.systemBlue)
+					)
 				}
 				.padding()
 				.frame(maxWidth: .infinity)
@@ -85,7 +93,7 @@ struct MapView: View {
 			}
 			.blur(radius: modelData.isShowingDetail ? 2 : 0)
 			.disabled( modelData.isShowingDetail )
-
+			
 			// if the detail is to be shown
 			if modelData.isShowingDetail {
 				DetailView(
