@@ -72,7 +72,7 @@ struct SettingsView: View {
 					Button {
 						currentPage = 1
 					} label: {
-						Text("Reset onboarding")
+						Text("Reset app data")
 					}
 				}
 			}
