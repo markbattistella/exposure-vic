@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
 	
 	@Binding var isShowingDetail: Bool
-	let exposure: ExposureModel
+	let exposure: DataModel
 	
 	var body: some View {
 		
@@ -18,7 +18,7 @@ struct DetailView: View {
 			ScrollView(showsIndicators: false) {
 				
 				// site title
-				if let place = exposure.Site_title {
+				if let place = exposure.siteTitle {
 					DetailInfoView(
 						title: "Site name",
 						message: place.sanitise()
@@ -26,9 +26,9 @@ struct DetailView: View {
 				}
 				
 				// street address
-				if let address = exposure.Site_streetaddress {
-					if let suburb = exposure.Suburb,
-					   let postcode = exposure.Site_postcode {
+				if let address = exposure.siteStreetaddress {
+					if let suburb = exposure.suburb,
+					   let postcode = exposure.sitePostcode {
 						DetailInfoView(
 							title: "Address",
 							message: "\(address.sanitise()) \(suburb.sanitise()) \(postcode.sanitise())"
@@ -37,8 +37,8 @@ struct DetailView: View {
 				}
 				
 				// exposure date time
-				if let exposureDate = exposure.Exposure_date {
-					if let exposureTime = exposure.Exposure_time {
+				if let exposureDate = exposure.exposureDate {
+					if let exposureTime = exposure.exposureTime {
 						DetailInfoView(
 							title: "Exposure date and time",
 							message: "\(exposureDate.sanitise()) \(exposureTime.sanitise().replacingOccurrences(of: " - ", with: "-"))"
@@ -52,7 +52,7 @@ struct DetailView: View {
 				}
 				
 				// Notes
-				if let notes = exposure.Notes {
+				if let notes = exposure.notes {
 					DetailInfoView(
 						title: "Exposure information",
 						message: notes.sanitise()
@@ -60,7 +60,7 @@ struct DetailView: View {
 				}
 				
 				// advice tier
-				if let adviceTitle = exposure.Advice_title {
+				if let adviceTitle = exposure.adviceTitle {
 					DetailInfoView(
 						title: "Exposure tier",
 						message: adviceTitle.sanitise()
@@ -68,7 +68,7 @@ struct DetailView: View {
 				}
 				
 				// advice instruction
-				if let instruction = exposure.Advice_instruction  {
+				if let instruction = exposure.adviceInstruction  {
 					DetailInfoView(
 						title: "Health instructions",
 						message: instruction.sanitise()
@@ -76,8 +76,8 @@ struct DetailView: View {
 				}
 				
 				// added date time
-				if let addedDate = exposure.Added_date {
-					if let addedTime = exposure.Added_time {
+				if let addedDate = exposure.addedDate {
+					if let addedTime = exposure.addedTime {
 						DetailInfoView(
 							title: "Added date and time",
 							message: "\(addedDate.sanitise()) \(addedTime.sanitise().replacingOccurrences(of: " - ", with: "-"))"
@@ -112,7 +112,7 @@ struct DetailView: View {
 				} label : {
 					Image(systemName: "exclamationmark.bubble")
 						.frame(width: 50, height: 50)
-						.background(Color(.systemGray2))
+						.background(Color(.systemBlue))
 						.foregroundColor(.white)
 						.cornerRadius(12)
 				}

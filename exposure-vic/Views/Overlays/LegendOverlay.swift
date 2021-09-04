@@ -10,15 +10,21 @@ import SwiftUI
 // lgend
 struct LegendOverlay: View {
 	var body: some View {
-		HStack(spacing: 60) {
+		HStack {
 			LegendItemOverlay(
 				tierNumber: 1,
 				tierColour: Color(.systemRed)
 			)
+			
+			Spacer()
+			
 			LegendItemOverlay(
 				tierNumber: 2,
 				tierColour: Color(.systemOrange)
 			)
+			
+			Spacer()
+			
 			LegendItemOverlay(
 				tierNumber: 3,
 				tierColour: Color(.systemBlue)
@@ -31,18 +37,3 @@ struct LegendOverlay: View {
 		.shadow(radius: 8)
 	}
 }
-
-// individual items
-struct LegendItemOverlay: View {
-	let tierNumber: Int
-	let tierColour: Color
-	var body: some View {
-		HStack {
-			Image(systemName: "circle.fill")
-				.foregroundColor(tierColour)
-			Text("Tier \(tierNumber)")
-				.font(.caption.bold())
-		}
-	}
-}
-

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListCell: View {
 	
-	let exposure: ExposureModel
+	let exposure: DataModel
 	
 	var body: some View {
 		
@@ -17,7 +17,7 @@ struct ListCell: View {
 		VStack( alignment: .leading ) {
 			
 			// site title
-			if let place = exposure.Site_title {
+			if let place = exposure.siteTitle {
 				Text(place.sanitise())
 					.font(.title3)
 					.fontWeight(.heavy)
@@ -26,12 +26,12 @@ struct ListCell: View {
 			}
 			
 			// street address
-			if let address = exposure.Site_streetaddress {
+			if let address = exposure.siteStreetaddress {
 				HStack {
 					Image(systemName: "pin.fill")
 						.foregroundColor(.gray)
-					if let suburb = exposure.Suburb,
-					   let postcode = exposure.Site_postcode {
+					if let suburb = exposure.suburb,
+					   let postcode = exposure.sitePostcode {
 						Text("\(address.sanitise()) \(suburb.sanitise()) \(postcode.sanitise())")
 					} else {
 						Text(address.sanitise())
@@ -41,11 +41,11 @@ struct ListCell: View {
 			}
 			
 			// exposure date time
-			if let exposureDate = exposure.Exposure_date {
+			if let exposureDate = exposure.exposureDate {
 				HStack {
 					Image(systemName: "calendar.badge.clock")
 					Text(exposureDate.sanitise())
-					if let exposureTime = exposure.Exposure_time {
+					if let exposureTime = exposure.exposureTime {
 						Text(exposureTime.sanitise().replacingOccurrences(of: " - ", with: "-"))
 					}
 				}

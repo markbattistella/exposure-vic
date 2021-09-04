@@ -1,5 +1,5 @@
 //
-//  ScreenView.swift
+//  OnboardingScreenView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 22/8/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ScreenView: View {
+struct OnboardingScreenView: View {
 	
 	var image: String
 	var title: String

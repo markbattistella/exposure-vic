@@ -9,77 +9,88 @@ import SwiftUI
 
 struct ListView: View {
 	
-	@EnvironmentObject var modelData: ModelData
+	@EnvironmentObject var exposureViewModel: ExposureViewModel
 	
 	var body: some View {
-		
+
 		ZStack {
+			
 			NavigationView {
-				
+			
 				// get the list
-				List(modelData.exposures) { exposure in
+				List(exposureViewModel.exposures) { exposure in
+				
 					// pass in the custom view
 					ListCell(exposure: exposure)
-						
+					
 						// show the detail view on tap
 						.onTapGesture {
-							modelData.selectedExposure = exposure
-							modelData.isShowingDetail = true
+							exposureViewModel.selectedExposure = exposure
+							exposureViewModel.isShowingDetail = true
 						}
 				}
-				
+		
 				// the navigation title
 				.navigationTitle("Exposure List")
-				
+			
 				// navbar
 				.navigationBarItems(
-					trailing: Button {
-						modelData.getExposureData()
-						modelData.isRefreshing = false
+					leading: Button {
+						exposureViewModel.getExposureData()
+						exposureViewModel.isRefreshing = false
 					} label: {
-						Image(systemName: "arrow.counterclockwise")
-							.imageScale(.large)
+						Label("Refresh", systemImage: "arrow.down.heart.fill")
+					},
+					
+					trailing: Button {
+						exposureViewModel.isShowingList = false
+					} label: {
+						Text("Close")
+							.foregroundColor(.red)
 					}
 				)
-				
+			
 				// pull down to refresh
 				.background(
 					PullToRefresh( action: {
-						modelData.getExposureData()
-						modelData.isRefreshing = false
-					}, isRefreshing: $modelData.isRefreshing)
-				)
-				
-				// disable the scroll when detail view is open
-				.disabled(
-					modelData.isShowingDetail || modelData.isRefreshing
+						exposureViewModel.getExposureData()
+						exposureViewModel.isRefreshing = false
+					}, isRefreshing: $exposureViewModel.isRefreshing)
 				)
 			}
-			
+
+			// disable the scroll when detail view is open
+			.disabled(
+				exposureViewModel.isShowingDetail ||
+					exposureViewModel.isRefreshing
+			)
+
 			// when the view is activated
 			// -- insert the reload from network
 			.onAppear {
-				modelData.getExposureData()
+				exposureViewModel.getExposureData()
 			}
-			
+		
 			// blue the list when detail is open
-			.blur(radius: modelData.isShowingDetail ? 8 : 0)
+			.blur(radius: exposureViewModel.isShowingDetail ? 2 : 0)
+				
 			
 			// if the detail is to be shown
-			if modelData.isShowingDetail {
+			if(exposureViewModel.isShowingDetail) {
 				DetailView(
-					isShowingDetail: $modelData.isShowingDetail,
-					exposure: modelData.selectedExposure!
+					isShowingDetail: $exposureViewModel.isShowingDetail,
+					exposure: exposureViewModel.selectedExposure!
 				)
 			}
 			
 			// show loading spinner when loading
-			if modelData.isLoading {
+			if(exposureViewModel.isLoading) {
 				LoadingOverlay()
 			}
 		}
+		
 		// show error alerts
-		.alert(item: $modelData.alertItem) { alertItem in
+		.alert(item: $exposureViewModel.alertItem) { alertItem in
 			Alert(title: alertItem.title,
 				  message: alertItem.message,
 				  dismissButton: alertItem.dismissButton)

@@ -1,5 +1,5 @@
 //
-//  ModelData.swift
+//  ExposureViewModel.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
@@ -8,16 +8,18 @@
 import SwiftUI
 import CoreLocation
 
-final class ModelData: ObservableObject {
+final class ExposureViewModel: ObservableObject {
 	
-	@Published var exposures: [ExposureModel] = []
+	@Published var exposures: [DataModel] = []
 	@Published var alertItem: AlertItem?
 	@Published var lastUpdated: String = ""
+	@Published var selectedExposure: DataModel?
+
 	@Published var isLoading = false
-	@Published var isShowingDetail = false
-	@Published var selectedExposure: ExposureModel?
 	@Published var isRefreshing = false
-	
+	@Published var isShowingDetail = false
+	@Published var isShowingList = false
+
 	// get the data
 	func getExposureData() {
 		
@@ -47,7 +49,7 @@ final class ModelData: ObservableObject {
 						let dateFormatter = DateFormatter()
 
 						// set the update date time
-						dateFormatter.dateFormat = "dd/MM hh:mm a"
+						dateFormatter.dateFormat = "dd/MM hh:mm:ss a"
 						self.lastUpdated = dateFormatter.string(from: date)
 
 					// failure - alert

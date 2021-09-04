@@ -1,5 +1,5 @@
 //
-//  WalkthroughView.swift
+//  OnboardingView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 22/8/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WalkthroughView: View {
+struct OnboardingView: View {
 	
 	let totalPages = 3
 	@AppStorage("currentPage") var currentPage = 1
@@ -16,7 +16,7 @@ struct WalkthroughView: View {
 		ZStack(alignment: .top) {
 			
 			if currentPage == 1 {
-				ScreenView(
+				OnboardingScreenView(
 					image: "image1",
 					title: "Check the map",
 					description: "Use your location to check for any exposure sites near you",
@@ -26,7 +26,7 @@ struct WalkthroughView: View {
 			}
 			
 			if currentPage == 2 {
-				ScreenView(
+				OnboardingScreenView(
 					image: "image2",
 					title: "Check the list",
 					description: "Scroll throught the list of exposure sites to see if you have been affected",
@@ -36,7 +36,7 @@ struct WalkthroughView: View {
 			}
 			
 			if currentPage == 3 {
-				ScreenView(
+				OnboardingScreenView(
 					image: "image3",
 					title: "Safe together",
 					description: "So in the end we can keep ourselves and the ones we love safe and healthy",
@@ -49,7 +49,7 @@ struct WalkthroughView: View {
 				Spacer()
 				HStack(spacing: 20) {
 					
-					if currentPage > 1 && currentPage < 4 {
+					if(currentPage > 1 && currentPage < 4) {
 						Spacer()
 						Button {
 							withAnimation {
@@ -69,7 +69,7 @@ struct WalkthroughView: View {
 
 					Button {
 						withAnimation {
-							if currentPage <= totalPages {
+							if(currentPage <= totalPages) {
 								currentPage += 1
 							} else {
 								currentPage = 1
@@ -90,6 +90,7 @@ struct WalkthroughView: View {
 					
 					// push it centre
 					Spacer()
+					
 				}.padding(.bottom, 60)
 				
 			}

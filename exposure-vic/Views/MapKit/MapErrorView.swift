@@ -1,5 +1,5 @@
 //
-//  MapViewError.swift
+//  MapErrorView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 17/8/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MapViewError: View {
+struct MapErrorView: View {
 	
 	var errorText: String
 	

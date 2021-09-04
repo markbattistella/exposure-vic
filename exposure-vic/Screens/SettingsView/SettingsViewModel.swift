@@ -12,7 +12,8 @@ final class SettingsViewModel: ObservableObject {
 	@AppStorage("setting") private var settingData: Data?
 	@Published var setting = SettingModel()
 	@Published var alertItem: AlertItem?
-	
+	@Published var isShowingSettings = false
+
 	var mapRingSizes = [ 5, 10, 15, 20, 25 ]
 	var exposureLevels = [ 0, 1, 2, 3 ]
 

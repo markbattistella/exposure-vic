@@ -1,5 +1,5 @@
 //
-//  MapViewRequest.swift
+//  MapRequestView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 17/8/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MapViewRequest: View {
+struct MapRequestView: View {
 
 	@ObservedObject var mapViewModel: MapViewModel
 	

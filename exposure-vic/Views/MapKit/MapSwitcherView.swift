@@ -1,5 +1,5 @@
 //
-//  MapViewSwitcher.swift
+//  MapSwitcherView.swift
 //  exposure-vic
 //
 //  Created by Mark Battistella on 16/8/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MapViewSwitcher: View {
+struct MapSwitcherView: View {
 	
 	@StateObject var mapViewModel = MapViewModel()
 	
@@ -19,19 +19,19 @@ struct MapViewSwitcher: View {
 			// success: user has allowed location use
 			case .authorizedAlways,
 				 .authorizedWhenInUse:
-				MapView(mapViewModel: mapViewModel)
+				MapView()
 				
 			// failure: user denied permission
 			case .denied:
-				MapViewError(errorText: "The app does not have location permissions. Please enable it in the settings app.")
+				MapErrorView(errorText: "The app does not have location permissions. Please enable it in the settings app.")
 				
 			// unsure
 			case .notDetermined:
-				MapViewRequest(mapViewModel: mapViewModel)
+				MapRequestView(mapViewModel: mapViewModel)
 
 			// location use is not on
 			case .restricted:
-				MapViewError(errorText: "Location use is restricted.")
+				MapErrorView(errorText: "Location use is restricted.")
 
 			// all other
 			default:

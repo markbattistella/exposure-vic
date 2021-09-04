@@ -10,16 +10,26 @@ import SwiftUI
 @main
 struct Exposure_VICApp: App {
 	
+	// total number of onboarding pages
 	let totalPages = 3
+	
+	// store the active page
 	@AppStorage("currentPage") var currentPage = 1
 
 	var body: some Scene {
+		
         WindowGroup {
-			// check if we are onboarding or not
-			if currentPage > totalPages {
-				MainTabView()
+		
+			// -- not onboarding
+			if(currentPage > totalPages) {
+				MapSwitcherView()
+
+					// theme colour
+					.accentColor(Color(.systemPurple))
+
+				// -- onboarding
 			} else {
-				WalkthroughView()
+				OnboardingView()
 					.background(Color.onBoarding1)
 					.edgesIgnoringSafeArea(.all)
 			}

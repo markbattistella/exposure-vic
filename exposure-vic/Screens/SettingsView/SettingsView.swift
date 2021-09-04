@@ -11,9 +11,9 @@ struct SettingsView: View {
 	
 	// access to the view model
 	@AppStorage("currentPage") var currentPage = 1
-	@EnvironmentObject var modelData: ModelData
-	@EnvironmentObject var settingsViewModel: SettingsViewModel
-	
+	@EnvironmentObject private var exposureViewModel: ExposureViewModel
+	@EnvironmentObject private var settingsViewModel: SettingsViewModel
+
 	var body: some View {
 		
 		NavigationView {
@@ -22,7 +22,7 @@ struct SettingsView: View {
 				
 				Section {
 					Button {
-						modelData.getExposureData()
+						exposureViewModel.getExposureData()
 					} label: {
 						Label("Check for new exposures", systemImage: "arrow.down.heart.fill")
 					}
@@ -30,7 +30,7 @@ struct SettingsView: View {
 					HStack {
 						FormTextRow(
 							title: "Last updated",
-							info: "\(modelData.lastUpdated)"
+							info: "\(exposureViewModel.lastUpdated)"
 						)
 					}
 				}
@@ -77,12 +77,20 @@ struct SettingsView: View {
 				}
 			}
 			
-			// title
+			// -- title
 			.navigationBarTitle("Settings")
 			
-			// update data on appear
+			// -- bar items
+			.navigationBarItems(trailing: Button {
+				settingsViewModel.isShowingSettings = false
+			} label: {
+				Text("Close")
+					.foregroundColor(.red)
+			})
+			
+			// -- update data on appear
 			.onAppear {
-				modelData.getExposureData()
+				exposureViewModel.getExposureData()
 				settingsViewModel.retrieveChanges()
 			}
 			

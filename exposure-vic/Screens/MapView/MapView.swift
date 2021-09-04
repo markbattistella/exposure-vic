@@ -10,75 +10,110 @@ import MapKit
 
 struct MapView: View {
 	
-	@EnvironmentObject var modelData: ModelData
-	@EnvironmentObject var settingsViewModel: SettingsViewModel
+	// data sets
 	@StateObject var mapViewModel = MapViewModel()
+	@StateObject var exposureViewModel = ExposureViewModel()
+	@StateObject var settingsViewModel = SettingsViewModel()
 	
 	var body: some View {
 		
 		ZStack {
 			
-			// show the map
-			Map(
-				coordinateRegion: $mapViewModel.region,
-				interactionModes: .all,
-				showsUserLocation: true,
-				annotationItems: modelData.exposures,
-				annotationContent: { exposure in
-					MapAnnotation(
-						coordinate: exposure.coordinate,
-						content: {
-							MapPinOverlay(tint: exposure.exposureColour)
-								.onTapGesture {
-									modelData.selectedExposure = exposure
-									modelData.isShowingDetail = true
-								}
-						}
-					)
-				}
-			)
-			.accentColor(Color(.systemGreen))
-			.animation( .linear(duration: 20) )
-			.edgesIgnoringSafeArea(.all)
-			.blur(radius: modelData.isShowingDetail ? 2 : 0)
-			.disabled( modelData.isShowingDetail )
+			// -- map
+			UIMapView()
+				.environmentObject(mapViewModel)
+				.ignoresSafeArea()
+				.blur(radius: exposureViewModel.isShowingDetail ? 2 : 0)
+				.disabled( exposureViewModel.isShowingDetail )
 			
-			// overlay items
+			
+			// map overlay items
 			VStack {
 				
-				// top bar legend
+				// -- top bar legend
 				LegendOverlay()
 				
 				Spacer()
 				
-				// re-center
-				HStack {
-					Spacer()
+				// -- bottom bar
+				HStack(spacing: 20) {
 					
-					// re-center location after pan and zoom
+					// -- settings
 					Button {
-						withAnimation { mapViewModel.recentreLocation() }
+						settingsViewModel.isShowingSettings = true
 					} label: {
-						MapButtonOverlay(image: "location.circle.fill")
+						Label("Settings", systemImage: "gearshape.fill")
+							.labelStyle(IconOnlyLabelStyle())
+							.padding()
+							.background(Color(.systemBackground))
+							.cornerRadius(12)
+					}
+					
+					// -- list view
+					Button {
+						exposureViewModel.isShowingList = true
+					} label: {
+						Label("List view", systemImage: "list.number")
+							.frame(maxWidth: .infinity)
+							.padding()
+							.background(Color(.systemBackground))
+							.cornerRadius(12)
+					}
+					
+					// -- recenter location
+					Button {
+						mapViewModel.recentreLocation()
+					} label: {
+						Label("Re-centre location", systemImage: "location.fill")
+							.labelStyle(IconOnlyLabelStyle())
+							.padding()
+							.background(Color(.systemBackground))
+							.cornerRadius(12)
 					}
 				}
+				.padding(.bottom, 10)
+				.shadow(radius: 10)
 			}
-			.padding()
-			.blur(radius: modelData.isShowingDetail ? 2 : 0)
-			.disabled( modelData.isShowingDetail )
+			.padding(20)
+			.blur(radius: exposureViewModel.isShowingDetail ? 2 : 0)
+			.disabled( exposureViewModel.isShowingDetail )
 			
 			// if the detail is to be shown
-			if modelData.isShowingDetail {
+			if(exposureViewModel.isShowingDetail) {
 				DetailView(
-					isShowingDetail: $modelData.isShowingDetail,
-					exposure: modelData.selectedExposure!
+					isShowingDetail: $exposureViewModel.isShowingDetail,
+					exposure: exposureViewModel.selectedExposure!
 				)
 			}
 		}
 		
+		// -- settings
+		.fullScreenCover(
+			isPresented: $settingsViewModel.isShowingSettings,
+			content: {
+				SettingsView()
+					// add model data to the environment
+					// -- all child views can access it
+					.environmentObject(exposureViewModel)
+					.environmentObject(settingsViewModel)
+			}
+		)
+		
+		// -- list view
+		.fullScreenCover(
+			isPresented: $exposureViewModel.isShowingList,
+			content: {
+				ListView()
+					// add model data to the environment
+					// -- all child views can access it
+					.environmentObject(exposureViewModel)
+					.environmentObject(settingsViewModel)
+			}
+		)
+		
 		// when the view is activated
 		.onAppear {
-			modelData.getExposureData()
+			exposureViewModel.getExposureData()
 			settingsViewModel.retrieveChanges()
 		}
 	}
