@@ -38,6 +38,8 @@
 		A3BF0E1326CFD64F003CFF22 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */; };
 		A3CAF4F526E326F1004E7A5B /* UIMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CAF4F426E326F1004E7A5B /* UIMapView.swift */; };
 		A3CAF4F726E34970004E7A5B /* LegendItemOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CAF4F626E34970004E7A5B /* LegendItemOverlay.swift */; };
+		A3CAF4FE26E4458E004E7A5B /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CAF4FD26E4458E004E7A5B /* SearchBarView.swift */; };
+		A3CAF50026E44B45004E7A5B /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CAF4FF26E44B45004E7A5B /* UIApplication+Ext.swift */; };
 		A3CB77ED26E0AEA2004689CC /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB77EC26E0AEA2004689CC /* View+Ext.swift */; };
 		A3CB77EF26E0AEFF004689CC /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB77EE26E0AEFF004689CC /* EdgeBorder.swift */; };
 		A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */; };
@@ -77,6 +79,8 @@
 		A3BF0E1226CFD64F003CFF22 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		A3CAF4F426E326F1004E7A5B /* UIMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMapView.swift; sourceTree = "<group>"; };
 		A3CAF4F626E34970004E7A5B /* LegendItemOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendItemOverlay.swift; sourceTree = "<group>"; };
+		A3CAF4FD26E4458E004E7A5B /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		A3CAF4FF26E44B45004E7A5B /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		A3CB77EC26E0AEA2004689CC /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		A3CB77EE26E0AEFF004689CC /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
 		A3F0F6BD26C653A6004877EC /* exposure-vic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "exposure-vic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +125,7 @@
 				A39D87C126D1E19E0079E895 /* Colour+Ext.swift */,
 				A39D87C526D234040079E895 /* String+Ext.swift */,
 				A3CB77EC26E0AEA2004689CC /* View+Ext.swift */,
+				A3CAF4FF26E44B45004E7A5B /* UIApplication+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				A321CE8526CCCD7E00617E73 /* Buttons */,
 				A321CE8326CCC45600617E73 /* MapKit */,
 				A321CE8226CCC41B00617E73 /* Cells */,
+				A3CAF4FC26E44574004E7A5B /* Search */,
 				A321CE8126CCC40500617E73 /* UIKitComponents */,
 			);
 			path = Views;
@@ -260,6 +266,14 @@
 				A34EEFF526D33F1A00173D24 /* AcknowledgementsView.swift */,
 			);
 			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		A3CAF4FC26E44574004E7A5B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A3CAF4FD26E4458E004E7A5B /* SearchBarView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		A3CB77E326E09A99004689CC /* Main */ = {
@@ -385,6 +399,7 @@
 				A321CE8926CCDD4900617E73 /* PullToRefresh.swift in Sources */,
 				A393339826CA1FDE00303F52 /* ErrorType.swift in Sources */,
 				A393338C26CA19E500303F52 /* ListView.swift in Sources */,
+				A3CAF4FE26E4458E004E7A5B /* SearchBarView.swift in Sources */,
 				A3CB77ED26E0AEA2004689CC /* View+Ext.swift in Sources */,
 				A393339626CA1F4200303F52 /* DataModel.swift in Sources */,
 				A321CE7526CCB78800617E73 /* DetailView.swift in Sources */,
@@ -393,6 +408,7 @@
 				A39333A026CA319300303F52 /* ListCell.swift in Sources */,
 				A335A0A026D12C3100A9B907 /* FullWidthButton.swift in Sources */,
 				A3BF0E1326CFD64F003CFF22 /* LoadingOverlay.swift in Sources */,
+				A3CAF50026E44B45004E7A5B /* UIApplication+Ext.swift in Sources */,
 				A321CEB626CF051200617E73 /* FormURLRow.swift in Sources */,
 				A393339226CA1BD600303F52 /* SettingsView.swift in Sources */,
 				A39333A426CA471800303F52 /* ExposureViewModel.swift in Sources */,

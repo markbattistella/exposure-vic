@@ -9,25 +9,35 @@ import SwiftUI
 
 struct ListView: View {
 	
+	@State private var searchText = ""
 	@EnvironmentObject var exposureViewModel: ExposureViewModel
-	
+
 	var body: some View {
 
 		ZStack {
-			
 			NavigationView {
+				VStack {
+					SearchBarView(searchText: $searchText)
 			
-				// get the list
-				List(exposureViewModel.exposures) { exposure in
-				
-					// pass in the custom view
-					ListCell(exposure: exposure)
-					
-						// show the detail view on tap
-						.onTapGesture {
-							exposureViewModel.selectedExposure = exposure
-							exposureViewModel.isShowingDetail = true
+					// get the list
+					List(exposureViewModel.exposures.filter(
+						{ searchText.isEmpty ? true :
+							$0.siteTitle!.lowercased().contains(searchText.lowercased()) ||
+							$0.siteStreetaddress!.lowercased().contains(searchText.lowercased()) ||
+							$0.suburb!.lowercased().contains(searchText.lowercased()) ||
+							$0.sitePostcode!.contains(searchText)
 						}
+					)) { exposure in
+
+						// pass in the custom view
+						ListCell(exposure: exposure)
+					
+							// show the detail view on tap
+							.onTapGesture {
+								exposureViewModel.selectedExposure = exposure
+								exposureViewModel.isShowingDetail = true
+							}
+					}
 				}
 		
 				// the navigation title
@@ -62,7 +72,7 @@ struct ListView: View {
 			// disable the scroll when detail view is open
 			.disabled(
 				exposureViewModel.isShowingDetail ||
-					exposureViewModel.isRefreshing
+				exposureViewModel.isRefreshing
 			)
 
 			// when the view is activated
@@ -71,9 +81,16 @@ struct ListView: View {
 				exposureViewModel.getExposureData()
 			}
 		
-			// blue the list when detail is open
+			// blur the list when detail is open
 			.blur(radius: exposureViewModel.isShowingDetail ? 2 : 0)
-				
+			
+			// drag keyboard down
+			.gesture(
+				DragGesture()
+					.onChanged({ _ in
+						UIApplication.shared.dismissKeyboard()
+					})
+			)
 			
 			// if the detail is to be shown
 			if(exposureViewModel.isShowingDetail) {
