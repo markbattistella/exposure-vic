@@ -23,11 +23,9 @@ struct UIMapView: UIViewRepresentable {
 	// first build of view
 	func makeUIView(context: Context) -> MKMapView {
 		let view = mapViewModel.mapView
-		drawOverlayRing(view: view)
-		
-		getAnnotations(view: view)
-		
 		view.showsUserLocation = true
+		view.isRotateEnabled = false
+		view.isPitchEnabled = false
 		view.delegate = context.coordinator
 		return view
 	}
@@ -35,10 +33,14 @@ struct UIMapView: UIViewRepresentable {
 	// to update the view
 	func updateUIView(_ uiView: MKMapView, context: Context) {
 		drawOverlayRing(view: uiView)
+		getAnnotations(view: uiView)
+
 	}
-	
+
 	// the uikit <-> swiftui
 	class Coordinator: NSObject, MKMapViewDelegate {
+		
+		// overlay
 		func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
 			if let overlay = overlay as? MKCircle {
 				let circleRenderer = MKCircleRenderer(circle: overlay)
@@ -49,32 +51,113 @@ struct UIMapView: UIViewRepresentable {
 			}
 			return MKOverlayRenderer(overlay: overlay)
 		}
-		
-		
-		func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-			
-			guard annotation is MKPointAnnotation else { return nil }
-			
-			let identifier = "site"
-			
-			var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
 
-			if annotationView == nil {
-				annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-				annotationView!.canShowCallout = true
-			} else {
-				annotationView!.annotation = annotation
+		// annotation
+		func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+			// init the annotation
+			var annotationView = MKMarkerAnnotationView()
+
+			// show user locations itself
+			guard !(annotation is MKUserLocation) else { return nil }
+
+			guard let annotation = annotation as? ExposureAnnotation else { return nil }
+
+
+			var identifier: String
+			var colour: UIColor
+
+			switch annotation.type {
+				case .tier1:
+					identifier = "Tier 1"
+					colour = .systemRed
+				case .tier2:
+					identifier = "Tier 2"
+					colour = .systemOrange
+				case .tier3:
+					identifier = "Tier 3"
+					colour = .systemBlue
+				default:
+					identifier = "Tier 0"
+					colour = .systemGray
 			}
-			
+
+			if let dequedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
+				annotationView = dequedView
+			} else{
+				annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+			}
+
+			// extra customisation
+			annotationView.canShowCallout = false
+			annotationView.animatesWhenAdded = false
+			annotationView.titleVisibility = .hidden
+			annotationView.subtitleVisibility = .hidden
+
+			// -- image type
+			annotationView.markerTintColor = .clear
+			annotationView.glyphImage = UIImage(systemName: "circle.fill")
+			annotationView.glyphTintColor = colour
+
+			annotationView.layer.shadowColor = UIColor.black.cgColor
+			annotationView.layer.shadowOffset = CGSize(width: 0, height: 0)
+			annotationView.layer.shadowOpacity = 0.1
+			annotationView.layer.shadowRadius = 5
+			annotationView.clipsToBounds = false
+		
+			// -- if we want to have the multiple events
+			// -- cluster into one balloon
+			// annotationView.clusteringIdentifier = identifier
+
+			// send it back
 			return annotationView
 		}
+
+		
+		func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+			//
+		}
 	}
+
+	
+	
 	
 	
 	// MARK: - methods
 	
 	// -- annotations
 	func getAnnotations(view: MKMapView) {
+		
+		// -- remove all the old annotations
+		view.removeAnnotations(view.annotations)
+		
+		for index in exposureViewModel.exposures {
+			
+			// unwrap
+			guard let title = index.siteTitle else { return }
+			guard let latitude = index.latitude else { return }
+			guard let longitude = index.longitude else { return }
+			
+//			let annotation = MKPointAnnotation()
+			let annotation = ExposureAnnotation(
+				latitude,
+				longitude,
+				title: title,
+				subtitle: "ddd",
+				type: index.exposureLevel
+			)
+
+//			annotation.title = title
+//			annotation.subtitle = "Tier \(index.exposureLevel)"
+//			annotation.coordinate = CLLocationCoordinate2D(
+//				latitude: latitude,
+//				longitude: longitude
+//			)
+//
+			// -- add the annotation
+			view.addAnnotation(annotation)
+		}
+		
 	}
 	
 	// -- overlay ring

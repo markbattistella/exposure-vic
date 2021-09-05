@@ -30,6 +30,14 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 		authorizationStatus = manager.authorizationStatus
 		super.init()
 		manager.delegate = self
+		
+		manager.allowsBackgroundLocationUpdates = false
+		manager.activityType = .fitness
+		manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+		manager.distanceFilter = 20
+		manager.pausesLocationUpdatesAutomatically = true
+		manager.showsBackgroundLocationIndicator = true
+		
 		manager.startUpdatingLocation()
 	}
 	
@@ -60,6 +68,8 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 		
 		// stop using the gps
 		manager.stopUpdatingLocation()
+		manager.stopMonitoringSignificantLocationChanges()
+
 	}
 	
 	// get the error with locations
@@ -94,7 +104,8 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 		
 		// stop using the gps
 		manager.stopUpdatingLocation()
-		
+		manager.stopMonitoringSignificantLocationChanges()
+
 		// try remove memory leak
 		manager.delegate = nil
 	}

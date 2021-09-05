@@ -117,8 +117,8 @@ struct MapView: View {
 		
 		// when the view is activated
 		.onAppear {
-			exposureViewModel.getExposureData()
 			settingsViewModel.retrieveChanges()
+			exposureViewModel.getExposureData()
 		}
 	}
 }

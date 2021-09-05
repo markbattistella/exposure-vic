@@ -52,12 +52,12 @@ struct DataModel: Decodable, Identifiable {
 	}
 	
 	// capture the tier level
-	var exposureLevel: Int {
-		var level = 0
+	var exposureLevel: ExposureLevel {
+		var level: ExposureLevel = .tier0
 		if let tier = adviceTitle {
-			if( tier.startsWith("Tier 1") ) { level = 1 }
-			if( tier.startsWith("Tier 2") ) { level = 2 }
-			if( tier.startsWith("Tier 3") ) { level = 3 }
+			if( tier.startsWith("Tier 1") ) { level = .tier1 }
+			if( tier.startsWith("Tier 2") ) { level = .tier2 }
+			if( tier.startsWith("Tier 3") ) { level = .tier3 }
 		}
 		return level
 	}
@@ -65,11 +65,11 @@ struct DataModel: Decodable, Identifiable {
 	// get the exposure colour
 	var exposureColour: Color {
 		switch exposureLevel {
-			case 1:
+			case .tier1:
 				return Color(.systemRed)
-			case 2:
+			case .tier2:
 				return Color(.systemOrange)
-			case 3:
+			case .tier3:
 				return Color(.systemBlue)
 			default:
 				return Color(.systemGray)
