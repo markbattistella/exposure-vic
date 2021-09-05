@@ -10,7 +10,9 @@ import SwiftUI
 struct MapSwitcherView: View {
 	
 	@StateObject var mapViewModel = MapViewModel()
-	
+	@StateObject var exposureViewModel = ExposureViewModel()
+	@StateObject var settingsViewModel = SettingsViewModel()
+
 	var body: some View {
 
 		// find out what weve been permitted
@@ -20,6 +22,11 @@ struct MapSwitcherView: View {
 			case .authorizedAlways,
 				 .authorizedWhenInUse:
 				MapView()
+					// add model data to the environment
+					// -- all child views can access it
+					.environmentObject(exposureViewModel)
+					.environmentObject(settingsViewModel)
+
 				
 			// failure: user denied permission
 			case .denied:
@@ -27,7 +34,7 @@ struct MapSwitcherView: View {
 				
 			// unsure
 			case .notDetermined:
-				MapRequestView(mapViewModel: mapViewModel)
+				MapRequestView()
 
 			// location use is not on
 			case .restricted:

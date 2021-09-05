@@ -31,7 +31,7 @@ struct LegendOverlay: View {
 			)
 		}
 		.padding()
-		.frame(maxWidth: .infinity)
+		.frame(maxWidth: .infinity, maxHeight: 50)
 		.background(Color(.systemBackground))
 		.cornerRadius(12)
 		.shadow(radius: 8)

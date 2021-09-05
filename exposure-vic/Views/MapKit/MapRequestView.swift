@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MapRequestView: View {
 
-	@ObservedObject var mapViewModel: MapViewModel
+	@StateObject var mapViewModel = MapViewModel()
 	
 	var body: some View {
 		

@@ -21,11 +21,14 @@ struct MapView: View {
 			
 			// -- map
 			UIMapView()
-				.environmentObject(mapViewModel)
 				.ignoresSafeArea()
 				.blur(radius: exposureViewModel.isShowingDetail ? 2 : 0)
 				.disabled( exposureViewModel.isShowingDetail )
-			
+
+				.environmentObject(mapViewModel)
+				.environmentObject(settingsViewModel)
+				.environmentObject(exposureViewModel)
+
 			
 			// map overlay items
 			VStack {
@@ -86,7 +89,7 @@ struct MapView: View {
 				)
 			}
 		}
-		
+
 		// -- settings
 		.fullScreenCover(
 			isPresented: $settingsViewModel.isShowingSettings,
@@ -94,11 +97,12 @@ struct MapView: View {
 				SettingsView()
 					// add model data to the environment
 					// -- all child views can access it
+					.environmentObject(mapViewModel)
 					.environmentObject(exposureViewModel)
 					.environmentObject(settingsViewModel)
 			}
 		)
-		
+
 		// -- list view
 		.fullScreenCover(
 			isPresented: $exposureViewModel.isShowingList,

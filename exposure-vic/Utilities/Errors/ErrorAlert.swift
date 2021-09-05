@@ -40,24 +40,4 @@ struct AlertContext {
 		message: Text("Unable to complete your request at this time. Please check your internet connection."),
 		dismissButton: .default(Text("OK"))
 	)
-
-
-	// setting alerts
-	static let successfulSaveSettings = AlertItem(
-		title: Text("Setting Save"),
-		message: Text("Settings successfully saved"),
-		dismissButton: .default(Text("OK"))
-	)
-
-	static let unableToSaveSettings = AlertItem(
-		title: Text("Setting Error"),
-		message: Text("Unable to save settings, please contact support."),
-		dismissButton: .default(Text("OK"))
-	)
-
-	static let unableToRetrieveSettings = AlertItem(
-		title: Text("Setting Error"),
-		message: Text("Unable to retrieve settings, please contact support."),
-		dismissButton: .default(Text("OK"))
-	)
 }

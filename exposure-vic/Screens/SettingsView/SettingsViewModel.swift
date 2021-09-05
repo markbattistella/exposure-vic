@@ -11,11 +11,12 @@ final class SettingsViewModel: ObservableObject {
 	
 	@AppStorage("setting") private var settingData: Data?
 	@Published var setting = SettingModel()
-	@Published var alertItem: AlertItem?
+	@Published private var ringOverlayCenterLatitude: Double?
+	@Published private var ringOverlayCenterLongitude: Double?
+	
 	@Published var isShowingSettings = false
 
-	var mapRingSizes = [ 5, 10, 15, 20, 25 ]
-	var exposureLevels = [ 0, 1, 2, 3 ]
+	let mapRingSizes = [ 5, 10, 15, 20, 25 ]
 
 	// get the current version number
 	let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
@@ -28,13 +29,7 @@ final class SettingsViewModel: ObservableObject {
 			
 			// set the data to encode from data
 			settingData = data
-			
-			// alert user settings saved
-			alertItem = AlertContext.successfulSaveSettings
-		} catch {
-			// get the error
-			alertItem = AlertContext.unableToSaveSettings
-		}
+		}  catch {}
 	}
 	
 	// method: retrieve the data
@@ -44,8 +39,8 @@ final class SettingsViewModel: ObservableObject {
 		
 		do {
 			setting = try JSONDecoder().decode(SettingModel.self, from: settingData)
-		} catch {
-			alertItem = AlertContext.unableToRetrieveSettings
-		}
+			
+			
+		} catch {}
 	}
 }

@@ -49,7 +49,7 @@ final class ExposureViewModel: ObservableObject {
 						let dateFormatter = DateFormatter()
 
 						// set the update date time
-						dateFormatter.dateFormat = "dd/MM hh:mm:ss a"
+						dateFormatter.dateFormat = "dd/MM hh:mm a"
 						self.lastUpdated = dateFormatter.string(from: date)
 
 					// failure - alert

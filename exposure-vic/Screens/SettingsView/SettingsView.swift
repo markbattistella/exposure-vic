@@ -11,6 +11,7 @@ struct SettingsView: View {
 	
 	// access to the view model
 	@AppStorage("currentPage") var currentPage = 1
+	@EnvironmentObject private var mapViewModel: MapViewModel
 	@EnvironmentObject private var exposureViewModel: ExposureViewModel
 	@EnvironmentObject private var settingsViewModel: SettingsViewModel
 
@@ -34,27 +35,20 @@ struct SettingsView: View {
 						)
 					}
 				}
-				
-				Section(header: Text("Map options")) {
-					Toggle("Show travel ring", isOn: $settingsViewModel.setting.showRingOverlay)
+
+				Section(
+					header: Text("Map options"),
+					footer: Text("Note: the ring will be centred around your current location").font(.caption).italic()
+				) {
+					Toggle(isOn: $settingsViewModel.setting.showRingOverlay) {
+						Text("Show travel ring")
+					}
 					
 					Picker(selection: $settingsViewModel.setting.mapRingSize, label: Text("Travel ring size")) {
 						ForEach(0 ..< settingsViewModel.mapRingSizes.count) {
 							Text( "\(settingsViewModel.mapRingSizes[$0]) km" )
 						}
 					}.pickerStyle(SegmentedPickerStyle())
-				}
-				
-				Section {
-					Button {
-						settingsViewModel.saveChanges()
-					} label: {
-						HStack {
-							Spacer()
-							Text("Save settings")
-							Spacer()
-						}
-					}
 				}
 				
 				Section {
@@ -82,10 +76,14 @@ struct SettingsView: View {
 			
 			// -- bar items
 			.navigationBarItems(trailing: Button {
+				
+				// save the data to show
+				saveMapOverlayData()
+				
+				// dismiss the view
 				settingsViewModel.isShowingSettings = false
 			} label: {
 				Text("Close")
-					.foregroundColor(.red)
 			})
 			
 			// -- update data on appear
@@ -93,15 +91,24 @@ struct SettingsView: View {
 				exposureViewModel.getExposureData()
 				settingsViewModel.retrieveChanges()
 			}
-			
-			// alertalertItem
-			.alert(item: $settingsViewModel.alertItem) { alertItem in
-				Alert(
-					title: alertItem.title,
-					message: alertItem.message,
-					dismissButton: alertItem.dismissButton
-				)
-			}
 		}
+	}
+
+
+	// save the map overlay daya
+	private func saveMapOverlayData() {
+		
+		// save the coordinates
+		settingsViewModel.setting.ringOverlayCenterLatitude = mapViewModel.region.center.latitude
+		settingsViewModel.setting.ringOverlayCenterLongitude = mapViewModel.region.center.longitude
+		
+		// -- show the ring
+		mapViewModel.showOverlay = settingsViewModel.setting.showRingOverlay
+		
+		// -- what ring size
+		mapViewModel.overlaySize = settingsViewModel.setting.mapRingSize
+		
+		// save the changes
+		settingsViewModel.saveChanges()
 	}
 }

@@ -8,6 +8,8 @@
 import Foundation
 
 struct SettingModel: Codable {
-	var mapRingSize = 0
-	var showRingOverlay = false
+	var mapRingSize: Int = 0
+	var showRingOverlay: Bool = false
+	var ringOverlayCenterLatitude: Double?
+	var ringOverlayCenterLongitude: Double?
 }
