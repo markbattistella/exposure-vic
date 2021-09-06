@@ -34,8 +34,6 @@ struct UIMapView: UIViewRepresentable {
 	func updateUIView(_ uiView: MKMapView, context: Context) {
 		drawOverlayRing(view: uiView)
 		getAnnotations(view: uiView)
-
-		print( uiView.getCurrentZoom() )
 	}
 	
 	// the uikit <-> swiftui
@@ -202,27 +200,5 @@ struct UIMapView: UIViewRepresentable {
 				view.removeOverlays(overlays)
 			}
 		}
-	}
-}
-
-
-extension MKMapView {
-	func getCurrentZoom() -> Double {
-		
-		var angleCamera = self.camera.heading
-		if angleCamera > 270 {
-			angleCamera = 360 - angleCamera
-		} else if angleCamera > 90 {
-			angleCamera = fabs(angleCamera - 180)
-		}
-		
-		let angleRad = .pi * angleCamera / 180
-		
-		let width = Double(self.frame.size.width)
-		let height = Double(self.frame.size.height)
-		
-		let offset : Double = 20 // offset of Windows (StatusBar)
-		let spanStraight = width * self.region.span.longitudeDelta / (width * cos(angleRad) + (height - offset) * sin(angleRad))
-		return log2(360 * ((width / 256) / spanStraight)) + 1;
 	}
 }

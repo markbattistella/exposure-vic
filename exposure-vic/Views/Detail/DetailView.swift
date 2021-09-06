@@ -84,13 +84,51 @@ struct DetailView: View {
 						)
 					} else {
 						DetailInfoView(
-							title: "Added date and time",
+							title: "Added date",
 							message: addedDate.sanitise()
 						)
 					}
 				}
-			}
 			
+				// report wrong info
+				Button {
+					
+					let url = "mailto:exposurevic@outlook.com.au"
+
+					// unwrap the url
+					guard let url = URL(string: url) else { return }
+
+					//
+					guard var components = URLComponents(
+							url: url, resolvingAgainstBaseURL: false
+					) else { return }
+					
+					components.queryItems = [
+						URLQueryItem(
+							name: "subject",
+							value: "AUTO: [\(exposure.id)] - \(exposure.siteTitle ?? "")"
+						),
+						
+						URLQueryItem(
+							name: "body",
+							value: "Hi! I found a problem with one of the sites. The problem is: "
+						)
+					]
+					
+					// get the full url with parameters
+					guard let emailURL = components.url else { return }
+
+					// open the email client
+					UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
+
+				} label: {
+					Text("See something wrong? Report it here")
+						.foregroundColor(Color(.systemGray3))
+						.font(.caption)
+						.padding(.vertical, 5)
+				}
+			}
+
 			HStack {
 				
 				// close button
@@ -104,13 +142,11 @@ struct DetailView: View {
 					)
 				}
 				
-				// error button
+				// share button
 				Button {
-					if let url = URL(string: "https://github.com/markbattistella/exposure-vic-api/issues") {
-						UIApplication.shared.open(url)
-					}
+					shareButton(data: exposure)
 				} label : {
-					Image(systemName: "exclamationmark.bubble")
+					Image(systemName: "square.and.arrow.up")
 						.frame(width: 50, height: 50)
 						.background(Color(.systemBlue))
 						.foregroundColor(.white)
@@ -118,8 +154,7 @@ struct DetailView: View {
 				}
 			}
 		}
-		
-		
+
 		// frame options
 		.padding()
 		.frame(maxWidth: 320, maxHeight: 500)
@@ -130,5 +165,18 @@ struct DetailView: View {
 
 		.cornerRadius(12)
 		.shadow(radius: 12)
+	}
+	
+	// show share
+	private func shareButton(data: DataModel) {
+		
+//		guard let siteTitle = data.siteTitle else { return }
+		
+		
+		
+		
+		let url = URL(string: "https://designcode.io")
+		let activityController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
+		UIApplication.shared.windows.first?.rootViewController!.present(activityController, animated: true, completion: nil)
 	}
 }

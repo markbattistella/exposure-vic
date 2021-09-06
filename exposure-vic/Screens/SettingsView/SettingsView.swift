@@ -62,6 +62,13 @@ struct SettingsView: View {
 					)
 				}
 				
+				Section(header: Text("Change icon")) {
+					NavigationLink(
+						destination: AppIconView(),
+						label: { Text("Change icon") }
+					)
+				}
+				
 				Section(header: Text("Debug")) {
 					Button {
 						currentPage = 1
