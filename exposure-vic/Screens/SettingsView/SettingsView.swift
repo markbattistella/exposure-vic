@@ -77,8 +77,8 @@ struct SettingsView: View {
 			// -- bar items
 			.navigationBarItems(trailing: Button {
 				
-				// save the data to show
-				saveMapOverlayData()
+				// save the changes
+				settingsViewModel.saveChanges()
 				
 				// dismiss the view
 				settingsViewModel.isShowingSettings = false
@@ -92,23 +92,5 @@ struct SettingsView: View {
 				settingsViewModel.retrieveChanges()
 			}
 		}
-	}
-
-
-	// save the map overlay daya
-	private func saveMapOverlayData() {
-		
-		// save the coordinates
-		settingsViewModel.setting.ringOverlayCenterLatitude = mapViewModel.region.center.latitude
-		settingsViewModel.setting.ringOverlayCenterLongitude = mapViewModel.region.center.longitude
-		
-		// -- show the ring
-		mapViewModel.showOverlay = settingsViewModel.setting.showRingOverlay
-		
-		// -- what ring size
-		mapViewModel.overlaySize = settingsViewModel.setting.mapRingSize
-		
-		// save the changes
-		settingsViewModel.saveChanges()
 	}
 }

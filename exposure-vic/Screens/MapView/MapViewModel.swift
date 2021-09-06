@@ -9,8 +9,8 @@ import SwiftUI
 import MapKit
 
 enum MapDetails {
-	static let defaultLatitudinalMeters = CLLocationDistance(500)
-	static let defaultLongitudinalMeters = CLLocationDistance(500)
+	static let defaultLatitudinalMeters = CLLocationDistance(1000)
+	static let defaultLongitudinalMeters = CLLocationDistance(1000)
 }
 
 // map data goes here
@@ -22,22 +22,17 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 	@Published var region = MKCoordinateRegion()
 	@Published var authorizationStatus: CLAuthorizationStatus
 
-	@Published var showOverlay: Bool = false
-	@Published var overlaySize: Int = 0
-
 	// MARK: - initialisation
 	override init() {
 		authorizationStatus = manager.authorizationStatus
 		super.init()
 		manager.delegate = self
-		
-		manager.allowsBackgroundLocationUpdates = false
 		manager.activityType = .fitness
-		manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+		manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
 		manager.distanceFilter = 20
+		manager.allowsBackgroundLocationUpdates = false
 		manager.pausesLocationUpdatesAutomatically = true
 		manager.showsBackgroundLocationIndicator = true
-		
 		manager.startUpdatingLocation()
 	}
 	
@@ -61,15 +56,13 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 		)
 		
 		// set the region
-		mapView.setRegion(region, animated: true)
+		mapView.setRegion(region, animated: false)
 		
 		// animate the focus
-		mapView.setVisibleMapRect(mapView.visibleMapRect, animated: true)
-		
-		// stop using the gps
-		manager.stopUpdatingLocation()
-		manager.stopMonitoringSignificantLocationChanges()
+		mapView.setVisibleMapRect(mapView.visibleMapRect, animated: false)
 
+		// stop using the gps
+		stopLoctionServices()
 	}
 	
 	// get the error with locations
@@ -101,12 +94,18 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 		
 		// animate the focus
 		mapView.setVisibleMapRect(mapView.visibleMapRect, animated: true)
-		
+
 		// stop using the gps
+		stopLoctionServices()
+	}
+	
+	// try prevent memory leaks
+	private func stopLoctionServices() {
+		manager.allowsBackgroundLocationUpdates = false
+		manager.pausesLocationUpdatesAutomatically = true
+		manager.showsBackgroundLocationIndicator = true
 		manager.stopUpdatingLocation()
 		manager.stopMonitoringSignificantLocationChanges()
-
-		// try remove memory leak
 		manager.delegate = nil
 	}
 }

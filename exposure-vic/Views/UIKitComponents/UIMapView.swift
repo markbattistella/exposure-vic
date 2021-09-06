@@ -13,11 +13,11 @@ struct UIMapView: UIViewRepresentable {
 	@EnvironmentObject var mapViewModel: MapViewModel
 	@EnvironmentObject var settingsViewModel: SettingsViewModel
 	@EnvironmentObject var exposureViewModel: ExposureViewModel
-
+	
 	
 	// assign the coordinator
 	func makeCoordinator() -> Coordinator {
-		Coordinator()
+		Coordinator(self)
 	}
 	
 	// first build of view
@@ -35,13 +35,20 @@ struct UIMapView: UIViewRepresentable {
 		drawOverlayRing(view: uiView)
 		getAnnotations(view: uiView)
 
+		print( uiView.getCurrentZoom() )
 	}
-
+	
 	// the uikit <-> swiftui
 	class Coordinator: NSObject, MKMapViewDelegate {
+		var parent: UIMapView
 		
+		init(_ parent: UIMapView) {
+			self.parent = parent
+		}
+
 		// overlay
 		func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+			
 			if let overlay = overlay as? MKCircle {
 				let circleRenderer = MKCircleRenderer(circle: overlay)
 				circleRenderer.fillColor = .systemGreen.withAlphaComponent(0.1)
@@ -51,22 +58,23 @@ struct UIMapView: UIViewRepresentable {
 			}
 			return MKOverlayRenderer(overlay: overlay)
 		}
-
+		
 		// annotation
 		func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-
+			
 			// init the annotation
 			var annotationView = MKMarkerAnnotationView()
-
+			
 			// show user locations itself
 			guard !(annotation is MKUserLocation) else { return nil }
-
+			
+			// custom annotation
 			guard let annotation = annotation as? ExposureAnnotation else { return nil }
-
-
+			
+			// changable variables
 			var identifier: String
 			var colour: UIColor
-
+			
 			switch annotation.type {
 				case .tier1:
 					identifier = "Tier 1"
@@ -81,7 +89,7 @@ struct UIMapView: UIViewRepresentable {
 					identifier = "Tier 0"
 					colour = .systemGray
 			}
-
+			
 			if let dequedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
 				annotationView = dequedView
 			} else{
@@ -98,62 +106,57 @@ struct UIMapView: UIViewRepresentable {
 			annotationView.markerTintColor = .clear
 			annotationView.glyphImage = UIImage(systemName: "circle.fill")
 			annotationView.glyphTintColor = colour
-
+			
 			annotationView.layer.shadowColor = UIColor.black.cgColor
 			annotationView.layer.shadowOffset = CGSize(width: 0, height: 0)
 			annotationView.layer.shadowOpacity = 0.1
 			annotationView.layer.shadowRadius = 5
 			annotationView.clipsToBounds = false
-		
-			// -- if we want to have the multiple events
-			// -- cluster into one balloon
-			// annotationView.clusteringIdentifier = identifier
-
+			
 			// send it back
 			return annotationView
 		}
-
 		
+		// get the tapped annotation
 		func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-			//
+			
+			// if not tapping the user location
+			if !(view.annotation is MKUserLocation) {
+				
+				// let them know its our custom pin
+				let annotation = view.annotation as? ExposureAnnotation
+				
+				// -- set up all the info for display
+				parent.exposureViewModel.selectedExposure = annotation?.exposure
+				parent.exposureViewModel.isShowingDetail = true
+			}
 		}
 	}
-
-	
-	
 	
 	
 	// MARK: - methods
 	
 	// -- annotations
-	func getAnnotations(view: MKMapView) {
+	private func getAnnotations(view: MKMapView) {
 		
 		// -- remove all the old annotations
 		view.removeAnnotations(view.annotations)
 		
-		for index in exposureViewModel.exposures {
+		for exposure in exposureViewModel.exposures {
 			
 			// unwrap
-			guard let title = index.siteTitle else { return }
-			guard let latitude = index.latitude else { return }
-			guard let longitude = index.longitude else { return }
+			guard let title = exposure.siteTitle else { return }
+			guard let latitude = exposure.latitude else { return }
+			guard let longitude = exposure.longitude else { return }
 			
-//			let annotation = MKPointAnnotation()
 			let annotation = ExposureAnnotation(
 				latitude,
 				longitude,
 				title: title,
-				subtitle: "ddd",
-				type: index.exposureLevel
+				type: exposure.exposureLevel,
+				exposure: exposure
 			)
-
-//			annotation.title = title
-//			annotation.subtitle = "Tier \(index.exposureLevel)"
-//			annotation.coordinate = CLLocationCoordinate2D(
-//				latitude: latitude,
-//				longitude: longitude
-//			)
-//
+			
 			// -- add the annotation
 			view.addAnnotation(annotation)
 		}
@@ -161,22 +164,24 @@ struct UIMapView: UIViewRepresentable {
 	}
 	
 	// -- overlay ring
-	func drawOverlayRing(view: MKMapView) {
-		
+	private func drawOverlayRing(view: MKMapView) {
+
 		// if there has been saved data
 		if let latitude  = settingsViewModel.setting.ringOverlayCenterLatitude,
 		   let longitude = settingsViewModel.setting.ringOverlayCenterLongitude {
-
+			
 			let overlays = view.overlays
-
+			
 			// -- if the ring is on
-			if( mapViewModel.showOverlay ) {
+			if( settingsViewModel.setting.showRingOverlay ) {
 				
 				// clear any old ones
 				view.removeOverlays(overlays)
 				
 				// -- get the ring size from array
-				let ringSize =  settingsViewModel.mapRingSizes[mapViewModel.overlaySize]
+				let ringSize = settingsViewModel.mapRingSizes[
+					settingsViewModel.setting.mapRingSize
+				]
 				
 				// -- add the overlay image
 				view.addOverlay(
@@ -197,5 +202,27 @@ struct UIMapView: UIViewRepresentable {
 				view.removeOverlays(overlays)
 			}
 		}
+	}
+}
+
+
+extension MKMapView {
+	func getCurrentZoom() -> Double {
+		
+		var angleCamera = self.camera.heading
+		if angleCamera > 270 {
+			angleCamera = 360 - angleCamera
+		} else if angleCamera > 90 {
+			angleCamera = fabs(angleCamera - 180)
+		}
+		
+		let angleRad = .pi * angleCamera / 180
+		
+		let width = Double(self.frame.size.width)
+		let height = Double(self.frame.size.height)
+		
+		let offset : Double = 20 // offset of Windows (StatusBar)
+		let spanStraight = width * self.region.span.longitudeDelta / (width * cos(angleRad) + (height - offset) * sin(angleRad))
+		return log2(360 * ((width / 256) / spanStraight)) + 1;
 	}
 }

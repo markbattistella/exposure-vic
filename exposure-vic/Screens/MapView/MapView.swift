@@ -14,11 +14,11 @@ struct MapView: View {
 	@StateObject var mapViewModel = MapViewModel()
 	@StateObject var exposureViewModel = ExposureViewModel()
 	@StateObject var settingsViewModel = SettingsViewModel()
-	
+
 	var body: some View {
 		
 		ZStack {
-			
+
 			// -- map
 			UIMapView()
 				.ignoresSafeArea()
@@ -32,7 +32,7 @@ struct MapView: View {
 			
 			// map overlay items
 			VStack {
-				
+
 				// -- top bar legend
 				LegendOverlay()
 				
