@@ -18,7 +18,7 @@ struct DetailInfoView: View {
 				.font(.title3)
 				.fontWeight(.heavy)
 				.multilineTextAlignment(.leading)
-			Text(message)
+			Text(message.sanitise())
 				.multilineTextAlignment(.leading)
 				.font(.body)
 		}

@@ -11,16 +11,37 @@ struct AcknowledgementsView: View {
 	var body: some View {
 		
 		Form {
-			FormURLRow(
-				title: "Twitter",
-				urlTitle: "@markbattistella",
-				url: "https://twitter.com/@markbattistella")
-			FormURLRow(
-				title: "GitHub",
-				urlTitle: "markbattistella",
-				url: "https://github.com/markbattistella")
 			
-			Text("Omnis inventore vel ut mollitia quos necessitatibus ipsum esse. Et labore tempore dolores qui magnam ut illo. Illum mollitia corrupti rerum autem voluptatum hic. Sint sit laudantium neque. Neque nihil ipsa laboriosam consequatur. Non qui blanditiis voluptas et.")
+			Section(
+				header: Text("Data sources"),
+				footer: Text("")
+			) {
+				FormURLRow(
+					title: "Exposure sites",
+					urlTitle: "DataVIC",
+					url: "https://discover.data.vic.gov.au/dataset/all-victorian-sars-cov-2-covid-19-current-exposure-sites")
+				FormURLRow(
+					title: "Geocoding",
+					urlTitle: "PositionStack",
+					url: "https://positionstack.com")
+				FormURLRow(
+					title: "Parsed data",
+					urlTitle: "API repo",
+					url: "https://github.com/markbattistella/exposure-vic-api")
+			}
+			
+			Section(header: Text("Me")) {
+				FormURLRow(
+					title: "Twitter",
+					urlTitle: "@markbattistella",
+					url: "https://twitter.com/@markbattistella")
+				FormURLRow(
+					title: "GitHub",
+					urlTitle: "markbattistella",
+					url: "https://github.com/markbattistella")
+			}
+			
 		}
+		.navigationBarTitle("Acknowledgements")
 	}
 }

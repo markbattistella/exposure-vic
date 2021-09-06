@@ -42,7 +42,6 @@ struct AppIconView: View {
 				.onTapGesture { appIconManager.changeAppIcon(to: .whiteIcon) }
 		}
 		.navigationBarTitle("Change app icon")
-		.navigationBarTitleDisplayMode(.inline)
 	}
 	
 	struct AppIconImageView: View {

@@ -21,7 +21,7 @@ struct DetailView: View {
 				if let place = exposure.siteTitle {
 					DetailInfoView(
 						title: "Site name",
-						message: place.sanitise()
+						message: place
 					)
 				}
 				
@@ -31,7 +31,7 @@ struct DetailView: View {
 					   let postcode = exposure.sitePostcode {
 						DetailInfoView(
 							title: "Address",
-							message: "\(address.sanitise()) \(suburb.sanitise()) \(postcode.sanitise())"
+							message: address + " " + suburb + " " + postcode
 						)
 					}
 				}
@@ -41,12 +41,12 @@ struct DetailView: View {
 					if let exposureTime = exposure.exposureTime {
 						DetailInfoView(
 							title: "Exposure date and time",
-							message: "\(exposureDate.sanitise()) \(exposureTime.sanitise().replacingOccurrences(of: " - ", with: "-"))"
+							message: exposureDate + " " + exposureTime.replacingOccurrences(of: " - ", with: "-")
 						)
 					} else {
 						DetailInfoView(
 							title: "Exposure date",
-							message: exposureDate.sanitise()
+							message: exposureDate
 						)
 					}
 				}
@@ -55,7 +55,7 @@ struct DetailView: View {
 				if let notes = exposure.notes {
 					DetailInfoView(
 						title: "Exposure information",
-						message: notes.sanitise()
+						message: notes
 					)
 				}
 				
@@ -63,7 +63,7 @@ struct DetailView: View {
 				if let adviceTitle = exposure.adviceTitle {
 					DetailInfoView(
 						title: "Exposure tier",
-						message: adviceTitle.sanitise()
+						message: adviceTitle
 					)
 				}
 				
@@ -71,7 +71,7 @@ struct DetailView: View {
 				if let instruction = exposure.adviceInstruction  {
 					DetailInfoView(
 						title: "Health instructions",
-						message: instruction.sanitise()
+						message: instruction
 					)
 				}
 				
@@ -80,12 +80,12 @@ struct DetailView: View {
 					if let addedTime = exposure.addedTime {
 						DetailInfoView(
 							title: "Added date and time",
-							message: "\(addedDate.sanitise()) \(addedTime.sanitise().replacingOccurrences(of: " - ", with: "-"))"
+							message: addedDate + " " + addedTime.sanitise().replacingOccurrences(of: " - ", with: "-")
 						)
 					} else {
 						DetailInfoView(
 							title: "Added date",
-							message: addedDate.sanitise()
+							message: addedDate
 						)
 					}
 				}
@@ -106,7 +106,7 @@ struct DetailView: View {
 					components.queryItems = [
 						URLQueryItem(
 							name: "subject",
-							value: "AUTO: [\(exposure.id)] - \(exposure.siteTitle ?? "")"
+							value: "AUTO: [\(exposure.id)] - \(exposure.siteTitle?.sanitise() ?? "")"
 						),
 						
 						URLQueryItem(
@@ -172,29 +172,28 @@ struct DetailView: View {
 		
 		// blank the array
 		var shareItems: [String] = []
-		
-		
+
 		// unwrap all the items
-		if let place = data.siteTitle { shareItems.append("Site name: \(place)") }
+		if let place = data.siteTitle { shareItems.append("Site name: \(place)\n\n") }
 		if let address = data.siteStreetaddress {
 			if let suburb = data.suburb,
 			   let postcode = data.sitePostcode {
-				shareItems.append("\n\nSite location: \(address) \(suburb) \(postcode)")
+				shareItems.append("Site location: \(address) \(suburb) \(postcode)\n\n")
 			}
 		}
 		if let exposureDate = data.exposureDate {
 			if let exposureTime = data.exposureTime {
-				shareItems.append("\n\nExposure date and time: \(exposureDate) \(exposureTime)")
+				shareItems.append("Exposure date and time: \(exposureDate) \(exposureTime)\n\n")
 			} else {
-				shareItems.append("\n\nExposure date: \(exposureDate)")
+				shareItems.append("Exposure date: \(exposureDate)\n\n")
 			}
 		}
-		if let notes = data.notes { shareItems.append("\n\nExposure info: \(notes)") }
+		if let notes = data.notes { shareItems.append("Exposure info: \(notes)\n\n") }
 		if let adviceTitle = data.adviceTitle {
-			shareItems.append("\n\nExposure tier: \(adviceTitle)")
+			shareItems.append("Exposure tier: \(adviceTitle)\n\n")
 		}
 		if let instruction = data.adviceInstruction {
-			shareItems.append("\n\nHealth instruction: \(instruction)")
+			shareItems.append("Health instruction: \(instruction)\n\n")
 		}
 
 		// add them to the share item
@@ -202,12 +201,16 @@ struct DetailView: View {
 			activityItems: shareItems,
 			applicationActivities: nil
 		)
+
+		// get the top most viewcontroller
+		// -- https://stackoverflow.com/a/26667122/1086990
+		let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
 		
-		// show the window
-		UIApplication.shared.windows.first?.rootViewController!.present(
-			activityController,
-			animated: true,
-			completion: nil
-		)
+		if var topController = keyWindow?.rootViewController {
+			while let presentedViewController = topController.presentedViewController {
+				topController = presentedViewController
+			}
+			topController.present(activityController, animated: true, completion: nil)
+		}
 	}
 }

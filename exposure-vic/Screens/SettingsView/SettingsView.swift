@@ -50,6 +50,13 @@ struct SettingsView: View {
 						}
 					}.pickerStyle(SegmentedPickerStyle())
 				}
+
+				Section(header: Text("Change icon")) {
+					NavigationLink(
+						destination: AppIconView(),
+						label: { Text("Change icon") }
+					)
+				}
 				
 				Section {
 					FormTextRow(
@@ -61,19 +68,13 @@ struct SettingsView: View {
 						label: { Text("View acknowledgements") }
 					)
 				}
-				
-				Section(header: Text("Change icon")) {
-					NavigationLink(
-						destination: AppIconView(),
-						label: { Text("Change icon") }
-					)
-				}
-				
+
 				Section(header: Text("Debug")) {
 					Button {
 						currentPage = 1
 					} label: {
 						Text("Reset app data")
+							.foregroundColor(Color(.systemRed))
 					}
 				}
 			}
