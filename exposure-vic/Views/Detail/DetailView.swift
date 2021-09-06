@@ -170,13 +170,44 @@ struct DetailView: View {
 	// show share
 	private func shareButton(data: DataModel) {
 		
-//		guard let siteTitle = data.siteTitle else { return }
+		// blank the array
+		var shareItems: [String] = []
 		
 		
+		// unwrap all the items
+		if let place = data.siteTitle { shareItems.append("Site name: \(place)") }
+		if let address = data.siteStreetaddress {
+			if let suburb = data.suburb,
+			   let postcode = data.sitePostcode {
+				shareItems.append("\n\nSite location: \(address) \(suburb) \(postcode)")
+			}
+		}
+		if let exposureDate = data.exposureDate {
+			if let exposureTime = data.exposureTime {
+				shareItems.append("\n\nExposure date and time: \(exposureDate) \(exposureTime)")
+			} else {
+				shareItems.append("\n\nExposure date: \(exposureDate)")
+			}
+		}
+		if let notes = data.notes { shareItems.append("\n\nExposure info: \(notes)") }
+		if let adviceTitle = data.adviceTitle {
+			shareItems.append("\n\nExposure tier: \(adviceTitle)")
+		}
+		if let instruction = data.adviceInstruction {
+			shareItems.append("\n\nHealth instruction: \(instruction)")
+		}
+
+		// add them to the share item
+		let activityController = UIActivityViewController(
+			activityItems: shareItems,
+			applicationActivities: nil
+		)
 		
-		
-		let url = URL(string: "https://designcode.io")
-		let activityController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
-		UIApplication.shared.windows.first?.rootViewController!.present(activityController, animated: true, completion: nil)
+		// show the window
+		UIApplication.shared.windows.first?.rootViewController!.present(
+			activityController,
+			animated: true,
+			completion: nil
+		)
 	}
 }
