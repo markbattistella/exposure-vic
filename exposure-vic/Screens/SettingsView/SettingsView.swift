@@ -85,6 +85,10 @@ struct SettingsView: View {
 			// -- bar items
 			.navigationBarItems(trailing: Button {
 				
+				// set current location for overlay
+				settingsViewModel.setting.ringOverlayCenterLatitude = mapViewModel.region.center.latitude
+				settingsViewModel.setting.ringOverlayCenterLongitude = mapViewModel.region.center.longitude
+				
 				// save the changes
 				settingsViewModel.saveChanges()
 				
