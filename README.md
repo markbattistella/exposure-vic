@@ -4,11 +4,11 @@ This is a concept app that pulls data from the Victorian Government data resourc
 
 ## Mock-up video
 
-![](.data/concept.gif)
+<img src=".data/concept.gif" width="320" height="646"/>
 
 ## Progress video
 
-![](.data/progress.gif)
+<img src=".data/progress.gif" width="320" height="646"/>
 
 ## Features
 
