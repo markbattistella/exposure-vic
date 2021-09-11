@@ -44,15 +44,15 @@ So it's here for you to install yourself.
 
 ### Mock up in Figma
 
-<video width="320" height="646"  autoplay loop muted><source type="video/mp4" src=".data/concept.mp4"></video>
+<video width="640" height="1290"  autoplay loop muted><source type="video/mp4" src=".data/concept.mp4"></video>
 
 ## Progress
 
-<video width="320" height="646"  autoplay loop muted><source type="video/mp4" src=".data/progress.mp4"></video>
+<video width="640" height="1290"  autoplay loop muted><source type="video/mp4" src=".data/progress.mp4"></video>
 
 ## Actual app
 
-<video width="320" height="646"  autoplay loop muted><source type="video/mp4" src=".data/actual.mp4"></video>
+<video width="640" height="1290"  autoplay loop muted><source type="video/mp4" src=".data/actual.mp4"></video>
 
 ### Data
 
