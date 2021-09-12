@@ -65,10 +65,49 @@
 		A3CAF50026E44B45004E7A5B /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CAF4FF26E44B45004E7A5B /* UIApplication+Ext.swift */; };
 		A3CB77ED26E0AEA2004689CC /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB77EC26E0AEA2004689CC /* View+Ext.swift */; };
 		A3CB77EF26E0AEFF004689CC /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB77EE26E0AEFF004689CC /* EdgeBorder.swift */; };
+		A3D247E926EDCEF4001A9EE9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D247E826EDCEF4001A9EE9 /* WidgetKit.framework */; };
+		A3D247EB26EDCEF4001A9EE9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D247EA26EDCEF4001A9EE9 /* SwiftUI.framework */; };
+		A3D247EE26EDCEF4001A9EE9 /* exposure_vic_widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D247ED26EDCEF4001A9EE9 /* exposure_vic_widget.swift */; };
+		A3D247F126EDCEF4001A9EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D247F026EDCEF4001A9EE9 /* Assets.xcassets */; };
+		A3D247F326EDCEF4001A9EE9 /* exposure_vic_widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A3D247EF26EDCEF4001A9EE9 /* exposure_vic_widget.intentdefinition */; };
+		A3D247F426EDCEF4001A9EE9 /* exposure_vic_widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A3D247EF26EDCEF4001A9EE9 /* exposure_vic_widget.intentdefinition */; };
+		A3D247F726EDCEF4001A9EE9 /* exposure-vic-widgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3D247E626EDCEF4001A9EE9 /* exposure-vic-widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A3D247FC26EDD058001A9EE9 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339526CA1F4200303F52 /* DataModel.swift */; };
+		A3D247FD26EDD05B001A9EE9 /* ExposureLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A387AF6026E585B6009B285C /* ExposureLevel.swift */; };
+		A3D247FE26EDD063001A9EE9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339326CA1DF000303F52 /* NetworkManager.swift */; };
+		A3D247FF26EDD067001A9EE9 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339726CA1FDE00303F52 /* ErrorType.swift */; };
+		A3D2480026EDD074001A9EE9 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87C526D234040079E895 /* String+Ext.swift */; };
+		A3D2480226EDD09B001A9EE9 /* blank in Resources */ = {isa = PBXBuildFile; fileRef = A3D2480126EDD09B001A9EE9 /* blank */; };
+		A3D2480426EDD21F001A9EE9 /* MockDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2480326EDD21F001A9EE9 /* MockDataModel.swift */; };
+		A3D2480526EDD2A2001A9EE9 /* MockDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2480326EDD21F001A9EE9 /* MockDataModel.swift */; };
 		A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */; };
 		A3F0F6C526C653A7004877EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C426C653A7004877EC /* Assets.xcassets */; };
 		A3F0F6C826C653A7004877EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F0F6C726C653A7004877EC /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3D247F526EDCEF4001A9EE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3F0F6B526C653A6004877EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3D247E526EDCEF4001A9EE9;
+			remoteInfo = "exposure-vic-widgetExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3D247F826EDCEF4001A9EE9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A3D247F726EDCEF4001A9EE9 /* exposure-vic-widgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A321CE7426CCB78800617E73 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -129,6 +168,15 @@
 		A3CAF4FF26E44B45004E7A5B /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		A3CB77EC26E0AEA2004689CC /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		A3CB77EE26E0AEFF004689CC /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
+		A3D247E626EDCEF4001A9EE9 /* exposure-vic-widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "exposure-vic-widgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3D247E826EDCEF4001A9EE9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A3D247EA26EDCEF4001A9EE9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A3D247ED26EDCEF4001A9EE9 /* exposure_vic_widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exposure_vic_widget.swift; sourceTree = "<group>"; };
+		A3D247EF26EDCEF4001A9EE9 /* exposure_vic_widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = exposure_vic_widget.intentdefinition; sourceTree = "<group>"; };
+		A3D247F026EDCEF4001A9EE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A3D247F226EDCEF4001A9EE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3D2480126EDD09B001A9EE9 /* blank */ = {isa = PBXFileReference; lastKnownFileType = text; path = blank; sourceTree = "<group>"; };
+		A3D2480326EDD21F001A9EE9 /* MockDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataModel.swift; sourceTree = "<group>"; };
 		A3F0F6BD26C653A6004877EC /* exposure-vic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "exposure-vic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureVICApp.swift; sourceTree = "<group>"; };
 		A3F0F6C426C653A7004877EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +185,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A3D247E326EDCEF4001A9EE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3D247EB26EDCEF4001A9EE9 /* SwiftUI.framework in Frameworks */,
+				A3D247E926EDCEF4001A9EE9 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3F0F6BA26C653A6004877EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,6 +250,7 @@
 				A321CE8E26CD02CB00617E73 /* SettingsModel.swift */,
 				A35BB51926E4EBA700067F17 /* ExposureAnnotation.swift */,
 				A387AF6026E585B6009B285C /* ExposureLevel.swift */,
+				A3D2480326EDD21F001A9EE9 /* MockDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,10 +421,33 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		A3D247E726EDCEF4001A9EE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3D247E826EDCEF4001A9EE9 /* WidgetKit.framework */,
+				A3D247EA26EDCEF4001A9EE9 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3D247EC26EDCEF4001A9EE9 /* exposure-vic-widget */ = {
+			isa = PBXGroup;
+			children = (
+				A3D247ED26EDCEF4001A9EE9 /* exposure_vic_widget.swift */,
+				A3D247EF26EDCEF4001A9EE9 /* exposure_vic_widget.intentdefinition */,
+				A3D247F026EDCEF4001A9EE9 /* Assets.xcassets */,
+				A3D247F226EDCEF4001A9EE9 /* Info.plist */,
+				A3D2480126EDD09B001A9EE9 /* blank */,
+			);
+			path = "exposure-vic-widget";
+			sourceTree = "<group>";
+		};
 		A3F0F6B426C653A6004877EC = {
 			isa = PBXGroup;
 			children = (
 				A3F0F6BF26C653A6004877EC /* exposure-vic */,
+				A3D247EC26EDCEF4001A9EE9 /* exposure-vic-widget */,
+				A3D247E726EDCEF4001A9EE9 /* Frameworks */,
 				A3F0F6BE26C653A6004877EC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -375,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				A3F0F6BD26C653A6004877EC /* exposure-vic.app */,
+				A3D247E626EDCEF4001A9EE9 /* exposure-vic-widgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -403,6 +485,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A3D247E526EDCEF4001A9EE9 /* exposure-vic-widgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3D247FB26EDCEF4001A9EE9 /* Build configuration list for PBXNativeTarget "exposure-vic-widgetExtension" */;
+			buildPhases = (
+				A3D247E226EDCEF4001A9EE9 /* Sources */,
+				A3D247E326EDCEF4001A9EE9 /* Frameworks */,
+				A3D247E426EDCEF4001A9EE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "exposure-vic-widgetExtension";
+			productName = "exposure-vic-widgetExtension";
+			productReference = A3D247E626EDCEF4001A9EE9 /* exposure-vic-widgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A3F0F6BC26C653A6004877EC /* exposure-vic */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3F0F6CC26C653A7004877EC /* Build configuration list for PBXNativeTarget "exposure-vic" */;
@@ -410,10 +509,12 @@
 				A3F0F6B926C653A6004877EC /* Sources */,
 				A3F0F6BA26C653A6004877EC /* Frameworks */,
 				A3F0F6BB26C653A6004877EC /* Resources */,
+				A3D247F826EDCEF4001A9EE9 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A3D247F626EDCEF4001A9EE9 /* PBXTargetDependency */,
 			);
 			name = "exposure-vic";
 			productName = "exposure-vic";
@@ -429,6 +530,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					A3D247E526EDCEF4001A9EE9 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
 					A3F0F6BC26C653A6004877EC = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -448,11 +552,20 @@
 			projectRoot = "";
 			targets = (
 				A3F0F6BC26C653A6004877EC /* exposure-vic */,
+				A3D247E526EDCEF4001A9EE9 /* exposure-vic-widgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A3D247E426EDCEF4001A9EE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3D247F126EDCEF4001A9EE9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3F0F6BB26C653A6004877EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -468,6 +581,7 @@
 				A352E07526E5DB1E0038CFD8 /* green60@3x.png in Resources */,
 				A352E06926E5DB1E0038CFD8 /* blue60@2x.png in Resources */,
 				A352E06D26E5DB1E0038CFD8 /* blue60@3x.png in Resources */,
+				A3D2480226EDD09B001A9EE9 /* blank in Resources */,
 				A352E06826E5DB1E0038CFD8 /* purple60@2x.png in Resources */,
 				A352E07126E5DB1E0038CFD8 /* navy60@2x.png in Resources */,
 				A352E07226E5DB1E0038CFD8 /* green60@2x.png in Resources */,
@@ -484,6 +598,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A3D247E226EDCEF4001A9EE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3D247F326EDCEF4001A9EE9 /* exposure_vic_widget.intentdefinition in Sources */,
+				A3D2480026EDD074001A9EE9 /* String+Ext.swift in Sources */,
+				A3D247FD26EDD05B001A9EE9 /* ExposureLevel.swift in Sources */,
+				A3D2480526EDD2A2001A9EE9 /* MockDataModel.swift in Sources */,
+				A3D247FE26EDD063001A9EE9 /* NetworkManager.swift in Sources */,
+				A3D247EE26EDCEF4001A9EE9 /* exposure_vic_widget.swift in Sources */,
+				A3D247FF26EDD067001A9EE9 /* ErrorType.swift in Sources */,
+				A3D247FC26EDD058001A9EE9 /* DataModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3F0F6B926C653A6004877EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,6 +635,7 @@
 				A335A0A026D12C3100A9B907 /* FullWidthButton.swift in Sources */,
 				A3BF0E1326CFD64F003CFF22 /* LoadingOverlay.swift in Sources */,
 				A3CAF50026E44B45004E7A5B /* UIApplication+Ext.swift in Sources */,
+				A3D247F426EDCEF4001A9EE9 /* exposure_vic_widget.intentdefinition in Sources */,
 				A321CEB626CF051200617E73 /* FormURLRow.swift in Sources */,
 				A393339226CA1BD600303F52 /* SettingsView.swift in Sources */,
 				A39333A426CA471800303F52 /* ExposureViewModel.swift in Sources */,
@@ -514,6 +644,7 @@
 				A36DA36726CB293800DDA3D7 /* MapView.swift in Sources */,
 				A393339426CA1DF000303F52 /* NetworkManager.swift in Sources */,
 				A39D87BE26D1DDB00079E895 /* OnboardingView.swift in Sources */,
+				A3D2480426EDD21F001A9EE9 /* MockDataModel.swift in Sources */,
 				A3CAF4F526E326F1004E7A5B /* UIMapView.swift in Sources */,
 				A393339026CA1BA800303F52 /* MapSwitcherView.swift in Sources */,
 				A393339A26CA201B00303F52 /* ErrorAlert.swift in Sources */,
@@ -533,7 +664,62 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A3D247F626EDCEF4001A9EE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3D247E526EDCEF4001A9EE9 /* exposure-vic-widgetExtension */;
+			targetProxy = A3D247F526EDCEF4001A9EE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A3D247F926EDCEF4001A9EE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 36N7S5EZ55;
+				INFOPLIST_FILE = "exposure-vic-widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.markbattistella.ExposureVIC.exposure-vic-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A3D247FA26EDCEF4001A9EE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 36N7S5EZ55;
+				INFOPLIST_FILE = "exposure-vic-widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.markbattistella.ExposureVIC.exposure-vic-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		A3F0F6CA26C653A7004877EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -653,6 +839,7 @@
 		A3F0F6CD26C653A7004877EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -665,7 +852,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.markbattistella.ExposureVIC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -676,6 +863,7 @@
 		A3F0F6CE26C653A7004877EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -689,7 +877,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.markbattistella.ExposureVIC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -701,6 +889,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A3D247FB26EDCEF4001A9EE9 /* Build configuration list for PBXNativeTarget "exposure-vic-widgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3D247F926EDCEF4001A9EE9 /* Debug */,
+				A3D247FA26EDCEF4001A9EE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A3F0F6B826C653A6004877EC /* Build configuration list for PBXProject "exposure-vic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
