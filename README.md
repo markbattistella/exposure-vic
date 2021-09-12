@@ -44,15 +44,15 @@ So it's here for you to install yourself.
 
 ### Mock up in Figma
 
-![](./github/.data/concept.gif)
+![](.github/.data/concept.gif)
 
 ### Progress
 
-![](./github/.data/progress.gif)
+![](.github/.data/progress.gif)
 
 ### Actual app
 
-![](./github/.data/actual.gif)
+![](.github/.data/actual.gif)
 
 ### Data
 
