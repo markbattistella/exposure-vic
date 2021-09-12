@@ -44,15 +44,15 @@ So it's here for you to install yourself.
 
 ### Mock up in Figma
 
-<img src="https://imgur.com/W3eFuFF.gif" width="320" height="650"/>
+![](./github/.data/concept.gif)
 
 ### Progress
 
-<img src="https://imgur.com/Y8axsB7.gif" width="320" height="650"/>
+![](./github/.data/progress.gif)
 
 ### Actual app
 
-<img src="https://imgur.com/NSXUAKa.gif" width="320" height="650"/>
+![](./github/.data/actual.gif)
 
 ### Data
 
