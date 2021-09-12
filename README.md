@@ -4,7 +4,7 @@ This is a concept app that pulls data from the [Victorian Government data](https
 
 ## What and why
 
-Apple said [developers can't submit COVID](https://www.pocket-lint.com/apps/news/apple/151430-apple-bans-coronavirus-apps-unless-from-official-sources-no-covid-19-themed-games) related apps in order to stop misinformation.
+Apple said [developers can't submit COVID](https://developer.apple.com/news/?id=03142020a) related apps in order to stop misinformation.
 
 So unless you're a government account, or a health entity, this app was never going to make it.
 
@@ -44,15 +44,15 @@ So it's here for you to install yourself.
 
 ### Mock up in Figma
 
-<iframe src="https://player.vimeo.com/video/602555762?h=1de9f997d7" width="640" height="1290" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+<img src="https://imgur.com/W3eFuFF.gif" width="320" height="650">
 
 ### Progress
 
-<iframe src="https://player.vimeo.com/video/602555789?h=0a8319cbbd" width="640" height="1290" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+<img src="https://imgur.com/Y8axsB7.gif" width="320" height="650">
 
 ### Actual app
 
-<iframe src="https://player.vimeo.com/video/602555472?h=7b60072f76" width="640" height="1290" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+<img src="https://imgur.com/NSXUAKa.gif" width="320" height="650">
 
 ### Data
 
@@ -73,9 +73,13 @@ It's not 100% perfect, so there are some manual fixes done, but if you want to h
 ## Contributing
 
 - Clone the repo:<br>`git clone https://github.com/markbattistella/docsify-charty.git`
+
 - Create your feature branch:<br>`git checkout -b my-feature`
+
 - Commit your changes:<br>`git commit -am 'Add some feature'`
+
 - Push to the branch:<br>`git push origin my-new-feature`
+
 - Submit the pull request
 
 ---
