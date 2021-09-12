@@ -99,6 +99,7 @@ struct WidgetEntryView: View {
 			// there are places to show
 			} else {
 				
+				// make a constant so we can check if there are results
 				let filtered = entry.exposures.filter({ !isFiltering ? true :
 					$0.sitePostcode?.contains(filteredPostcode) as! Bool
 				}).prefix( numberOfResults )
@@ -188,9 +189,8 @@ struct ExposureWidgetRow: View {
 	}
 }
 
-
-@main
-struct ExposureVICWidget: Widget {
+// list view
+struct ExposureListWidget: Widget {
 	private let kind = "exposure_vic_widget"
 	
 	var body: some WidgetConfiguration {
@@ -198,7 +198,17 @@ struct ExposureVICWidget: Widget {
 			WidgetEntryView(entry: entry)
 		}
 		.configurationDisplayName("Exposure VIC")
-		.description("Enter postcodes to filter the results")
-		.supportedFamilies([.systemMedium,.systemLarge])
+		.description("Check the latest exposure sites")
+		.supportedFamilies([.systemMedium, .systemLarge])
 	}
+}
+
+// MARK: - bundle so we can have more than one type
+@main
+struct ExposureVICWidgets: WidgetBundle {
+	@WidgetBundleBuilder
+	var body: some Widget {
+		ExposureListWidget()
+	}
+	
 }
