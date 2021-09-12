@@ -77,7 +77,6 @@
 		A3D247FE26EDD063001A9EE9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339326CA1DF000303F52 /* NetworkManager.swift */; };
 		A3D247FF26EDD067001A9EE9 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393339726CA1FDE00303F52 /* ErrorType.swift */; };
 		A3D2480026EDD074001A9EE9 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39D87C526D234040079E895 /* String+Ext.swift */; };
-		A3D2480226EDD09B001A9EE9 /* blank in Resources */ = {isa = PBXBuildFile; fileRef = A3D2480126EDD09B001A9EE9 /* blank */; };
 		A3D2480426EDD21F001A9EE9 /* MockDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2480326EDD21F001A9EE9 /* MockDataModel.swift */; };
 		A3D2480526EDD2A2001A9EE9 /* MockDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2480326EDD21F001A9EE9 /* MockDataModel.swift */; };
 		A3F0F6C126C653A6004877EC /* ExposureVICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */; };
@@ -175,7 +174,6 @@
 		A3D247EF26EDCEF4001A9EE9 /* exposure_vic_widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = exposure_vic_widget.intentdefinition; sourceTree = "<group>"; };
 		A3D247F026EDCEF4001A9EE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3D247F226EDCEF4001A9EE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A3D2480126EDD09B001A9EE9 /* blank */ = {isa = PBXFileReference; lastKnownFileType = text; path = blank; sourceTree = "<group>"; };
 		A3D2480326EDD21F001A9EE9 /* MockDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataModel.swift; sourceTree = "<group>"; };
 		A3F0F6BD26C653A6004877EC /* exposure-vic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "exposure-vic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F0F6C026C653A6004877EC /* ExposureVICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureVICApp.swift; sourceTree = "<group>"; };
@@ -437,7 +435,6 @@
 				A3D247EF26EDCEF4001A9EE9 /* exposure_vic_widget.intentdefinition */,
 				A3D247F026EDCEF4001A9EE9 /* Assets.xcassets */,
 				A3D247F226EDCEF4001A9EE9 /* Info.plist */,
-				A3D2480126EDD09B001A9EE9 /* blank */,
 			);
 			path = "exposure-vic-widget";
 			sourceTree = "<group>";
@@ -581,7 +578,6 @@
 				A352E07526E5DB1E0038CFD8 /* green60@3x.png in Resources */,
 				A352E06926E5DB1E0038CFD8 /* blue60@2x.png in Resources */,
 				A352E06D26E5DB1E0038CFD8 /* blue60@3x.png in Resources */,
-				A3D2480226EDD09B001A9EE9 /* blank in Resources */,
 				A352E06826E5DB1E0038CFD8 /* purple60@2x.png in Resources */,
 				A352E07126E5DB1E0038CFD8 /* navy60@2x.png in Resources */,
 				A352E07226E5DB1E0038CFD8 /* green60@2x.png in Resources */,
