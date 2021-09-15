@@ -71,53 +71,14 @@ So it's here for you to install yourself.
 
 ### Images
 
-<picture style="max-width:320px;">
-<source srcset=".github/.data/screens/01-dark.png" media="(prefers-color-scheme: dark)">
-<source srcset=".github/.data/screens/01-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<img id="screenshot" src=".github/.data/screens/01-light.png">
-</picture>
-
-<picture style="max-width:320px;">
-<source srcset=".github/.data/screens/02-dark.png" media="(prefers-color-scheme: dark)">
-<source srcset=".github/.data/screens/02-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<img id="screenshot" src=".github/.data/screens/02-light.png">
-</picture>
-
-<picture style="max-width:320px;">
-<source srcset=".github/.data/screens/03-dark.png" media="(prefers-color-scheme: dark)">
-<source srcset=".github/.data/screens/03-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<img id="screenshot" src=".github/.data/screens/03-light.png">
-</picture>
-
-<picture style="max-width:320px;">
-<source srcset=".github/.data/screens/04-dark.png" media="(prefers-color-scheme: dark)">
-<source srcset=".github/.data/screens/04-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<img id="screenshot" src=".github/.data/screens/04-light.png">
-</picture>
-
-<picture style="max-width:320px;">
-<source srcset=".github/.data/screens/05-dark.png" media="(prefers-color-scheme: dark)">
-<source srcset=".github/.data/screens/05-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<img id="screenshot" src=".github/.data/screens/05-light.png">
-</picture>
-
-<picture style="max-width:320px;">
-<source srcset=".github/.data/screens/06-dark.png" media="(prefers-color-scheme: dark)">
-<source srcset=".github/.data/screens/06-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<img id="screenshot" src=".github/.data/screens/06-light.png">
-</picture>
-
-<picture style="max-width:320px;">
-<source srcset=".github/.data/screens/07-dark.png" media="(prefers-color-scheme: dark)">
-<source srcset=".github/.data/screens/07-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<img id="screenshot" src=".github/.data/screens/07-light.png">
-</picture>
-
-<picture style="max-width:320px;">
-<source srcset=".github/.data/screens/08-dark.png" media="(prefers-color-scheme: dark)">
-<source srcset=".github/.data/screens/08-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<img id="screenshot" src=".github/.data/screens/08-light.png">
-</picture>
+<img src=".github/.data/screens/01-light.png" style="max-width:320px;">
+<img src=".github/.data/screens/02-dark.png" style="max-width:320px;">
+<img src=".github/.data/screens/03-light.png" style="max-width:320px;">
+<img src=".github/.data/screens/04-light.png" style="max-width:320px;">
+<img src=".github/.data/screens/05-light.png" style="max-width:320px;">
+<img src=".github/.data/screens/06-light.png" style="max-width:320px;">
+<img src=".github/.data/screens/07-light.png" style="max-width:320px;">
+<img src=".github/.data/screens/08-dark.png" style="max-width:320px;">
 
 ## Data
 
