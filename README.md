@@ -71,14 +71,14 @@ So it's here for you to install yourself.
 
 ### Images
 
-<img src=".github/.data/screens/01-light.png" style="max-width:320px;">
-<img src=".github/.data/screens/02-dark.png" style="max-width:320px;">
-<img src=".github/.data/screens/03-light.png" style="max-width:320px;">
-<img src=".github/.data/screens/04-light.png" style="max-width:320px;">
-<img src=".github/.data/screens/05-light.png" style="max-width:320px;">
-<img src=".github/.data/screens/06-light.png" style="max-width:320px;">
-<img src=".github/.data/screens/07-light.png" style="max-width:320px;">
-<img src=".github/.data/screens/08-dark.png" style="max-width:320px;">
+<img src=".github/.data/screens/01-light.png">
+<img src=".github/.data/screens/02-dark.png">
+<img src=".github/.data/screens/03-light.png">
+<img src=".github/.data/screens/04-light.png">
+<img src=".github/.data/screens/05-light.png">
+<img src=".github/.data/screens/06-light.png">
+<img src=".github/.data/screens/07-light.png">
+<img src=".github/.data/screens/08-dark.png">
 
 ## Data
 
