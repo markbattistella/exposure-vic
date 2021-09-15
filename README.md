@@ -73,14 +73,13 @@ So it's here for you to install yourself.
 
 ### Images
 
-![](.github/.data/img/01.png)
-![](.github/.data/img/02.png)
-![](.github/.data/img/03.png)
-![](.github/.data/img/04.png)
-![](.github/.data/img/05.png)
-![](.github/.data/img/06.png)
-![](.github/.data/img/07.png)
-![](.github/.data/img/08.png)
+![](.github/.data/img/02.png) ![](.github/.data/img/06.png)
+
+![](.github/.data/img/07.png) ![](.github/.data/img/08.png)
+
+![](.github/.data/img/04.png) ![](.github/.data/img/05.png)
+
+![](.github/.data/img/01.png) ![](.github/.data/img/00.png)
 
 ## Data
 
