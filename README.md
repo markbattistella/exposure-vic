@@ -1,4 +1,16 @@
-# Exposure VIC
+<div align="center">
+
+# Exposure VIC app
+
+[![](https://img.shields.io/badge/%20-@markbattistella-blue?logo=paypal&style=for-the-badge)](https://www.paypal.me/markbattistella/6AUD) [![](https://img.shields.io/badge/%20-buymeacoffee-black?logo=buy-me-a-coffee&style=for-the-badge)](https://www.buymeacoffee.com/markbattistella)
+
+![](.github/.data/hero.png)
+
+</div>
+
+---
+
+## Information
 
 This is a concept app that pulls data from the [Victorian Government data](https://discover.data.vic.gov.au/dataset/all-victorian-sars-cov-2-covid-19-current-exposure-sites) resources to make it more accessible to where current COVID-19 exposure sites are.
 
@@ -15,8 +27,7 @@ So it's here for you to install yourself.
 ### Requirements
 
 - Xcode (to open the project)
-- iPhone iOS 14+
-- Some know how (or someone who does!)
+- iPhone iOS 14+ / iPadOS 14+
 
 ## Installation
 
@@ -40,21 +51,75 @@ So it's here for you to install yourself.
 
 1. Set up radius rings for travel borders
 
-## Videos
+1. Widgets with postcode filtering
 
-### Mock up in Figma
+## Design
+
+### Videos
+
+#### Mock up in Figma
 
 ![](.github/.data/concept.gif)
 
-### Progress
+#### Progress
 
 ![](.github/.data/progress.gif)
 
-### Actual app
+#### Actual app
 
 ![](.github/.data/actual.gif)
 
-### Data
+### Images
+
+<picture style="max-width:320px;">
+<source srcset=".github/.data/screens/01-dark.png" media="(prefers-color-scheme: dark)">
+<source srcset=".github/.data/screens/01-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<img id="screenshot" src=".github/.data/screens/01-light.png">
+</picture>
+
+<picture style="max-width:320px;">
+<source srcset=".github/.data/screens/02-dark.png" media="(prefers-color-scheme: dark)">
+<source srcset=".github/.data/screens/02-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<img id="screenshot" src=".github/.data/screens/02-light.png">
+</picture>
+
+<picture style="max-width:320px;">
+<source srcset=".github/.data/screens/03-dark.png" media="(prefers-color-scheme: dark)">
+<source srcset=".github/.data/screens/03-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<img id="screenshot" src=".github/.data/screens/03-light.png">
+</picture>
+
+<picture style="max-width:320px;">
+<source srcset=".github/.data/screens/04-dark.png" media="(prefers-color-scheme: dark)">
+<source srcset=".github/.data/screens/04-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<img id="screenshot" src=".github/.data/screens/04-light.png">
+</picture>
+
+<picture style="max-width:320px;">
+<source srcset=".github/.data/screens/05-dark.png" media="(prefers-color-scheme: dark)">
+<source srcset=".github/.data/screens/05-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<img id="screenshot" src=".github/.data/screens/05-light.png">
+</picture>
+
+<picture style="max-width:320px;">
+<source srcset=".github/.data/screens/06-dark.png" media="(prefers-color-scheme: dark)">
+<source srcset=".github/.data/screens/06-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<img id="screenshot" src=".github/.data/screens/06-light.png">
+</picture>
+
+<picture style="max-width:320px;">
+<source srcset=".github/.data/screens/07-dark.png" media="(prefers-color-scheme: dark)">
+<source srcset=".github/.data/screens/07-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<img id="screenshot" src=".github/.data/screens/07-light.png">
+</picture>
+
+<picture style="max-width:320px;">
+<source srcset=".github/.data/screens/08-dark.png" media="(prefers-color-scheme: dark)">
+<source srcset=".github/.data/screens/08-light.png" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<img id="screenshot" src=".github/.data/screens/08-light.png">
+</picture>
+
+## Data
 
 Though the data comes from Data VIC, they don't provide the coordinates to exposure sites.
 
@@ -72,7 +137,7 @@ It's not 100% perfect, so there are some manual fixes done, but if you want to h
 
 ## Contributing
 
-- Clone the repo:<br>`git clone https://github.com/markbattistella/docsify-charty.git`
+- Clone the repo:<br>`git clone https://github.com/markbattistella/exposure-vic`
 
 - Create your feature branch:<br>`git checkout -b my-feature`
 
