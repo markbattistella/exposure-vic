@@ -2,9 +2,11 @@
 
 # Exposure VIC app
 
+<em>Find exposure sites near you and keep everyone safe</em>
+
 [![](https://img.shields.io/badge/%20-@markbattistella-blue?logo=paypal&style=for-the-badge)](https://www.paypal.me/markbattistella/6AUD) [![](https://img.shields.io/badge/%20-buymeacoffee-black?logo=buy-me-a-coffee&style=for-the-badge)](https://www.buymeacoffee.com/markbattistella)
 
-![](.github/.data/hero.png)
+![](.github/.data/img/hero.png)
 
 </div>
 
@@ -59,26 +61,26 @@ So it's here for you to install yourself.
 
 #### Mock up in Figma
 
-![](.github/.data/concept.gif)
+![](.github/.data/gifs/concept.gif)
 
 #### Progress
 
-![](.github/.data/progress.gif)
+![](.github/.data/gifs/progress.gif)
 
 #### Actual app
 
-![](.github/.data/actual.gif)
+![](.github/.data/gifs/actual.gif)
 
 ### Images
 
-<img src=".github/.data/screens/01-light.png">
-<img src=".github/.data/screens/02-dark.png">
-<img src=".github/.data/screens/03-light.png">
-<img src=".github/.data/screens/04-light.png">
-<img src=".github/.data/screens/05-light.png">
-<img src=".github/.data/screens/06-light.png">
-<img src=".github/.data/screens/07-light.png">
-<img src=".github/.data/screens/08-dark.png">
+![](.github/.data/img/01.png)
+![](.github/.data/img/02.png)
+![](.github/.data/img/03.png)
+![](.github/.data/img/04.png)
+![](.github/.data/img/05.png)
+![](.github/.data/img/06.png)
+![](.github/.data/img/07.png)
+![](.github/.data/img/08.png)
 
 ## Data
 
