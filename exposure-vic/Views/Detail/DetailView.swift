@@ -157,7 +157,10 @@ struct DetailView: View {
 
 		// frame options
 		.padding()
-		.frame(maxWidth: 320, maxHeight: 500)
+		.frame(
+			maxWidth: UIScreen.main.bounds.width * 0.8,
+			maxHeight: UIScreen.main.bounds.height * 0.7
+		)
 		.background(Color(.systemBackground))
 
 		.padding(.top, 20)

@@ -53,6 +53,7 @@ struct AppIconView: View {
 					.cornerRadius(12)
 				Text(title)
 			}
+			.frame(maxWidth: .infinity, alignment: .leading)
 		}
 	}
 }
