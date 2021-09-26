@@ -1,4 +1,6 @@
 .DS_Store
 *.psd
-iconSets
 .markdownlintrc
+.ipa
+iconSets
+exports
