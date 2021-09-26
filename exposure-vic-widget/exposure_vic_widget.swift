@@ -84,6 +84,7 @@ struct WidgetEntryView: View {
 			case .systemSmall: return 0
 			case .systemMedium: return 2
 			case .systemLarge: return 5
+			case .systemExtraLarge: return 7
 			@unknown default: return 0
 		}
 	}
