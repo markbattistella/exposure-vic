@@ -46,20 +46,23 @@ struct ListView: View {
 				// navbar
 				.navigationBarItems(
 					leading: Button {
-						exposureViewModel.getExposureData()
-						exposureViewModel.isRefreshing = false
-					} label: {
-						Label("Refresh", systemImage: "arrow.down.heart.fill")
-					},
-					
-					trailing: Button {
 						exposureViewModel.isShowingList = false
 					} label: {
 						Text("Close")
 							.foregroundColor(.red)
+					},
+					
+					trailing: Button {
+						exposureViewModel.getExposureData()
+						exposureViewModel.isRefreshing = false
+					} label: {
+						HStack {
+							Image(systemName: "arrow.down.heart.fill")
+							Text("Refresh")
+						}
 					}
 				)
-			
+				
 				// pull down to refresh
 				.background(
 					PullToRefresh( action: {

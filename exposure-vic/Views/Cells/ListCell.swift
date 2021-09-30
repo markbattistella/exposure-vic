@@ -14,7 +14,7 @@ struct ListCell: View {
 	var body: some View {
 		
 		// build the view
-		VStack( alignment: .leading ) {
+		VStack(alignment: .leading, spacing: 10) {
 			
 			// site title
 			if let place = exposure.siteTitle {
@@ -22,12 +22,11 @@ struct ListCell: View {
 					.font(.title3)
 					.fontWeight(.heavy)
 					.multilineTextAlignment(.leading)
-					.padding(.bottom, 1)
 			}
 			
 			// street address
 			if let address = exposure.siteStreetaddress {
-				HStack {
+				HStack(alignment: .center) {
 					Image(systemName: "pin.fill")
 						.foregroundColor(.gray)
 					if let suburb = exposure.suburb,
@@ -37,7 +36,7 @@ struct ListCell: View {
 						Text(address.sanitise())
 					}
 				}
-				.padding(.bottom, 1)
+				.multilineTextAlignment(.leading)
 			}
 			
 			// exposure date time
@@ -46,16 +45,18 @@ struct ListCell: View {
 					Image(systemName: "calendar.badge.clock")
 					Text(exposureDate.sanitise())
 					if let exposureTime = exposure.exposureTime {
-						Text(exposureTime.sanitise().replacingOccurrences(of: " - ", with: "-"))
+						Text(exposureTime.sanitise()
+								.replacingOccurrences(of: " - ", with: "-")
+								.replacingOccurrences(of: "- ", with: "-")
+								.replacingOccurrences(of: " -", with: "-"))
+							.allowsTightening(true)
+							.multilineTextAlignment(.leading)
 					}
 				}
-				.frame(maxWidth: .infinity, alignment: .leading)
 				.font(.body)
 				.foregroundColor(.secondary)
 			}
-
 		}
-		.padding(.top, 10)
-		.padding(.bottom, 10)
+		.padding(.vertical)
 	}
 }
