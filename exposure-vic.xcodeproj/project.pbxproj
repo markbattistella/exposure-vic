@@ -884,7 +884,7 @@
 				DEVELOPMENT_TEAM = 36N7S5EZ55;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "exposure-vic/Main/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -909,7 +909,7 @@
 				DEVELOPMENT_TEAM = 36N7S5EZ55;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "exposure-vic/Main/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
