@@ -39,8 +39,6 @@ final class SettingsViewModel: ObservableObject {
 		
 		do {
 			setting = try JSONDecoder().decode(SettingModel.self, from: settingData)
-			
-			
 		} catch {}
 	}
 }
